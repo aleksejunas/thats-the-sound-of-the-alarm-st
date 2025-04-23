@@ -21,47 +21,61 @@ export default function AlarmsScreen() {
   }, []);
 
   const loadAlarms = async () => {
-    const savedAlarms = await getAlarms();
-    setAlarms(savedAlarms);
+    try {
+      const savedAlarms = await getAlarms();
+      console.log('Loaded alarms in component:', savedAlarms); // Debug log
+      setAlarms(savedAlarms);
+    } catch (error) {
+      console.error('Failed to load alarms:', error);
+      // Maybe show an error message to the user
+    }
   };
 
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery)
+      alarm.time.includes(searchQuery),
   );
 
   const toggleAlarmSelection = useCallback((id: string) => {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id]
+        : [...current, id],
     );
   }, []);
 
   const deleteSelectedAlarms = useCallback(async () => {
-    const updatedAlarms = alarms.filter(
-      (alarm) => !selectedAlarms.includes(alarm.id)
-    );
-    await saveAlarms(updatedAlarms);
-    setAlarms(updatedAlarms);
-    setSelectedAlarms([]);
+    try {
+      const updatedAlarms = alarms.filter(
+        (alarm) => !selectedAlarms.includes(alarm.id),
+      );
+      await saveAlarms(updatedAlarms);
+      setAlarms(updatedAlarms);
+      setSelectedAlarms([]);
+    } catch (error) {
+      console.error('Failed to delete alarms:', error);
+      // Maybe show an error message to the user
+    }
   }, [selectedAlarms, alarms]);
 
-  const toggleAlarm = useCallback(async (id: string) => {
-    const alarm = alarms.find((a) => a.id === id);
-    if (alarm) {
-      const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
-      await updateAlarm(updatedAlarm);
-      setAlarms((current) =>
-        current.map((a) => (a.id === id ? updatedAlarm : a))
-      );
-    }
-  }, [alarms]);
+  const toggleAlarm = useCallback(
+    async (id: string) => {
+      const alarm = alarms.find((a) => a.id === id);
+      if (alarm) {
+        const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
+        await updateAlarm(updatedAlarm);
+        setAlarms((current) =>
+          current.map((a) => (a.id === id ? updatedAlarm : a)),
+        );
+      }
+    },
+    [alarms],
+  );
 
   return (
     <View className="flex-1 bg-background">
-      <View className="px-4 flex-row items-center gap-3 pt-16">
+      <View className="px-4 flex-row items-center  gap-3 pt-16">
         <TextInput
           className="flex-1 h-10 bg-surface rounded-lg px-3 text-text-primary"
           placeholder="Search alarms..."
@@ -72,7 +86,8 @@ export default function AlarmsScreen() {
         {selectedAlarms.length > 0 ? (
           <TouchableOpacity
             className="flex-row items-center gap-2 bg-surface p-2 rounded-lg"
-            onPress={deleteSelectedAlarms}>
+            onPress={deleteSelectedAlarms}
+          >
             <Trash2 color="#ef4444" size={24} />
             <Text className="text-red-500 font-semibold">
               Delete ({selectedAlarms.length})
@@ -99,7 +114,8 @@ export default function AlarmsScreen() {
               selectedAlarms.length > 0
                 ? toggleAlarmSelection(alarm.id)
                 : toggleAlarm(alarm.id)
-            }>
+            }
+          >
             <View className="flex-1">
               <Text className="text-2xl font-bold text-text-primary">
                 {alarm.time}
@@ -123,3 +139,9 @@ export default function AlarmsScreen() {
     </View>
   );
 }
+{
+  /* </ScrollView> */
+}
+// </View>
+// );
+// }
