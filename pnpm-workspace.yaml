@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - esbuild
+  - msw
+
+nodeLinker: hoisted
+shamefullyHoist: true
