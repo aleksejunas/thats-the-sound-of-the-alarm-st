@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
 import { addAlarm } from './lib/storage';
 
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export default function NewAlarmScreen() {
   const [time, setTime] = useState('07:00');
@@ -15,7 +15,7 @@ export default function NewAlarmScreen() {
     setSelectedDays((current) =>
       current.includes(day)
         ? current.filter((d) => d !== day)
-        : [...current, day]
+        : [...current, day],
     );
   };
 
@@ -66,13 +66,15 @@ export default function NewAlarmScreen() {
               className={`w-10 h-10 rounded-full items-center justify-center ${
                 selectedDays.includes(day) ? 'bg-primary' : 'bg-surface'
               }`}
-              onPress={() => toggleDay(day)}>
+              onPress={() => toggleDay(day)}
+            >
               <Text
                 className={`text-xs font-semibold ${
                   selectedDays.includes(day)
                     ? 'text-text-primary'
                     : 'text-text-secondary'
-                }`}>
+                }`}
+              >
                 {day}
               </Text>
             </TouchableOpacity>
