@@ -1,4 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+
 import {
   View,
   Text,
@@ -16,10 +18,11 @@ export default function AlarmsScreen() {
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
   const [alarms, setAlarms] = useState<Alarm[]>([]);
 
-  useEffect(() => {
-    loadAlarms();
-  }, []);
-
+  useFocusEffect(
+    React.useCallback(() => {
+      loadAlarms();
+    }, []),
+  );
   const loadAlarms = async () => {
     try {
       const savedAlarms = await getAlarms();
