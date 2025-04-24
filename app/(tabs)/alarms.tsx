@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
@@ -75,9 +75,9 @@ export default function AlarmsScreen() {
 
   return (
     <View className="flex-1 bg-background">
-      <View className="px-4 flex-row items-center  gap-3 pt-16">
+      <View className="px-4 flex-row items-center  gap-3 pt-16 ">
         <TextInput
-          className="flex-1 h-10 bg-surface rounded-lg px-3 text-text-primary"
+          className="flex-1 h-auto bg-surface rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5 "
           placeholder="Search alarms..."
           placeholderTextColor="#666"
           value={searchQuery}
