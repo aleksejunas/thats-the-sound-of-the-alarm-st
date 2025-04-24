@@ -1,10 +1,11 @@
-// TODO: [] - Update the alarm screen after adding a new alarm
+// TODO: [x] - Update the alarm screen after adding a new alarm
+// TODO: [] - Add a notification when the alarm goes off
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Convert the clock screen to tailwindcss
+// TODO: [] - Add try/catch and other error handling
 // TODO: [] - Personalize the styling
 // TODO: [] - Dark/Light mode
 // TODO: [] - Add SQLite database to store Alarms
-// TODO: [] - Add a notification when the alarm goes off
 // TODO: [] - Add sound to the alarm
 // TODO: [] - Add a snooze feature
 // TODO: [] - Add a stop feature
@@ -49,8 +50,9 @@ export default function TabLayout() {
           backgroundColor: '#1a1a1a',
           borderTopColor: '#333',
         },
-        // tabBarActiveTintColor: '#60a5fa',
-        tabBarActiveTintColor: 'orange',
+        tabBarActiveTintColor: '#60a5fa',
+        // tabBarActiveTintColor: 'orange',
+
         tabBarInactiveTintColor: '#666',
       }}
     >
