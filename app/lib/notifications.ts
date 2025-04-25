@@ -1,5 +1,6 @@
 import * as Notifications from 'expo-notifications';
-import { registerAlarmTask } from './taskManager';
+import registerAlarmTask  from './taskManager';
+import unregisterAlarmTask from './taskManager';
 
 // Define the types for the alarm object
 interface Alarm {

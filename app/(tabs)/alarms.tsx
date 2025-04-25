@@ -1,94 +1,157 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-
 import {
   View,
   Text,
-  TextInput,
+  FlatList,
   TouchableOpacity,
-  ScrollView,
+  Alert,
+  TextInput,
   Switch,
 } from 'react-native';
 import { Plus, Trash2 } from 'lucide-react-native';
 import { Link } from 'expo-router';
-import { Alarm, getAlarms, saveAlarms, updateAlarm } from '../lib/storage';
-import { registerAlarmTask, unregisterAlarmTask } from '../lib/taskManager';
+import { Alarm, getAlarms, saveAlarms } from '../lib/storage';
+import TaskManager from '../lib/taskManager';
+import { useIsFocused } from '@react-navigation/native';
+
 export default function AlarmsScreen() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
   const [alarms, setAlarms] = useState<Alarm[]>([]);
+  const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const isFocused = useIsFocused();
 
-  useFocusEffect(
-    React.useCallback(() => {
-      loadAlarms();
-    }, []),
-  );
-
-  const scheduleAlarms = async () => {
-    try {
-      alarms.forEach(async (alarm) => {
-        if (alarm.enabled) {
-          await registerAlarmTask(alarm);
-        } else {
-        await unregisterAlarmTask(alarm.id);
-      }
-      });
-    } catch (error) {
-  console.error('Failed to schedule alarms:', error);
-}
-  };
-
-  const loadAlarms = async () => {
+  const loadAlarms = useCallback(async () => {
     try {
       const savedAlarms = await getAlarms();
-      console.log('Loaded alarms in component:', savedAlarms); // Debug log
+      console.log('Loaded alarms in component:', savedAlarms);
       setAlarms(savedAlarms);
     } catch (error) {
       console.error('Failed to load alarms:', error);
-      // Maybe show an error message to the user
     }
-  };
+  }, []);
 
-  const filteredAlarms = alarms.filter(
-    (alarm) =>
-      alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery),
-  );
+  // Reload alarms when the screen comes into focus
+  useEffect(() => {
+    if (isFocused) {
+      loadAlarms();
+    }
+  }, [isFocused, loadAlarms]);
+
+  useEffect(() => {
+    const initializeAlarms = async () => {
+      try {
+        // Setup notification listener
+        TaskManager.setupNotificationListener();
+
+        // Request notification permissions
+        const hasPermission =
+          await TaskManager.requestNotificationPermissions();
+        if (!hasPermission) {
+          Alert.alert(
+            'Notifications Permissions',
+            'Please enable notifications to use alarms',
+            [{ text: 'OK' }]
+          );
+        }
+
+        // Load and schedule alarms
+        await loadAlarms();
+      } catch (error) {
+        console.error('Initialization error:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeAlarms();
+  }, []);
+
+  // Schedule all enabled alarms
+  const scheduleAlarms = useCallback(async () => {
+    try {
+      // First, cancel all existing alarm notifications
+      for (const alarm of alarms) {
+        await TaskManager.unregisterAlarmTask(alarm.id);
+      }
+
+      // Then schedule the enabled ones
+      for (const alarm of alarms) {
+        if (alarm.enabled) {
+          await TaskManager.registerAlarmTask(alarm);
+          console.log(
+            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`
+          );
+        }
+      }
+    } catch (error) {
+      console.error('Failed to schedule alarms:', error);
+      Alert.alert('Error', 'Failed to schedule alarms, please try again.');
+    }
+  }, [alarms]);
+
+  // Effect to reschedule alarms when the alarms state changes
+  useEffect(() => {
+    if (alarms.length > 0) {
+      scheduleAlarms();
+    }
+  }, [alarms, scheduleAlarms]);
+
+  // const loadAlarms = useCallback(async () => {
+  //   try {
+  //     const savedAlarms = await getAlarms();
+  //     console.log('Loaded alarms in component:', savedAlarms);
+  //     setAlarms(savedAlarms);
+  //   } catch (error) {
+  //     console.error('Failed to load alarms:', error);
+  //   }
+  // }, []);
 
   const toggleAlarmSelection = useCallback((id: string) => {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id],
+        : [...current, id]
     );
   }, []);
 
   const deleteSelectedAlarms = useCallback(async () => {
     try {
       const updatedAlarms = alarms.filter(
-        (alarm) => !selectedAlarms.includes(alarm.id),
+        (alarm) => !selectedAlarms.includes(alarm.id)
       );
       await saveAlarms(updatedAlarms);
       setAlarms(updatedAlarms);
       setSelectedAlarms([]);
     } catch (error) {
       console.error('Failed to delete alarms:', error);
-      // Maybe show an error message to the user
+      Alert.alert('Error', 'Failed to delete alarms, please try again.');
     }
   }, [selectedAlarms, alarms]);
 
   const toggleAlarm = useCallback(
     async (id: string) => {
       const alarm = alarms.find((a) => a.id === id);
-      if (alarm) {
-        const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
-        await updateAlarm(updatedAlarm);
-        setAlarms((current) =>
-          current.map((a) => (a.id === id ? updatedAlarm : a)),
-        );
+      if (!alarm) return;
+
+      const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
+      const updatedAlarms = alarms.map((a) => (a.id === id ? updatedAlarm : a));
+
+      try {
+        await saveAlarms(updatedAlarms);
+        setAlarms(updatedAlarms);
+      } catch (error) {
+        console.error('Failed to toggle alarm:', error);
+        Alert.alert('Error', 'Failed to toggle alarm, please try again.');
       }
     },
-    [alarms],
+    [alarms]
+  );
+
+  const filteredAlarms = alarms.filter(
+    (alarm) =>
+      alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      alarm.time.includes(searchQuery)
   );
 
   return (
@@ -120,46 +183,41 @@ export default function AlarmsScreen() {
         )}
       </View>
 
-      <ScrollView className="flex-1">
-        {filteredAlarms.map((alarm) => (
+      <FlatList
+        data={filteredAlarms}
+        renderItem={({ item }) => (
           <TouchableOpacity
-            key={alarm.id}
             className={`flex-row items-center p-4 border-b border-border ${
-              selectedAlarms.includes(alarm.id) ? 'bg-surface' : ''
+              selectedAlarms.includes(item.id) ? 'bg-surface' : ''
             }`}
-            onLongPress={() => toggleAlarmSelection(alarm.id)}
+            onLongPress={() => toggleAlarmSelection(item.id)}
             onPress={() =>
               selectedAlarms.length > 0
-                ? toggleAlarmSelection(alarm.id)
-                : toggleAlarm(alarm.id)
+                ? toggleAlarmSelection(item.id)
+                : toggleAlarm(item.id)
             }
           >
             <View className="flex-1">
               <Text className="text-2xl font-bold text-text-primary">
-                {alarm.time}
+                {item.time}
               </Text>
               <Text className="text-base text-text-secondary mt-1">
-                {alarm.label}
+                {item.label}
               </Text>
               <Text className="text-sm text-primary mt-1">
-                {alarm.days.join(', ')}
+                {item.days.join(', ')}
               </Text>
             </View>
             <Switch
-              value={alarm.enabled}
-              onValueChange={() => toggleAlarm(alarm.id)}
+              value={item.enabled}
+              onValueChange={() => toggleAlarm(item.id)}
               trackColor={{ false: '#333', true: '#60a5fa' }}
-              thumbColor={alarm.enabled ? '#fff' : '#666'}
+              thumbColor={item.enabled ? '#fff' : '#666'}
             />
           </TouchableOpacity>
-        ))}
-      </ScrollView>
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
-{
-  /* </ScrollView> */
-}
-// </View>
-// );
-// }
