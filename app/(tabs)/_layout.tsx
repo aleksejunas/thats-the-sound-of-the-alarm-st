@@ -4,6 +4,7 @@
 // TODO: [] - Add sound to the alarm
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Convert the clock screen to tailwindcss
+// TODO: [] - Make use of the ios/android notification panel
 // TODO: [] - Add try/catch and other error handling
 // TODO: [] - Personalize the styling
 // TODO: [] - Dark/Light mode

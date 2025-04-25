@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 
 import {
@@ -12,7 +12,7 @@ import {
 import { Plus, Trash2 } from 'lucide-react-native';
 import { Link } from 'expo-router';
 import { Alarm, getAlarms, saveAlarms, updateAlarm } from '../lib/storage';
-
+import { registerAlarmTask, unregisterAlarmTask } from '../lib/taskManager';
 export default function AlarmsScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
@@ -23,6 +23,21 @@ export default function AlarmsScreen() {
       loadAlarms();
     }, []),
   );
+
+  const scheduleAlarms = async () => {
+    try {
+      alarms.forEach(async (alarm) => {
+        if (alarm.enabled) {
+          await registerAlarmTask(alarm);
+        } else {
+        await unregisterAlarmTask(alarm.id);
+      }
+      });
+    } catch (error) {
+  console.error('Failed to schedule alarms:', error);
+}
+  };
+
   const loadAlarms = async () => {
     try {
       const savedAlarms = await getAlarms();
