@@ -1,12 +1,13 @@
 // TODO: [x] - Update the alarm screen after adding a new alarm
-// TODO: [] - Add a notification when the alarm goes off
+// TODO: [] - Add a notification when the alarm goes off (expo-notifications, expo-task-manager, expo-background-fetch)
+// TODO: [] - Edit alarms
+// TODO: [] - Add sound to the alarm
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Convert the clock screen to tailwindcss
 // TODO: [] - Add try/catch and other error handling
 // TODO: [] - Personalize the styling
 // TODO: [] - Dark/Light mode
 // TODO: [] - Add SQLite database to store Alarms
-// TODO: [] - Add sound to the alarm
 // TODO: [] - Add a snooze feature
 // TODO: [] - Add a stop feature
 // TODO: [] - Add a vibration feature
