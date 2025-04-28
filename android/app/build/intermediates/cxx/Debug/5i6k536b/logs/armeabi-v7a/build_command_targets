@@ -1,0 +1,7 @@
+/home/rolf/Android/Sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/.cxx/Debug/5i6k536b/armeabi-v7a \
+  appmodules \
+  react_codegen_rnscreens \
+  react_codegen_rnsvg \
+  react_codegen_safeareacontext

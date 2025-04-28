@@ -1,0 +1,779 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.thats_the_sound_of_the_alarm.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:8:3-75
+11-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:8:20-73
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:2:3-62
+12-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:2:20-60
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:3:3-64
+13-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:3:20-62
+14    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+14-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:4:3-77
+14-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:4:20-75
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:5:3-77
+15-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:5:20-75
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:6:3-78
+16-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:6:20-76
+17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+17-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:7:3-68
+17-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:7:20-66
+18    <uses-permission android:name="android.permission.VIBRATE" />
+18-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:9:3-63
+18-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:9:20-61
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:10:3-65
+19-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:10:20-63
+20    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+20-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:11:3-78
+20-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:11:20-76
+21
+22    <queries>
+22-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:12:3-18:13
+23        <intent>
+23-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:13:5-17:14
+24            <action android:name="android.intent.action.VIEW" />
+24-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:7-58
+24-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:15-56
+25
+26            <category android:name="android.intent.category.BROWSABLE" />
+26-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:7-67
+26-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:17-65
+27
+28            <data android:scheme="https" />
+28-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+28-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+29        </intent>
+30
+31        <package android:name="host.exp.exponent" /> <!-- Query open documents -->
+31-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-53
+31-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:18-50
+32        <intent>
+32-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:9-17:18
+33            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
+33-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-79
+33-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:21-76
+34        </intent>
+35        <intent>
+35-->[:expo-web-browser] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-web-browser/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:18
+36
+37            <!-- Required for opening tabs if targeting API 30 -->
+38            <action android:name="android.support.customtabs.action.CustomTabsService" />
+38-->[:expo-web-browser] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-web-browser/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-90
+38-->[:expo-web-browser] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-web-browser/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:21-87
+39        </intent>
+40        <intent>
+40-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:23:9-25:18
+41            <action android:name="androidx.camera.extensions.action.VENDOR_ACTION" />
+41-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:24:13-86
+41-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:24:21-83
+42        </intent>
+43    </queries>
+44
+45    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+45-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-77
+45-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-74
+46    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+46-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:22:5-79
+46-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:22:22-76
+47    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+47-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:26:5-82
+47-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:26:22-79
+48
+49    <permission
+49-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+50        android:name="com.thats_the_sound_of_the_alarm.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+50-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+51        android:protectionLevel="signature" />
+51-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+52
+53    <uses-permission android:name="com.thats_the_sound_of_the_alarm.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+53-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+53-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+54    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- for android -->
+54-->[com.android.installreferrer:installreferrer:2.2] /home/rolf/.gradle/caches/8.10.2/transforms/65e83cd3aee2760cef02a821b313c704/transformed/installreferrer-2.2/AndroidManifest.xml:9:5-110
+54-->[com.android.installreferrer:installreferrer:2.2] /home/rolf/.gradle/caches/8.10.2/transforms/65e83cd3aee2760cef02a821b313c704/transformed/installreferrer-2.2/AndroidManifest.xml:9:22-107
+55    <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
+56    <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
+57    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+58    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+59    <!-- for Samsung -->
+60    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+60-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:19:5-86
+60-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:19:22-83
+61    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+61-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:20:5-87
+61-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:20:22-84
+62    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+62-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:23:5-81
+62-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:23:22-78
+63    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+63-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:24:5-83
+63-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:24:22-80
+64    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+64-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:27:5-88
+64-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:27:22-85
+65    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- for apex -->
+65-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:28:5-92
+65-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:28:22-89
+66    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+66-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:31:5-84
+66-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:31:22-81
+67    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- for huawei -->
+67-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:34:5-83
+67-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:34:22-80
+68    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+68-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:37:5-91
+68-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:37:22-88
+69    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+69-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:38:5-92
+69-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:38:22-89
+70    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- for ZUK -->
+70-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:39:5-93
+70-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:39:22-90
+71    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- for OPPO -->
+71-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:42:5-73
+71-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:42:22-70
+72    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+72-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:45:5-82
+72-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:45:22-79
+73    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
+73-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:46:5-83
+73-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:46:22-80
+74    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+74-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:49:5-88
+74-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:49:22-85
+75    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+75-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:50:5-89
+75-->[me.leolin:ShortcutBadger:1.1.22] /home/rolf/.gradle/caches/8.10.2/transforms/62dd2806f6eaf3b3dfff1dc942dddd5c/transformed/ShortcutBadger-1.1.22/AndroidManifest.xml:50:22-86
+76
+77    <application
+77-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:3-41:17
+78        android:name="com.thats_the_sound_of_the_alarm.app.MainApplication"
+78-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:16-47
+79        android:allowBackup="true"
+79-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:162-188
+80        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+80-->[androidx.core:core:1.13.1] /home/rolf/.gradle/caches/8.10.2/transforms/7a0941004ac45c50b486dd320a2bfc96/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+81        android:debuggable="true"
+82        android:extractNativeLibs="false"
+83        android:icon="@mipmap/ic_launcher"
+83-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:81-115
+84        android:label="@string/app_name"
+84-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:48-80
+85        android:roundIcon="@mipmap/ic_launcher_round"
+85-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:116-161
+86        android:supportsRtl="true"
+86-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:221-247
+87        android:theme="@style/AppTheme"
+87-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:19:189-220
+88        android:usesCleartextTraffic="true" >
+88-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/debug/AndroidManifest.xml:6:18-53
+89        <meta-data
+89-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:20:5-139
+90            android:name="com.google.firebase.messaging.default_notification_color"
+90-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:20:16-87
+91            android:resource="@color/notification_icon_color" />
+91-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:20:88-137
+92        <meta-data
+92-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:21:5-135
+93            android:name="com.google.firebase.messaging.default_notification_icon"
+93-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:21:16-86
+94            android:resource="@drawable/notification_icon" />
+94-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:21:87-133
+95        <meta-data
+95-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:22:5-136
+96            android:name="expo.modules.notifications.default_notification_color"
+96-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:22:16-84
+97            android:resource="@color/notification_icon_color" />
+97-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:22:85-134
+98        <meta-data
+98-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:23:5-132
+99            android:name="expo.modules.notifications.default_notification_icon"
+99-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:23:16-83
+100            android:resource="@drawable/notification_icon" />
+100-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:23:84-130
+101        <meta-data
+101-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:24:5-83
+102            android:name="expo.modules.updates.ENABLED"
+102-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:24:16-59
+103            android:value="false" />
+103-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:24:60-81
+104        <meta-data
+104-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:25:5-105
+105            android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH"
+105-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:25:16-80
+106            android:value="ALWAYS" />
+106-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:25:81-103
+107        <meta-data
+107-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:26:5-99
+108            android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS"
+108-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:26:16-79
+109            android:value="0" />
+109-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:26:80-97
+110
+111        <activity
+111-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:5-40:16
+112            android:name="com.thats_the_sound_of_the_alarm.app.MainActivity"
+112-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:15-43
+113            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode"
+113-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:44-134
+114            android:exported="true"
+114-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:256-279
+115            android:launchMode="singleTask"
+115-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:135-166
+116            android:screenOrientation="portrait"
+116-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:280-316
+117            android:theme="@style/Theme.App.SplashScreen"
+117-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:210-255
+118            android:windowSoftInputMode="adjustResize" >
+118-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:27:167-209
+119            <intent-filter>
+119-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:28:7-31:23
+120                <action android:name="android.intent.action.MAIN" />
+120-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:29:9-60
+120-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:29:17-58
+121
+122                <category android:name="android.intent.category.LAUNCHER" />
+122-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:30:9-68
+122-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:30:19-66
+123            </intent-filter>
+124            <intent-filter>
+124-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:32:7-39:23
+125                <action android:name="android.intent.action.VIEW" />
+125-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:7-58
+125-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:15-56
+126
+127                <category android:name="android.intent.category.DEFAULT" />
+127-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:9-67
+127-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:19-65
+128                <category android:name="android.intent.category.BROWSABLE" />
+128-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:7-67
+128-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:17-65
+129
+130                <data android:scheme="myapp" />
+130-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+130-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+131                <data android:scheme="com.thats_the_sound_of_the_alarm.app" />
+131-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+131-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+132                <data android:scheme="exp+thats-the-sound-of-the-alarm" />
+132-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+132-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+133            </intent-filter>
+134        </activity>
+135
+136        <provider
+136-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-16:20
+137            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+137-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-83
+138            android:authorities="com.thats_the_sound_of_the_alarm.app.fileprovider"
+138-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-64
+139            android:exported="false"
+139-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+140            android:grantUriPermissions="true" >
+140-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-47
+141            <meta-data
+141-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-15:63
+142                android:name="android.support.FILE_PROVIDER_PATHS"
+142-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:17-67
+143                android:resource="@xml/file_provider_paths" />
+143-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-60
+144        </provider>
+145
+146        <activity
+146-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:9-25:20
+147            android:name="expo.modules.devlauncher.launcher.DevLauncherActivity"
+147-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-81
+148            android:exported="true"
+148-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-36
+149            android:launchMode="singleTask"
+149-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-44
+150            android:theme="@style/Theme.DevLauncher.LauncherActivity" >
+150-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-70
+151            <intent-filter>
+151-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:17:13-24:29
+152                <action android:name="android.intent.action.VIEW" />
+152-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:7-58
+152-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:15-56
+153
+154                <category android:name="android.intent.category.DEFAULT" />
+154-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:9-67
+154-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:19-65
+155                <category android:name="android.intent.category.BROWSABLE" />
+155-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:7-67
+155-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:17-65
+156
+157                <data android:scheme="expo-dev-launcher" />
+157-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+157-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+158            </intent-filter>
+159        </activity>
+160        <activity
+160-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:9-29:70
+161            android:name="expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity"
+161-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:13-93
+162            android:screenOrientation="portrait"
+162-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-49
+163            android:theme="@style/Theme.DevLauncher.ErrorActivity" />
+163-->[:expo-dev-launcher] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:13-67
+164        <activity
+164-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-21:20
+165            android:name="expo.modules.devmenu.DevMenuActivity"
+165-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-64
+166            android:exported="true"
+166-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-36
+167            android:launchMode="singleTask"
+167-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-44
+168            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" >
+168-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-75
+169            <intent-filter>
+169-->[:expo-dev-menu] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-20:29
+170                <action android:name="android.intent.action.VIEW" />
+170-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:7-58
+170-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:14:15-56
+171
+172                <category android:name="android.intent.category.DEFAULT" />
+172-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:9-67
+172-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:34:19-65
+173                <category android:name="android.intent.category.BROWSABLE" />
+173-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:7-67
+173-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:15:17-65
+174
+175                <data android:scheme="expo-dev-menu" />
+175-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:7-37
+175-->/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/src/main/AndroidManifest.xml:16:13-35
+176            </intent-filter>
+177        </activity>
+178
+179        <provider
+179-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:9-30:20
+180            android:name="expo.modules.filesystem.FileSystemFileProvider"
+180-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-74
+181            android:authorities="com.thats_the_sound_of_the_alarm.app.FileSystemFileProvider"
+181-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:13-74
+182            android:exported="false"
+182-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:13-37
+183            android:grantUriPermissions="true" >
+183-->[:expo-file-system] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:13-47
+184            <meta-data
+184-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-15:63
+185                android:name="android.support.FILE_PROVIDER_PATHS"
+185-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:17-67
+186                android:resource="@xml/file_system_provider_paths" />
+186-->[:react-native-webview] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-webview/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-60
+187        </provider>
+188
+189        <service
+189-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:9-17:19
+190            android:name="expo.modules.notifications.service.ExpoFirebaseMessagingService"
+190-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-91
+191            android:exported="false" >
+191-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-37
+192            <intent-filter android:priority="-1" >
+192-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:29
+192-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:28-49
+193                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+193-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-78
+193-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:25-75
+194            </intent-filter>
+195        </service>
+196
+197        <receiver
+197-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-31:20
+198            android:name="expo.modules.notifications.service.NotificationsService"
+198-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-83
+199            android:enabled="true"
+199-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-35
+200            android:exported="false" >
+200-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-37
+201            <intent-filter android:priority="-1" >
+201-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:13-30:29
+201-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:28-49
+202                <action android:name="expo.modules.notifications.NOTIFICATION_EVENT" />
+202-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:17-88
+202-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:25-85
+203                <action android:name="android.intent.action.BOOT_COMPLETED" />
+203-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-79
+203-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-76
+204                <action android:name="android.intent.action.REBOOT" />
+204-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:17-71
+204-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:25-68
+205                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+205-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:17-82
+205-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:25-79
+206                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+206-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:17-82
+206-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:25-79
+207                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+207-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-84
+207-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:25-81
+208            </intent-filter>
+209        </receiver>
+210
+211        <activity
+211-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:33:9-40:75
+212            android:name="expo.modules.notifications.service.NotificationForwarderActivity"
+212-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:34:13-92
+213            android:excludeFromRecents="true"
+213-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:35:13-46
+214            android:exported="false"
+214-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:36:13-37
+215            android:launchMode="standard"
+215-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:37:13-42
+216            android:noHistory="true"
+216-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:38:13-37
+217            android:taskAffinity=""
+217-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:13-36
+218            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+218-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:40:13-72
+219
+220        <receiver
+220-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-16:20
+221            android:name="expo.modules.taskManager.TaskBroadcastReceiver"
+221-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-74
+222            android:exported="false" >
+222-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-37
+223            <intent-filter>
+223-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-15:29
+224                <action android:name="expo.modules.taskManager.TaskBroadcastReceiver.INTENT_ACTION" />
+224-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:17-103
+224-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:25-100
+225                <action android:name="android.intent.action.BOOT_COMPLETED" />
+225-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-79
+225-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-76
+226                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+226-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-84
+226-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:25-81
+227            </intent-filter>
+228        </receiver>
+229
+230        <service
+230-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:18:9-22:72
+231            android:name="expo.modules.taskManager.TaskJobService"
+231-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:13-67
+232            android:enabled="true"
+232-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-35
+233            android:exported="false"
+233-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-37
+234            android:permission="android.permission.BIND_JOB_SERVICE" />
+234-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-69
+235
+236        <meta-data
+236-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:9-26:36
+237            android:name="expo.modules.taskManager.oneAppId"
+237-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:13-61
+238            android:value="true" />
+238-->[:expo-task-manager] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:13-33
+239        <meta-data
+239-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:9-11:89
+240            android:name="org.unimodules.core.AppLoader#react-native-headless"
+240-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-79
+241            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader" />
+241-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-86
+242        <meta-data
+242-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:9-15:45
+243            android:name="com.facebook.soloader.enabled"
+243-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-57
+244            android:value="true" />
+244-->[:expo-modules-core] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-33
+245
+246        <activity
+246-->[com.facebook.react:react-android:0.76.9] /home/rolf/.gradle/caches/8.10.2/transforms/0f839437195569227022e709030e837c/transformed/react-android-0.76.9-debug/AndroidManifest.xml:19:9-21:40
+247            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+247-->[com.facebook.react:react-android:0.76.9] /home/rolf/.gradle/caches/8.10.2/transforms/0f839437195569227022e709030e837c/transformed/react-android-0.76.9-debug/AndroidManifest.xml:20:13-77
+248            android:exported="false" />
+248-->[com.facebook.react:react-android:0.76.9] /home/rolf/.gradle/caches/8.10.2/transforms/0f839437195569227022e709030e837c/transformed/react-android-0.76.9-debug/AndroidManifest.xml:21:13-37
+249
+250        <uses-library
+250-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:29:9-31:40
+251            android:name="androidx.camera.extensions.impl"
+251-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:30:13-59
+252            android:required="false" />
+252-->[androidx.camera:camera-extensions:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/6982a24f70a942d7cadf05686c0fe4f8/transformed/camera-extensions-1.4.1/AndroidManifest.xml:31:13-37
+253
+254        <service
+254-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:24:9-33:19
+255            android:name="androidx.camera.core.impl.MetadataHolderService"
+255-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:25:13-75
+256            android:enabled="false"
+256-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:26:13-36
+257            android:exported="false" >
+257-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:27:13-37
+258            <meta-data
+258-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:30:13-32:89
+259                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+259-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:31:17-103
+260                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+260-->[androidx.camera:camera-camera2:1.4.1] /home/rolf/.gradle/caches/8.10.2/transforms/97252b4a4dfabf42750815efe99ee61e/transformed/camera-camera2-1.4.1/AndroidManifest.xml:32:17-86
+261        </service>
+262
+263        <receiver
+263-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:29:9-40:20
+264            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+264-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:30:13-78
+265            android:exported="true"
+265-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:31:13-36
+266            android:permission="com.google.android.c2dm.permission.SEND" >
+266-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:32:13-73
+267            <intent-filter>
+267-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:33:13-35:29
+268                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+268-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:34:17-81
+268-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:34:25-78
+269            </intent-filter>
+270
+271            <meta-data
+271-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:37:13-39:40
+272                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+272-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:38:17-92
+273                android:value="true" />
+273-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:39:17-37
+274        </receiver>
+275        <!--
+276             FirebaseMessagingService performs security checks at runtime,
+277             but set to not exported to explicitly avoid allowing another app to call it.
+278        -->
+279        <service
+279-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:46:9-53:19
+280            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+280-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:47:13-82
+281            android:directBootAware="true"
+281-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:48:13-43
+282            android:exported="false" >
+282-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:49:13-37
+283            <intent-filter android:priority="-500" >
+283-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:29
+283-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:28-49
+284                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+284-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-78
+284-->[:expo-notifications] /home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:25-75
+285            </intent-filter>
+286        </service>
+287        <service
+287-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:54:9-63:19
+288            android:name="com.google.firebase.components.ComponentDiscoveryService"
+288-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:55:13-84
+289            android:directBootAware="true"
+289-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+290            android:exported="false" >
+290-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:56:13-37
+291            <meta-data
+291-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:57:13-59:85
+292                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+292-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:58:17-122
+293                android:value="com.google.firebase.components.ComponentRegistrar" />
+293-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:59:17-82
+294            <meta-data
+294-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:60:13-62:85
+295                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+295-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:61:17-119
+296                android:value="com.google.firebase.components.ComponentRegistrar" />
+296-->[com.google.firebase:firebase-messaging:24.0.1] /home/rolf/.gradle/caches/8.10.2/transforms/d3e1f9edba8e6e0a6f12715746c91a00/transformed/firebase-messaging-24.0.1/AndroidManifest.xml:62:17-82
+297            <meta-data
+297-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+298                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+298-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+299                android:value="com.google.firebase.components.ComponentRegistrar" />
+299-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+300            <meta-data
+300-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+301                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+301-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+302                android:value="com.google.firebase.components.ComponentRegistrar" />
+302-->[com.google.firebase:firebase-installations:17.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/30ae95496aa3db3acf41d4473d7e0123/transformed/firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+303            <meta-data
+303-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/91477e5d6c9216b70ac507e0b5e1f66e/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+304                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+304-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/91477e5d6c9216b70ac507e0b5e1f66e/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+305                android:value="com.google.firebase.components.ComponentRegistrar" />
+305-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/91477e5d6c9216b70ac507e0b5e1f66e/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+306            <meta-data
+306-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+307                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+307-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+308                android:value="com.google.firebase.components.ComponentRegistrar" />
+308-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+309            <meta-data
+309-->[com.google.firebase:firebase-datatransport:18.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/10cf65477e02ebee6ddd7715742cb3aa/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+310                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+310-->[com.google.firebase:firebase-datatransport:18.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/10cf65477e02ebee6ddd7715742cb3aa/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+311                android:value="com.google.firebase.components.ComponentRegistrar" />
+311-->[com.google.firebase:firebase-datatransport:18.2.0] /home/rolf/.gradle/caches/8.10.2/transforms/10cf65477e02ebee6ddd7715742cb3aa/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+312        </service>
+313        <service
+313-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:9:9-15:19
+314            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+314-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:10:13-91
+315            android:directBootAware="true"
+315-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:17:13-43
+316            android:exported="false" >
+316-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:11:13-37
+317            <meta-data
+317-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:12:13-14:85
+318                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+318-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:13:17-120
+319                android:value="com.google.firebase.components.ComponentRegistrar" />
+319-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/6c96987adf066a0f6776fd2805edab39/transformed/play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:14:17-82
+320            <meta-data
+320-->[com.google.mlkit:vision-common:17.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/a18007e21345718a0e3325893cc97df2/transformed/vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+321                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+321-->[com.google.mlkit:vision-common:17.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/a18007e21345718a0e3325893cc97df2/transformed/vision-common-17.3.0/AndroidManifest.xml:13:17-124
+322                android:value="com.google.firebase.components.ComponentRegistrar" />
+322-->[com.google.mlkit:vision-common:17.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/a18007e21345718a0e3325893cc97df2/transformed/vision-common-17.3.0/AndroidManifest.xml:14:17-82
+323            <meta-data
+323-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:20:13-22:85
+324                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+324-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:21:17-120
+325                android:value="com.google.firebase.components.ComponentRegistrar" />
+325-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:22:17-82
+326        </service>
+327
+328        <provider
+328-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:9:9-13:38
+329            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+329-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:10:13-78
+330            android:authorities="com.thats_the_sound_of_the_alarm.app.mlkitinitprovider"
+330-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:11:13-69
+331            android:exported="false"
+331-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:12:13-37
+332            android:initOrder="99" />
+332-->[com.google.mlkit:common:18.9.0] /home/rolf/.gradle/caches/8.10.2/transforms/30957cee2ab57ddb434b992160c40af6/transformed/common-18.9.0/AndroidManifest.xml:13:13-35
+333
+334        <activity
+334-->[com.google.android.gms:play-services-base:18.1.0] /home/rolf/.gradle/caches/8.10.2/transforms/b40d4e36c19eb9c29767f9c072fe82f5/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+335            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+335-->[com.google.android.gms:play-services-base:18.1.0] /home/rolf/.gradle/caches/8.10.2/transforms/b40d4e36c19eb9c29767f9c072fe82f5/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+336            android:exported="false"
+336-->[com.google.android.gms:play-services-base:18.1.0] /home/rolf/.gradle/caches/8.10.2/transforms/b40d4e36c19eb9c29767f9c072fe82f5/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+337            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+337-->[com.google.android.gms:play-services-base:18.1.0] /home/rolf/.gradle/caches/8.10.2/transforms/b40d4e36c19eb9c29767f9c072fe82f5/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+338
+339        <provider
+339-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+340            android:name="com.google.firebase.provider.FirebaseInitProvider"
+340-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+341            android:authorities="com.thats_the_sound_of_the_alarm.app.firebaseinitprovider"
+341-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+342            android:directBootAware="true"
+342-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+343            android:exported="false"
+343-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+344            android:initOrder="100" />
+344-->[com.google.firebase:firebase-common:21.0.0] /home/rolf/.gradle/caches/8.10.2/transforms/6875a84b61b4ac85977fcfbac31feb84/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+345        <provider
+345-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+346            android:name="androidx.startup.InitializationProvider"
+346-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+347            android:authorities="com.thats_the_sound_of_the_alarm.app.androidx-startup"
+347-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+348            android:exported="false" >
+348-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+349            <meta-data
+349-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+350                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+350-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+351                android:value="androidx.startup" />
+351-->[androidx.emoji2:emoji2:1.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/867f28603a9adbd922e925087114cbc1/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+352            <meta-data
+352-->[androidx.lifecycle:lifecycle-process:2.8.3] /home/rolf/.gradle/caches/8.10.2/transforms/ad10a3280ed9ff2393dd52d1764f5de6/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:29:13-31:52
+353                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+353-->[androidx.lifecycle:lifecycle-process:2.8.3] /home/rolf/.gradle/caches/8.10.2/transforms/ad10a3280ed9ff2393dd52d1764f5de6/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:30:17-78
+354                android:value="androidx.startup" />
+354-->[androidx.lifecycle:lifecycle-process:2.8.3] /home/rolf/.gradle/caches/8.10.2/transforms/ad10a3280ed9ff2393dd52d1764f5de6/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:31:17-49
+355            <meta-data
+355-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+356                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+356-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+357                android:value="androidx.startup" />
+357-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+358        </provider>
+359
+360        <meta-data
+360-->[com.google.android.gms:play-services-basement:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/8d7f26149d1917943b0470b8e5aeda1f/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+361            android:name="com.google.android.gms.version"
+361-->[com.google.android.gms:play-services-basement:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/8d7f26149d1917943b0470b8e5aeda1f/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+362            android:value="@integer/google_play_services_version" />
+362-->[com.google.android.gms:play-services-basement:18.3.0] /home/rolf/.gradle/caches/8.10.2/transforms/8d7f26149d1917943b0470b8e5aeda1f/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+363
+364        <receiver
+364-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+365            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+365-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+366            android:directBootAware="false"
+366-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+367            android:enabled="true"
+367-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+368            android:exported="true"
+368-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+369            android:permission="android.permission.DUMP" >
+369-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+370            <intent-filter>
+370-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+371                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+371-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+371-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+372            </intent-filter>
+373            <intent-filter>
+373-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+374                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+374-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+374-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+375            </intent-filter>
+376            <intent-filter>
+376-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+377                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+377-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+377-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+378            </intent-filter>
+379            <intent-filter>
+379-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+380                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+380-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+380-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rolf/.gradle/caches/8.10.2/transforms/7dcdac4df96419702de83328665f9a7f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+381            </intent-filter>
+382        </receiver>
+383
+384        <service
+384-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+385            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+385-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+386            android:exported="false" >
+386-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+387            <meta-data
+387-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+388                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+388-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+389                android:value="cct" />
+389-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/ade9e77bc19b03888b832329bcd4dfac/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+390        </service>
+391        <service
+391-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+392            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+392-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+393            android:exported="false"
+393-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+394            android:permission="android.permission.BIND_JOB_SERVICE" >
+394-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+395        </service>
+396
+397        <receiver
+397-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+398            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+398-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+399            android:exported="false" />
+399-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/rolf/.gradle/caches/8.10.2/transforms/0ad1c8134fb0878b4e82007d47930701/transformed/transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+400    </application>
+401
+402</manifest>

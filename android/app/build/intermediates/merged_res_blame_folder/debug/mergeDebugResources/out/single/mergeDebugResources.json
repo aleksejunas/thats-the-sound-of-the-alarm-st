@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xxxhdpi_notification_icon.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xxxhdpi/notification_icon.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xxxhdpi_splashscreen_logo.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xxxhdpi/splashscreen_logo.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-hdpi_splashscreen_logo.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-hdpi/splashscreen_logo.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xxhdpi_splashscreen_logo.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xxhdpi/splashscreen_logo.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xhdpi_splashscreen_logo.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xhdpi/splashscreen_logo.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-mdpi_notification_icon.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-mdpi/notification_icon.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-mdpi_splashscreen_logo.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-mdpi/splashscreen_logo.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xhdpi_notification_icon.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xhdpi/notification_icon.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-xxhdpi_notification_icon.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-xxhdpi/notification_icon.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable-hdpi_notification_icon.png.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable-hdpi/notification_icon.png"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/drawable_rn_edit_text_material.xml.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "com.thats_the_sound_of_the_alarm.app-debug-76:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.thats_the_sound_of_the_alarm.app-main-78:/mipmap-hdpi/ic_launcher_foreground.webp"
+    }
+]

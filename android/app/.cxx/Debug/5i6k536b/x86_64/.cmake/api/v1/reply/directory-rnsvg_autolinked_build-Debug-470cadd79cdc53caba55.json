@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rnsvg_autolinked_build",
+		"source" : "/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/node_modules/react-native-svg/android/src/main/jni"
+	}
+}

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.thats_the_sound_of_the_alarm.app-mergeDebugResources-74:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/rolf/.gradle/caches/8.10.2/transforms/42358a9cae14349299c1c7a268311762/transformed/appcompat-1.7.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
