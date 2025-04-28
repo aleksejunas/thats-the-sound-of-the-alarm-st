@@ -1,3 +1,0 @@
-ninja: Entering directory `/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/.cxx/Debug/5i6k536b/armeabi-v7a'
-[0/2] Re-checking globbed directories...
-ninja: no work to do.

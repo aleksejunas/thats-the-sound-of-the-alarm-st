@@ -1,1 +1,0 @@
-/home/rolf/Kode/Projects/ThatsTheSoundOfTheAlarm/ThatsTheSoundOfTheAlarmSB/thats-the-sound-of-the-alarm-sb/android/app/build/intermediates/cxx/Debug/5i6k536b/obj/armeabi-v7a
