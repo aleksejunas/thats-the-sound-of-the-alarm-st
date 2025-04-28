@@ -1,12 +1,18 @@
-# OSX
-#
+# macOS
 .DS_Store
+Thumbs.db
+
+# Ignore build artifacts
+android/android/app/build/
+android/app/debug/
+android/app/src/main/assets/*
+*.apk
+*.so
 
 # Android/IntelliJ
-#
 build/
-.idea
-.gradle
+.idea/
+.gradle/
 local.properties
 *.iml
 *.hprof
@@ -14,3 +20,37 @@ local.properties
 
 # Bundle artifacts
 *.jsbundle
+
+# pnpm
+node_modules/
+.pnpm-debug.log*
+.pnpm-store/
+
+# Logs
+logs/
+*.log
+*.log.*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Environment files
+.env
+.env.*.local
+
+# IDEs and editors
+.vscode/
+*.swp
+*.swo
+*.un~
+*.sublime-workspace
+*.sublime-project
+
+# Neovim
+*.sw?
+*.nvimlog
