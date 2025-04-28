@@ -1,4 +1,15 @@
 // TODO: [x] - Update the alarm screen after adding a new alarm
+// TODO: [] - Add a toast notification when the alarm is set
+// TODO: [] - Add a toast notification when the alarm is deleted
+// TODO: [] - Add a toast notification when the alarm is edited
+// TODO: [] - Add a toast notification when the alarm goes off
+// TODO: [] - Add a toast notification when the alarm is snoozed
+// TODO: [] - Add a toast notification when the alarm is stopped
+// TODO: [] - Add a toast notification when the alarm is vibrated
+// TODO: [] - Add a toast notification when the alarm is labeled
+// TODO: [] - Add a toast notification when the alarm is color coded
+// TODO: [] - Add a toast notification when the alarm is time picked
+// TODO: [] - Add a toast notification when the alarm is frequently used
 // TODO: [] - Add a notification when the alarm goes off (expo-notifications, expo-task-manager, expo-background-fetch)
 // TODO: [] - Edit alarms
 // TODO: [] - Add sound to the alarm

@@ -7,6 +7,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# react-native build files
+android/
+
 # native
 *.orig.*
 *.jks
