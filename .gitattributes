@@ -1,6 +1,7 @@
+*.apk filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
 android/app/build/intermediates/cxx/Debug/5i6k536b/obj/armeabi-v7a/libreactnative.so filter=lfs diff=lfs merge=lfs -text
 android/app/build/intermediates/cxx/Debug/5i6k536b/obj/x86_64/libreactnative.so filter=lfs diff=lfs merge=lfs -text
 android/app/build/intermediates/merged_native_libs/debug/mergeDebugNativeLibs/out/lib/arm64-v8a/libreactnative.so filter=lfs diff=lfs merge=lfs -text
 android/app/build/intermediates/merged_native_libs/debug/mergeDebugNativeLibs/out/lib/armeabi-v7a/libreactnative.so filter=lfs diff=lfs merge=lfs -text
-*.so filter=lfs diff=lfs merge=lfs -text
 *.so[[:space:]]filter=lfs[[:space:]]diff=lfs[[:space:]]merge=lfs[[:space:]]-text !text -filter -merge -diff
