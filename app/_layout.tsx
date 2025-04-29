@@ -10,15 +10,12 @@ export default function RootLayout() {
   useFrameworkReady();
 
   return (
-    <>
-      <AlarmsProvider>
-        {' '}
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="+not-found" />
-          <Toast />
-        </Stack>
-        <StatusBar style="auto" />
-      </AlarmsProvider>
-    </>
+    <AlarmsProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+      <Toast />
+      <StatusBar style="auto" />
+    </AlarmsProvider>
   );
 }
