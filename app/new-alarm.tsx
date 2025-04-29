@@ -1,32 +1,89 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
-import { addAlarm } from './lib/storage';
+import { useAlarms } from './context/AlarmsContext';
+
+// Remove uuid import which is causing issues
+// import { v4 as uuidv4 } from 'uuid';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+// Simple function to generate a random ID without crypto
+const generateId = () => {
+  return Math.random().toString(36).substring(2, 15) + 
+         Math.random().toString(36).substring(2, 15);
+};
 
 export default function NewAlarmScreen() {
   const [time, setTime] = useState('07:00');
   const [label, setLabel] = useState('');
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
+  const { createAlarm } = useAlarms();
 
   const toggleDay = (day: string) => {
     setSelectedDays((current) =>
       current.includes(day)
         ? current.filter((d) => d !== day)
-        : [...current, day],
+        : [...current, day]
     );
   };
 
-  const saveAlarm = async () => {
-    await addAlarm({
+  const validateTime = (timeString: string): boolean => {
+    // Simple regex for 24-hour time format (00:00 to 23:59)
+    const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    return timePattern.test(timeString);
+  };
+
+  const saveAlarm = () => {
+    console.log("Save button pressed - starting alarm creation");
+    
+    if (isSaving) {
+      console.log("Already saving, ignoring duplicate press");
+      return;
+    }
+    
+    // Validate time format
+    if (!validateTime(time)) {
+      console.log("Time validation failed:", time);
+      Alert.alert(
+        'Invalid Time',
+        'Please enter a valid time in 24-hour format (HH:MM)'
+      );
+      return;
+    }
+    
+    setIsSaving(true);
+    
+    // Create the alarm object - use our simple ID generator instead of uuid
+    const newAlarm = {
+      id: generateId(),
       time,
-      label,
+      label: label || 'Alarm',
       days: selectedDays,
       enabled: true,
-    });
-    router.back();
+    };
+    
+    console.log("Created alarm object:", newAlarm);
+    
+    // Using immediate function to properly handle async
+    (async () => {
+      try {
+        console.log("Calling createAlarm with:", newAlarm);
+        await createAlarm(newAlarm);
+        console.log("Alarm saved successfully, navigating back");
+        router.back();
+      } catch (error) {
+        console.error("Error saving alarm:", error);
+        Alert.alert(
+          'Error',
+          'Failed to save the alarm. Please try again.'
+        );
+      } finally {
+        setIsSaving(false);
+      }
+    })();
   };
 
   return (
@@ -36,8 +93,14 @@ export default function NewAlarmScreen() {
           <ChevronLeft color="#60a5fa" size={24} />
         </TouchableOpacity>
         <Text className="text-lg font-bold text-text-primary">New Alarm</Text>
-        <TouchableOpacity onPress={saveAlarm}>
-          <Text className="text-primary text-base font-semibold">Save</Text>
+        <TouchableOpacity 
+          onPress={saveAlarm}
+          disabled={isSaving}
+          className={isSaving ? "opacity-50" : ""}
+        >
+          <Text className="text-primary text-base font-semibold">
+            {isSaving ? "Saving..." : "Save"}
+          </Text>
         </TouchableOpacity>
       </View>
 

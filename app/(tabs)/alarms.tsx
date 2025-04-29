@@ -1,35 +1,26 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   FlatList,
   TouchableOpacity,
-  Alert,
   TextInput,
   Switch,
+  ActivityIndicator,
 } from 'react-native';
 import { Plus, Trash2 } from 'lucide-react-native';
 import { Link } from 'expo-router';
-import { Alarm, getAlarms, saveAlarms } from '../lib/storage';
-import TaskManager from '../lib/taskManager';
 import { useIsFocused } from '@react-navigation/native';
+import { useAlarms } from '../context/AlarmsContext';
+import { Alarm } from '../lib/storage';
 
 export default function AlarmsScreen() {
-  const [alarms, setAlarms] = useState<Alarm[]>([]);
+  const { alarms, isLoading, loadAlarms, toggleAlarm, deleteMultipleAlarms } =
+    useAlarms();
+
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const isFocused = useIsFocused();
-
-  const loadAlarms = useCallback(async () => {
-    try {
-      const savedAlarms = await getAlarms();
-      console.log('Loaded alarms in component:', savedAlarms);
-      setAlarms(savedAlarms);
-    } catch (error) {
-      console.error('Failed to load alarms:', error);
-    }
-  }, []);
 
   // Reload alarms when the screen comes into focus
   useEffect(() => {
@@ -38,127 +29,43 @@ export default function AlarmsScreen() {
     }
   }, [isFocused, loadAlarms]);
 
-  useEffect(() => {
-    const initializeAlarms = async () => {
-      try {
-        // Setup notification listener
-        TaskManager.setupNotificationListener();
-
-        // Request notification permissions
-        const hasPermission =
-          await TaskManager.requestNotificationPermissions();
-        if (!hasPermission) {
-          Alert.alert(
-            'Notifications Permissions',
-            'Please enable notifications to use alarms',
-            [{ text: 'OK' }]
-          );
-        }
-
-        // Load and schedule alarms
-        await loadAlarms();
-      } catch (error) {
-        console.error('Initialization error:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    initializeAlarms();
-  }, []);
-
-  // Schedule all enabled alarms
-  const scheduleAlarms = useCallback(async () => {
-    try {
-      // First, cancel all existing alarm notifications
-      for (const alarm of alarms) {
-        await TaskManager.unregisterAlarmTask(alarm.id);
-      }
-
-      // Then schedule the enabled ones
-      for (const alarm of alarms) {
-        if (alarm.enabled) {
-          await TaskManager.registerAlarmTask(alarm);
-          console.log(
-            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`
-          );
-        }
-      }
-    } catch (error) {
-      console.error('Failed to schedule alarms:', error);
-      Alert.alert('Error', 'Failed to schedule alarms, please try again.');
-    }
-  }, [alarms]);
-
-  // Effect to reschedule alarms when the alarms state changes
-  useEffect(() => {
-    if (alarms.length > 0) {
-      scheduleAlarms();
-    }
-  }, [alarms, scheduleAlarms]);
-
-  // const loadAlarms = useCallback(async () => {
-  //   try {
-  //     const savedAlarms = await getAlarms();
-  //     console.log('Loaded alarms in component:', savedAlarms);
-  //     setAlarms(savedAlarms);
-  //   } catch (error) {
-  //     console.error('Failed to load alarms:', error);
-  //   }
-  // }, []);
-
-  const toggleAlarmSelection = useCallback((id: string) => {
+  const toggleAlarmSelection = (id: string) => {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id]
+        : [...current, id],
     );
-  }, []);
+  };
 
-  const deleteSelectedAlarms = useCallback(async () => {
-    try {
-      const updatedAlarms = alarms.filter(
-        (alarm) => !selectedAlarms.includes(alarm.id)
-      );
-      await saveAlarms(updatedAlarms);
-      setAlarms(updatedAlarms);
-      setSelectedAlarms([]);
-    } catch (error) {
-      console.error('Failed to delete alarms:', error);
-      Alert.alert('Error', 'Failed to delete alarms, please try again.');
-    }
-  }, [selectedAlarms, alarms]);
+  const handleDeleteSelected = async () => {
+    await deleteMultipleAlarms(selectedAlarms);
+    setSelectedAlarms([]);
+  };
 
-  const toggleAlarm = useCallback(
-    async (id: string) => {
-      const alarm = alarms.find((a) => a.id === id);
-      if (!alarm) return;
-
-      const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
-      const updatedAlarms = alarms.map((a) => (a.id === id ? updatedAlarm : a));
-
-      try {
-        await saveAlarms(updatedAlarms);
-        setAlarms(updatedAlarms);
-      } catch (error) {
-        console.error('Failed to toggle alarm:', error);
-        Alert.alert('Error', 'Failed to toggle alarm, please try again.');
-      }
-    },
-    [alarms]
-  );
+  const handleToggleAlarm = async (id: string) => {
+    await toggleAlarm(id);
+  };
 
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery)
+      alarm.time.includes(searchQuery),
   );
+
+  if (isLoading) {
+    return (
+      <View className="flex-1 justify-center items-center bg-background">
+        <ActivityIndicator size="large" color="#60a5fa" />
+      </View>
+    );
+  }
 
   return (
     <View className="flex-1 bg-background">
-      <View className="px-4 flex-row items-center  gap-3 pt-16 ">
+      <View className="px-4 flex-row items-center gap-3 pt-16">
         <TextInput
-          className="flex-1 h-auto bg-surface rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5 "
+          // className="flex-1 h-auto bg-surface rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5"
+          className="flex-1 h-auto bg-pink-400 rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5"
           placeholder="Search alarms..."
           placeholderTextColor="#666"
           value={searchQuery}
@@ -167,7 +74,7 @@ export default function AlarmsScreen() {
         {selectedAlarms.length > 0 ? (
           <TouchableOpacity
             className="flex-row items-center gap-2 bg-surface p-2 rounded-lg"
-            onPress={deleteSelectedAlarms}
+            onPress={handleDeleteSelected}
           >
             <Trash2 color="#ef4444" size={24} />
             <Text className="text-red-500 font-semibold">
@@ -183,41 +90,49 @@ export default function AlarmsScreen() {
         )}
       </View>
 
-      <FlatList
-        data={filteredAlarms}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            className={`flex-row items-center p-4 border-b border-border ${
-              selectedAlarms.includes(item.id) ? 'bg-surface' : ''
-            }`}
-            onLongPress={() => toggleAlarmSelection(item.id)}
-            onPress={() =>
-              selectedAlarms.length > 0
-                ? toggleAlarmSelection(item.id)
-                : toggleAlarm(item.id)
-            }
-          >
-            <View className="flex-1">
-              <Text className="text-2xl font-bold text-text-primary">
-                {item.time}
-              </Text>
-              <Text className="text-base text-text-secondary mt-1">
-                {item.label}
-              </Text>
-              <Text className="text-sm text-primary mt-1">
-                {item.days.join(', ')}
-              </Text>
-            </View>
-            <Switch
-              value={item.enabled}
-              onValueChange={() => toggleAlarm(item.id)}
-              trackColor={{ false: '#333', true: '#60a5fa' }}
-              thumbColor={item.enabled ? '#fff' : '#666'}
-            />
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item) => item.id}
-      />
+      {filteredAlarms.length === 0 ? (
+        <View className="flex-1 justify-center items-center p-4">
+          <Text className="text-text-secondary text-lg text-center">
+            No alarms found. Tap the + button to create a new alarm.
+          </Text>
+        </View>
+      ) : (
+        <FlatList
+          data={filteredAlarms}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              className={`flex-row items-center p-4 border-b border-border ${
+                selectedAlarms.includes(item.id) ? 'bg-surface' : ''
+              }`}
+              onLongPress={() => toggleAlarmSelection(item.id)}
+              onPress={() =>
+                selectedAlarms.length > 0
+                  ? toggleAlarmSelection(item.id)
+                  : handleToggleAlarm(item.id)
+              }
+            >
+              <View className="flex-1">
+                <Text className="text-2xl font-bold text-text-primary">
+                  {item.time}
+                </Text>
+                <Text className="text-base text-text-secondary mt-1">
+                  {item.label}
+                </Text>
+                <Text className="text-sm text-primary mt-1">
+                  {item.days.join(', ')}
+                </Text>
+              </View>
+              <Switch
+                value={item.enabled}
+                onValueChange={() => handleToggleAlarm(item.id)}
+                trackColor={{ false: '#333', true: '#60a5fa' }}
+                thumbColor={item.enabled ? '#fff' : '#666'}
+              />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      )}
     </View>
   );
 }

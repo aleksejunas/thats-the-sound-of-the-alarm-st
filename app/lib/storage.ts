@@ -12,25 +12,72 @@ const ALARMS_STORAGE_KEY = '@alarms';
 
 export async function getAlarms(): Promise<Alarm[]> {
   try {
+    console.log('Getting alarms from storage');
     const data = await AsyncStorage.getItem(ALARMS_STORAGE_KEY);
-    if (!data) return [];
-    const alarms = JSON.parse(data);
-    console.log('Loaded alarms:', alarms); // Debug log
-    return alarms;
+    
+    if (!data) {
+      console.log('No alarms found in storage, returning empty array');
+      return [];
+    }
+    
+    try {
+      const alarms = JSON.parse(data);
+      if (!Array.isArray(alarms)) {
+        console.warn('Data in storage is not an array, returning empty array');
+        return [];
+      }
+      console.log('Loaded alarms from storage:', alarms);
+      return alarms;
+    } catch (parseError) {
+      console.error('Error parsing alarms data:', parseError);
+      return [];
+    }
   } catch (error) {
-    console.error('Error loading alarms:', error);
-    throw error; // Propagate error instead of returning empty array
+    console.error('Error loading alarms from AsyncStorage:', error);
+    if (error instanceof Error) {
+      console.error('Error details:', error.message, error.stack);
+    }
+    return []; 
   }
 }
 
 export async function saveAlarms(alarms: Alarm[]): Promise<void> {
+  if (!alarms || !Array.isArray(alarms)) {
+    console.error('Invalid alarms array provided to saveAlarms:', alarms);
+    throw new Error('Invalid alarms array');
+  }
+  
   try {
+    console.log('Saving alarms to storage:', alarms);
     const jsonValue = JSON.stringify(alarms);
-    console.log('Saving alarms:', alarms); // Debug log
-    await AsyncStorage.setItem(ALARMS_STORAGE_KEY, jsonValue);
+    
+    if (!jsonValue) {
+      throw new Error('Failed to stringify alarms array');
+    }
+    
+    console.log('JSON string length:', jsonValue.length);
+    
+    await Promise.race([
+      AsyncStorage.setItem(ALARMS_STORAGE_KEY, jsonValue),
+      new Promise<void>((_, reject) => 
+        setTimeout(() => reject(new Error('Storage timeout')), 5000)
+      )
+    ]);
+    
+    console.log('Alarms saved successfully');
+    
+    const verificationData = await AsyncStorage.getItem(ALARMS_STORAGE_KEY);
+    if (!verificationData) {
+      console.warn('Verification failed - no data found after save');
+    } else {
+      console.log('Verification succeeded - data found after save');
+    }
   } catch (error) {
-    console.error('Error saving alarms:', error);
-    throw error; // Propagate error
+    console.error('Error saving alarms to AsyncStorage:', error);
+    if (error instanceof Error) {
+      console.error('Error details:', error.message, error.stack);
+    }
+    throw error;
   }
 }
 

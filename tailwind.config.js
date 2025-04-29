@@ -7,7 +7,7 @@ export const presets = [require('nativewind/preset')];
 export const theme = {
   extend: {
     colors: {
-      primary: 'orange',
+      primary: '#00ff00',
       // primary: '#60a5fa',
       background: '#000000',
       surface: '#1a1a1a',
