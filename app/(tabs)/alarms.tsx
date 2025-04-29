@@ -33,7 +33,7 @@ export default function AlarmsScreen() {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id]
+        : [...current, id],
     );
   };
 
@@ -49,7 +49,7 @@ export default function AlarmsScreen() {
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery)
+      alarm.time.includes(searchQuery),
   );
 
   if (isLoading) {
@@ -64,7 +64,8 @@ export default function AlarmsScreen() {
     <View className="flex-1 bg-background">
       <View className="px-4 flex-row items-center gap-3 pt-16">
         <TextInput
-          className="flex-1 h-auto bg-surface rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5"
+          // className="flex-1 h-auto bg-surface rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5"
+          className="flex-1 h-auto bg-pink-400 rounded-lg px-3 text-text-primary border border-solid border-rounded border-gray-400 me-0.5"
           placeholder="Search alarms..."
           placeholderTextColor="#666"
           value={searchQuery}
