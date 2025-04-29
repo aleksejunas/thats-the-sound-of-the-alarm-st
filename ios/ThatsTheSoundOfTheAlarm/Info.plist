@@ -31,12 +31,6 @@
           <string>com.thats-the-sound-of-the-alarm.app</string>
         </array>
       </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>exp+thats-the-sound-of-the-alarm</string>
-        </array>
-      </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>

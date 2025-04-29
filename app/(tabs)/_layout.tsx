@@ -1,4 +1,6 @@
 // TODO: [x] - Update the alarm screen after adding a new alarm
+
+// ---- TOASTS ----
 // TODO: [] - Add a toast notification when the alarm is set
 // TODO: [] - Add a toast notification when the alarm is deleted
 // TODO: [] - Add a toast notification when the alarm is edited

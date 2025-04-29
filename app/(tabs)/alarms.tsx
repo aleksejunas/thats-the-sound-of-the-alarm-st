@@ -8,7 +8,8 @@ import {
   TextInput,
   Switch,
 } from 'react-native';
-import { Plus, Trash2 } from 'lucide-react-native';
+import Toast from 'react-native-toast-message';
+import { Award, Plus, Trash2 } from 'lucide-react-native';
 import { Link } from 'expo-router';
 import { Alarm, getAlarms, saveAlarms } from '../lib/storage';
 import TaskManager from '../lib/taskManager';
@@ -20,6 +21,26 @@ export default function AlarmsScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const isFocused = useIsFocused();
+
+  const createAlarm = useCallback(
+    async (newAlarm: Alarm) => {
+      try {
+        const updatedAlarms = [...alarms, newAlarm];
+        await saveAlarms(updatedAlarms);
+        setAlarms(updatedAlarms);
+
+        Toast.show({
+          type: 'success',
+          text1: 'Alarm Created',
+          text2: `Alarm "${newAlarm.label}" has been successfully created.`,
+        });
+      } catch (error) {
+        console.error('Failed to create alarm:', error);
+        Alert.alert('Error', 'Failed to create alarm, please try again.');
+      }
+    },
+    [alarms],
+  );
 
   const loadAlarms = useCallback(async () => {
     try {
@@ -51,7 +72,7 @@ export default function AlarmsScreen() {
           Alert.alert(
             'Notifications Permissions',
             'Please enable notifications to use alarms',
-            [{ text: 'OK' }]
+            [{ text: 'OK' }],
           );
         }
 
@@ -80,7 +101,7 @@ export default function AlarmsScreen() {
         if (alarm.enabled) {
           await TaskManager.registerAlarmTask(alarm);
           console.log(
-            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`
+            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`,
           );
         }
       }
@@ -111,14 +132,14 @@ export default function AlarmsScreen() {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id]
+        : [...current, id],
     );
   }, []);
 
   const deleteSelectedAlarms = useCallback(async () => {
     try {
       const updatedAlarms = alarms.filter(
-        (alarm) => !selectedAlarms.includes(alarm.id)
+        (alarm) => !selectedAlarms.includes(alarm.id),
       );
       await saveAlarms(updatedAlarms);
       setAlarms(updatedAlarms);
@@ -145,13 +166,13 @@ export default function AlarmsScreen() {
         Alert.alert('Error', 'Failed to toggle alarm, please try again.');
       }
     },
-    [alarms]
+    [alarms],
   );
 
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery)
+      alarm.time.includes(searchQuery),
   );
 
   return (

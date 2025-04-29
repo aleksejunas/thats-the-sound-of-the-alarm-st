@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
-import { addAlarm } from './lib/storage';
+// import { addAlarm } from './lib/storage';
+import { useAlarms } from './context/AlarmsContext';
+import { v4 as uuidv4 } from 'uuid';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -10,6 +12,7 @@ export default function NewAlarmScreen() {
   const [time, setTime] = useState('07:00');
   const [label, setLabel] = useState('');
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
+  const { createAlarm } = useAlarms(); // Access createAlarm from context
 
   const toggleDay = (day: string) => {
     setSelectedDays((current) =>
@@ -20,13 +23,21 @@ export default function NewAlarmScreen() {
   };
 
   const saveAlarm = async () => {
-    await addAlarm({
+    const newAlarm = {
+      id: uuidv4(),
       time,
       label,
       days: selectedDays,
       enabled: true,
-    });
-    router.back();
+    };
+
+    try {
+      await createAlarm(newAlarm); // Use the createAlarm function from context
+      router.back();
+    } catch (error) {
+      console.error('Failed to save alarm:', error);
+      Alert.alert('Error', 'Failed to save the alarm. Please try again.');
+    }
   };
 
   return (
