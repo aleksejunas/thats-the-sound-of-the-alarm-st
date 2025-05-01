@@ -11,8 +11,10 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 // Simple function to generate a random ID without crypto
 const generateId = () => {
-  return Math.random().toString(36).substring(2, 15) + 
-         Math.random().toString(36).substring(2, 15);
+  return (
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
+  );
 };
 
 export default function NewAlarmScreen() {
@@ -37,25 +39,25 @@ export default function NewAlarmScreen() {
   };
 
   const saveAlarm = () => {
-    console.log("Save button pressed - starting alarm creation");
-    
+    console.log('Save button pressed - starting alarm creation');
+
     if (isSaving) {
-      console.log("Already saving, ignoring duplicate press");
+      console.log('Already saving, ignoring duplicate press');
       return;
     }
-    
+
     // Validate time format
     if (!validateTime(time)) {
-      console.log("Time validation failed:", time);
+      console.log('Time validation failed:', time);
       Alert.alert(
         'Invalid Time',
         'Please enter a valid time in 24-hour format (HH:MM)'
       );
       return;
     }
-    
+
     setIsSaving(true);
-    
+
     // Create the alarm object - use our simple ID generator instead of uuid
     const newAlarm = {
       id: generateId(),
@@ -64,22 +66,19 @@ export default function NewAlarmScreen() {
       days: selectedDays,
       enabled: true,
     };
-    
-    console.log("Created alarm object:", newAlarm);
-    
+
+    console.log('Created alarm object:', newAlarm);
+
     // Using immediate function to properly handle async
     (async () => {
       try {
-        console.log("Calling createAlarm with:", newAlarm);
+        console.log('Calling createAlarm with:', newAlarm);
         await createAlarm(newAlarm);
-        console.log("Alarm saved successfully, navigating back");
+        console.log('Alarm saved successfully, navigating back');
         router.back();
       } catch (error) {
-        console.error("Error saving alarm:", error);
-        Alert.alert(
-          'Error',
-          'Failed to save the alarm. Please try again.'
-        );
+        console.error('Error saving alarm:', error);
+        Alert.alert('Error', 'Failed to save the alarm. Please try again.');
       } finally {
         setIsSaving(false);
       }
@@ -93,13 +92,13 @@ export default function NewAlarmScreen() {
           <ChevronLeft color="#60a5fa" size={24} />
         </TouchableOpacity>
         <Text className="text-lg font-bold text-text-primary">New Alarm</Text>
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={saveAlarm}
           disabled={isSaving}
-          className={isSaving ? "opacity-50" : ""}
+          className={isSaving ? 'opacity-50' : ''}
         >
           <Text className="text-primary text-base font-semibold">
-            {isSaving ? "Saving..." : "Save"}
+            {isSaving ? 'Saving...' : 'Save'}
           </Text>
         </TouchableOpacity>
       </View>
