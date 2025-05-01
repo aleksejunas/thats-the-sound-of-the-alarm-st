@@ -17,6 +17,7 @@ type AlarmsContextType = {
   deleteAlarm: (id: string) => Promise<void>;
   deleteMultipleAlarms: (ids: string[]) => Promise<void>;
   toggleAlarm: (id: string) => Promise<void>;
+  updateAlarm: (id: string, updatedData: Partial<Alarm>) => Promise<void>;
   loadAlarms: () => Promise<void>;
 };
 
@@ -56,7 +57,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         if (alarm.enabled) {
           await TaskManager.registerAlarmTask(alarm);
           console.log(
-            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`
+            `Scheduled alarm: ${alarm.id}, ${alarm.time}, ${alarm.label}`,
           );
         }
       }
@@ -80,7 +81,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
           Alert.alert(
             'Notifications Permissions',
             'Please enable notifications to use alarms',
-            [{ text: 'OK' }]
+            [{ text: 'OK' }],
           );
         }
 
@@ -104,30 +105,30 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
   const createAlarm = useCallback(
     async (newAlarm: Alarm) => {
       console.log('AlarmsContext: Creating alarm - started', newAlarm);
-      
+
       if (!newAlarm || !newAlarm.id || !newAlarm.time) {
         console.error('Invalid alarm data provided:', newAlarm);
         Alert.alert('Error', 'Invalid alarm data provided');
         throw new Error('Invalid alarm data');
       }
-      
+
       try {
         // First get current alarms to ensure we have the latest
         const currentAlarms = await getAlarms();
         console.log('Current alarms before adding new one:', currentAlarms);
-        
+
         // Create updated list with new alarm
         const updatedAlarms = [...currentAlarms, newAlarm];
         console.log('New alarm list to save:', updatedAlarms);
-        
+
         // Save to AsyncStorage
         await saveAlarms(updatedAlarms);
         console.log('Alarms saved to storage successfully');
-        
+
         // Update local state
         setAlarms(updatedAlarms);
         console.log('Local state updated with new alarm');
-        
+
         // Show toast notification
         Toast.show({
           type: 'success',
@@ -136,8 +137,9 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
           position: 'bottom',
           visibilityTime: 4000,
         });
-        
-        return true;
+
+        // Return void instead of true to match the function signature
+        return;
       } catch (error) {
         console.error('Failed to create alarm:', error);
         if (error instanceof Error) {
@@ -147,7 +149,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         throw error;
       }
     },
-    []  // Removed alarms dependency to avoid stale data
+    [], // Removed alarms dependency to avoid stale data
   );
 
   // Delete an alarm
@@ -168,7 +170,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         Alert.alert('Error', 'Failed to delete alarm, please try again.');
       }
     },
-    [alarms]
+    [alarms],
   );
 
   // Delete multiple alarms
@@ -189,7 +191,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         Alert.alert('Error', 'Failed to delete alarms, please try again.');
       }
     },
-    [alarms]
+    [alarms],
   );
 
   // Toggle alarm enabled state
@@ -201,7 +203,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
 
         const updatedAlarm = { ...alarm, enabled: !alarm.enabled };
         const updatedAlarms = alarms.map((a) =>
-          a.id === id ? updatedAlarm : a
+          a.id === id ? updatedAlarm : a,
         );
 
         await saveAlarms(updatedAlarms);
@@ -220,7 +222,38 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         Alert.alert('Error', 'Failed to update alarm, please try again.');
       }
     },
-    [alarms]
+    [alarms],
+  );
+
+  // Add updateAlarm function
+  const updateAlarm = useCallback(
+    async (id: string, updatedData: Partial<Alarm>) => {
+      try {
+        const alarm = alarms.find((a) => a.id === id);
+        if (!alarm) {
+          throw new Error(`Alarm with id ${id} not found`);
+        }
+
+        const updatedAlarm = { ...alarm, ...updatedData };
+        const updatedAlarms = alarms.map((a) =>
+          a.id === id ? updatedAlarm : a,
+        );
+
+        await saveAlarms(updatedAlarms);
+        setAlarms(updatedAlarms);
+
+        Toast.show({
+          type: 'success',
+          text1: 'Alarm Updated',
+          position: 'bottom',
+        });
+      } catch (error) {
+        console.error('Failed to update alarm:', error);
+        Alert.alert('Error', 'Failed to update alarm, please try again.');
+        throw error;
+      }
+    },
+    [alarms],
   );
 
   return (
@@ -232,6 +265,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
         deleteAlarm,
         deleteMultipleAlarms,
         toggleAlarm,
+        updateAlarm,
         loadAlarms,
       }}
     >
