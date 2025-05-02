@@ -1,9 +1,9 @@
 // TODO: [x] - Update the alarm screen after adding a new alarm
-
+// TODO: [] - Change the styling to look more like the sidetrack-slayer-app
 // ---- TOASTS ----
-// TODO: [] - Add a toast notification when the alarm is set
+// TODO: [x] - Add a toast notification when the alarm is set
 // TODO: [] - Add a toast notification when the alarm is deleted
-// TODO: [] - Add a toast notification when the alarm is edited
+// TODO: [x] - Add a toast notification when the alarm is edited
 // TODO: [] - Add a toast notification when the alarm goes off
 // TODO: [] - Add a toast notification when the alarm is snoozed
 // TODO: [] - Add a toast notification when the alarm is stopped
@@ -13,8 +13,8 @@
 // TODO: [] - Add a toast notification when the alarm is time picked
 // TODO: [] - Add a toast notification when the alarm is frequently used
 // TODO: [] - Add a notification when the alarm goes off (expo-notifications, expo-task-manager, expo-background-fetch)
-// TODO: [] - Edit alarms
-// TODO: [] - Add sound to the alarm
+// TODO: [x] - Edit alarms
+// TODO: [x] - Add sound to the alarm
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Convert the clock screen to tailwindcss
 // TODO: [] - Make use of the ios/android notification panel
