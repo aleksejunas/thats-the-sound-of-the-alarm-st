@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import { router } from 'expo-router';
-import { ChevronLeft } from 'lucide-react-native';
+import { ChevronLeft, Clock, Calendar, Save } from 'lucide-react-native';
 import { useAlarms } from './context/AlarmsContext';
-
-// Remove uuid import which is causing issues
-// import { v4 as uuidv4 } from 'uuid';
+import { useTheme } from './context/ThemeContext';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -23,6 +22,15 @@ export default function NewAlarmScreen() {
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   const { createAlarm } = useAlarms();
+  const { isDarkMode } = useTheme();
+  const insets = useSafeAreaInsets();
+
+  // Theme-based styles
+  const textColor = isDarkMode ? 'text-dark-text-primary' : 'text-light-text-primary';
+  const secondaryTextColor = isDarkMode ? 'text-dark-text-secondary' : 'text-light-text-secondary';
+  const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
+  const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
+  const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
 
   const toggleDay = (day: string) => {
     setSelectedDays((current) =>
@@ -86,63 +94,93 @@ export default function NewAlarmScreen() {
   };
 
   return (
-    <View className="flex-1 bg-background">
-      <View className="flex-row items-center justify-between p-4 pt-16 border-b border-border">
-        <TouchableOpacity onPress={() => router.back()}>
-          <ChevronLeft color="#60a5fa" size={24} />
+    <View className={`flex-1 ${bgColor}`} style={{ paddingTop: insets.top }}>
+      <View className={`flex-row items-center justify-between p-4 border-b ${borderColor}`}>
+        <TouchableOpacity 
+          className="p-2" 
+          onPress={() => router.back()}
+        >
+          <ChevronLeft 
+            color={isDarkMode ? "#cbd5e1" : "#64748b"} 
+            size={24} 
+          />
         </TouchableOpacity>
-        <Text className="text-lg font-bold text-text-primary">New Alarm</Text>
+        <Text className={`text-xl font-bold ${textColor}`}>New Alarm</Text>
         <TouchableOpacity
+          className={`p-2 ${isSaving ? 'opacity-50' : ''}`}
           onPress={saveAlarm}
           disabled={isSaving}
-          className={isSaving ? 'opacity-50' : ''}
         >
-          <Text className="text-primary text-base font-semibold">
-            {isSaving ? 'Saving...' : 'Save'}
-          </Text>
+          <Save 
+            color="#4f46e5" 
+            size={24} 
+          />
         </TouchableOpacity>
       </View>
 
-      <View className="p-4 gap-6">
-        <TextInput
-          className="text-5xl font-bold text-text-primary text-center"
-          value={time}
-          onChangeText={setTime}
-          placeholder="07:00"
-          placeholderTextColor="#666"
-          keyboardType="numbers-and-punctuation"
-        />
-
-        <TextInput
-          className="text-lg text-text-primary border-b border-border py-2"
-          value={label}
-          onChangeText={setLabel}
-          placeholder="Alarm label"
-          placeholderTextColor="#666"
-        />
-
-        <View className="flex-row justify-between gap-2">
-          {DAYS.map((day) => (
-            <TouchableOpacity
-              key={day}
-              className={`w-10 h-10 rounded-full items-center justify-center ${
-                selectedDays.includes(day) ? 'bg-primary' : 'bg-surface'
-              }`}
-              onPress={() => toggleDay(day)}
-            >
-              <Text
-                className={`text-xs font-semibold ${
-                  selectedDays.includes(day)
-                    ? 'text-text-primary'
-                    : 'text-text-secondary'
-                }`}
-              >
-                {day}
-              </Text>
-            </TouchableOpacity>
-          ))}
+      <ScrollView className="flex-1 p-4">
+        <View className={`p-6 mb-4 rounded-lg border ${borderColor} ${cardBgColor}`}>
+          <View className="flex-row items-center mb-4">
+            <Clock size={20} color={isDarkMode ? "#cbd5e1" : "#64748b"} />
+            <Text className={`ml-2 text-lg font-medium ${textColor}`}>Time</Text>
+          </View>
+          
+          <TextInput
+            className={`text-5xl font-bold ${textColor} text-center p-4`}
+            value={time}
+            onChangeText={setTime}
+            placeholder="07:00"
+            placeholderTextColor={isDarkMode ? "#64748b" : "#94a3b8"}
+            keyboardType="numbers-and-punctuation"
+          />
         </View>
-      </View>
+
+        <View className={`p-6 mb-4 rounded-lg border ${borderColor} ${cardBgColor}`}>
+          <Text className={`mb-2 text-lg font-medium ${textColor}`}>Label</Text>
+          <TextInput
+            className={`border-b ${borderColor} pb-2 ${textColor}`}
+            value={label}
+            onChangeText={setLabel}
+            placeholder="Alarm label"
+            placeholderTextColor={isDarkMode ? "#64748b" : "#94a3b8"}
+          />
+        </View>
+
+        <View className={`p-6 rounded-lg border ${borderColor} ${cardBgColor}`}>
+          <View className="flex-row items-center mb-4">
+            <Calendar size={20} color={isDarkMode ? "#cbd5e1" : "#64748b"} />
+            <Text className={`ml-2 text-lg font-medium ${textColor}`}>Repeat on Days</Text>
+          </View>
+          
+          <View className="flex-row flex-wrap justify-between">
+            {DAYS.map((day) => (
+              <TouchableOpacity
+                key={day}
+                className={`mb-3 w-12 h-12 rounded-full items-center justify-center ${
+                  selectedDays.includes(day) ? 'bg-primary' : isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'
+                }`}
+                onPress={() => toggleDay(day)}
+              >
+                <Text
+                  className={`text-sm font-medium ${
+                    selectedDays.includes(day) ? 'text-white' : isDarkMode ? 'text-dark-text-primary' : 'text-light-text-primary'
+                  }`}
+                >
+                  {day}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          
+          <Text className={`mt-2 text-center ${secondaryTextColor}`}>
+            {selectedDays.length === 0 
+              ? 'Alarm will ring only once' 
+              : selectedDays.length === 7 
+                ? 'Alarm will ring every day' 
+                : `Alarm will ring on ${selectedDays.join(', ')}`}
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }

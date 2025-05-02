@@ -281,3 +281,6 @@ export const useAlarms = () => {
   }
   return context;
 };
+
+// Add default export
+export default AlarmsContext;
