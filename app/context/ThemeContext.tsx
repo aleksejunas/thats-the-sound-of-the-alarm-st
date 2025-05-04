@@ -14,12 +14,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const systemColorScheme = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    systemColorScheme === 'dark'
+    systemColorScheme === 'dark',
   );
 
   // Monitor system theme changes
   useEffect(() => {
-    setIsDarkMode(systemColorScheme === 'dark');
+    setIsDarkMode(systemColorScheme === 'light');
   }, [systemColorScheme]);
 
   const toggleTheme = () => {

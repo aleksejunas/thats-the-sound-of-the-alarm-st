@@ -20,8 +20,12 @@ const FocusTimer = () => {
   } = useFocusTimer();
   const { isDarkMode } = useTheme();
 
-  const textColor = isDarkMode ? 'text-dark-text-primary' : 'text-light-text-primary';
-  const secondaryTextColor = isDarkMode ? 'text-dark-text-secondary' : 'text-light-text-secondary';
+  const textColor = isDarkMode
+    ? 'text-dark-text-primary'
+    : 'text-light-text-primary';
+  const secondaryTextColor = isDarkMode
+    ? 'text-dark-text-secondary'
+    : 'text-light-text-secondary';
   const bgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
   const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
 
@@ -56,12 +60,12 @@ const FocusTimer = () => {
   return (
     <View className={`${bgColor} rounded-xl p-6 shadow-md`}>
       <Text className={`text-xl font-semibold ${textColor}`}>
-        Focus Timer {isBreak ? "(Break)" : ""}
+        Focus Timer {isBreak ? '(Break)' : ''}
       </Text>
 
       {/* Timer Display */}
       <View className="items-center justify-center my-6">
-        <View 
+        <View
           className="w-44 h-44 rounded-full border-4 border-primary items-center justify-center"
           style={{
             backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc',
@@ -74,7 +78,7 @@ const FocusTimer = () => {
       </View>
 
       {/* Controls */}
-      <View className="flex-row justify-center items-center space-x-4 mb-6">
+      <View className="flex-row justify-center items-center space-x-4 mb-6 gap-1.5">
         <TouchableOpacity
           className="p-3 bg-primary rounded-full"
           onPress={resetTimer}
@@ -112,19 +116,19 @@ const FocusTimer = () => {
           Focus Duration: {focusDuration} min
         </Text>
         <View className="flex-row items-center justify-between">
-          <TouchableOpacity 
+          <TouchableOpacity
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeFocusDuration(false)}
           >
             <Text className={textColor}>-</Text>
           </TouchableOpacity>
           <View className="flex-1 h-2 mx-3 rounded-full bg-gray-200 dark:bg-gray-700">
-            <View 
-              className="h-full rounded-full bg-primary" 
+            <View
+              className="h-full rounded-full bg-primary"
               style={{ width: `${(focusDuration / 60) * 100}%` }}
             />
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeFocusDuration(true)}
           >
@@ -138,19 +142,19 @@ const FocusTimer = () => {
           Break Duration: {breakDuration} min
         </Text>
         <View className="flex-row items-center justify-between">
-          <TouchableOpacity 
+          <TouchableOpacity
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeBreakDuration(false)}
           >
             <Text className={textColor}>-</Text>
           </TouchableOpacity>
           <View className="flex-1 h-2 mx-3 rounded-full bg-gray-200 dark:bg-gray-700">
-            <View 
-              className="h-full rounded-full bg-primary" 
+            <View
+              className="h-full rounded-full bg-primary"
               style={{ width: `${(breakDuration / 30) * 100}%` }}
             />
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeBreakDuration(true)}
           >

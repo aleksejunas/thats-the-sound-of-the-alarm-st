@@ -9,13 +9,12 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
-import { Plus, Trash2, Clock, CheckSquare, MoreVertical, Edit, ChevronDown } from 'lucide-react-native';
+import { Plus, Trash2, Clock, CheckSquare, Edit } from 'lucide-react-native';
 import { Link } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useAlarms } from '../context/AlarmsContext';
 import { useTheme } from '../context/ThemeContext';
 import { Alarm } from '../lib/storage';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Same days array as in new-alarm.tsx
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -30,7 +29,6 @@ export default function AlarmsScreen() {
     updateAlarm,
   } = useAlarms();
   const { isDarkMode } = useTheme();
-  const insets = useSafeAreaInsets();
 
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -249,13 +247,6 @@ export default function AlarmsScreen() {
 
   return (
     <View className={`flex-1 ${bgColor}`}>
-      <View className="p-4 border-b ${borderColor}">
-        <Text className={`text-2xl font-bold ${textColor}`}>Alarms</Text>
-        <Text className={`${secondaryTextColor}`}>
-          Manage your wake-up times and reminders
-        </Text>
-      </View>
-
       <View className="p-4">
         <View className="flex-row items-center justify-between mb-4">
           <TextInput
