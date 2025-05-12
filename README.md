@@ -1,94 +1,67 @@
 # ThatsTheSoundOfTheAlarm
 
-## Description
+## Overview
 
-**ThatsTheSoundOfTheAlarm** will be a customizable alarm clock app that lets users set alarms with various features like sound, vibration, snooze, and more. The app allows you to store alarms locally using SQLite and supports easy customization. In the future, we plan to add features like syncing alarms across devices, smart wake-up features, and integration with weather data for a more personalized wake-up experience.
+**ThatsTheSoundOfTheAlarm** is a React Native (Expo) app for managing alarms, focus timers, and dashboard widgets. It features a sidebar layout, theme switching (dark/light), and responsive navigation. The codebase is modular and ready for future expansion, such as local storage and cloud sync.
 
-## Features to be Implemented
+## Features
 
-- **Alarm Screen Update**: The alarm screen will be updated dynamically when a new alarm is added.
-- **SQLite database to store Alarms**: Alarms will be stored locally using SQLite.
-- Set single and recurring alarms.
-- Configure alarm sound, vibration, and snooze settings.
-- Local alarm storage with SQLite.
-- Customizable alarm labels and color coding.
-- Sync alarms across devices (planned feature).
-- Gradual wake-up with increasing alarm volume and vibration.
-- Weather-based alarm settings (planned feature).
-- Customizable snooze and stop buttons.
-- And much more!
+- **Sidebar Navigation**: Drawer-based sidebar with icons for Alarms, Focus Timer, and Dashboard.
+- **Theme Switching**: Toggle between light and dark mode from both the header and sidebar.
+- **Responsive Layout**: Drawer adapts to screen size and uses smooth animations.
+- **Navigation**: Uses `expo-router` for route management.
+- **Custom Styling**: Utility-first styling with support for theming.
+- **Safe Area Support**: Handles device notches and safe areas.
 
-## Maybe Features To Be Implemented
+> **Note:** SQLite/local storage is not implemented yet.
 
+## Getting Started
 
-- **Notifications**: A notification will appear when the alarm goes off.
-- **Sound Options**: Choose custom sounds for alarms.
-- **Snooze Feature**: Implement the snooze functionality.
-- **Stop Feature**: Implement the stop functionality.
-- **Vibration Feature**: Allow vibration as a part of the alarm.
-- **Button Customization**: Allow users to add snooze, stop, vibration, sound, label, and color buttons.
-- **Recurring Alarms**: Set alarms to repeat on specific days.
-- **Multiple Alarm Profiles**: Create different profiles for different alarm needs.
-- **Smart Alarm**: Implement a gradual wake-up alarm with increasing sound or vibration.
-- **Location-Based Alarms**: Wake users based on their location (e.g., "Wake me up when I get home").
-- **Backup & Sync**: Sync alarms across devices (cloud backup).
+### Prerequisites
 
-## Installation
+- Node.js (18+ recommended)
+- [pnpm](https://pnpm.io/) (or npm/yarn)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
-To get started with the project, clone this repository to your local machine:
+### Installation
 
 ```bash
 git clone git@github.com:aleksejunas/thats-the-sound-of-the-alarm.git
-```
-
-Navigate to the project directory:
-
-```bash
 cd thats-the-sound-of-the-alarm
-```
-
-Install the necessary dependencies:
-
-```bash
 pnpm install
 ```
 
 ### Running the App
 
-To start the development server for the app, run:
-
 ```bash
 pnpm expo start
 ```
 
-For Android development, use:
+- Press `a` to run on Android, `i` for iOS, or open in a web browser.
 
-```bash
-pnpm expo run:android
-```
+## Project Structure
 
-## Technologies Used
+- `app/components/SidebarLayout.tsx`: Main layout with sidebar, header, and theme switch.
+- `app/context/ThemeContext.tsx`: Theme state and toggle logic.
+- `app/lib/styleUtils.ts`: Utility for themed styles.
+- `app/`: Screens and navigation routes.
 
-- **React Native**: A framework for building native apps using React.
-- **SQLite**: Local database for storing alarms.
-- **NativeWind**: A utility-first CSS framework for React Native.
-- **Expo**: A framework and platform for universal React applications.
-- **Firebase**: (Planned) Cloud database for syncing alarms across devices.
+## Customization
+
+- **Add new routes**: Update the `routes` array in `SidebarLayout.tsx`.
+- **Change theme colors**: Edit theme context and style utilities.
+- **Add storage**: Integrate SQLite or Firebase as needed.
 
 ## Contributing
 
-If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. Please make sure your changes are well-tested and follow the project's coding conventions.
-
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Make your changes.
-4. Test your changes locally.
-5. Create a pull request.
+1. Fork the repo and create a feature branch.
+2. Make your changes and test locally.
+3. Submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT
 
 ---
 
-Feel free to adjust the description, features, and installation steps to match your app’s functionality. Let me know if you'd like further customizations!
+_This project is in early development. Contributions and feedback are welcome!_

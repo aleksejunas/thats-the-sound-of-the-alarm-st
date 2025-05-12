@@ -2,9 +2,11 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import FocusTimer from '../components/FocusTimer';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function FocusScreen() {
   const { isDarkMode } = useTheme();
+  const insets = useSafeAreaInsets();
 
   const textColor = isDarkMode
     ? 'text-dark-text-primary'
@@ -14,12 +16,14 @@ export default function FocusScreen() {
     : 'text-light-text-secondary';
   const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
   const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
-  
+
   // Use the custom focus tips color for light mode
-  const focusTipsColor = isDarkMode ? 'text-white' : 'text-light-text-focusTips';
+  const focusTipsColor = isDarkMode
+    ? 'text-white'
+    : 'text-light-text-focusTips';
 
   return (
-    <View className={`flex-1 ${bgColor}`}>
+    <View className={`flex-1 ${bgColor}`} style={{ paddingTop: insets.top }}>
       <ScrollView className="flex-1 p-4">
         <FocusTimer />
 

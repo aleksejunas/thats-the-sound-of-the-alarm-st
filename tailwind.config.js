@@ -1,57 +1,63 @@
 /** @type {import('tailwindcss').Config} */
-export const content = [
-  './app/**/*.{js,jsx,ts,tsx}',
-  './components/**/*.{js,jsx,ts,tsx}',
-];
-export const presets = [require('nativewind/preset')];
-export const theme = {
-  extend: {
-    colors: {
-      // Main brand colors
-      // primary: '#4f46e5', // Indigo
-      primary: '#912F56',
-      'primary-light': '#818cf8',
-      'primary-dark': '#3730a3',
+module.exports = {
+  content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+  presets: [require('nativewind/preset')],
+  theme: {
+    extend: {
+      colors: {
+        // Main brand colors
+        primary: '#272932',
+        'primary-light': '#818cf8',
+        'primary-dark': '#3730a3',
 
-      // Light mode
-      light: {
-        background: '#f8fafc',
-        surface: '#ffffff',
-        card: '#ffffff',
-        'card-highlight': '#f1f5f9',
-        border: '#e2e8f0',
-        text: {
-          primary: '#0f172a',
-          focusTips: '#fff',
-          secondary: '#64748b',
-          muted: '#94a3b8',
+        // Light mode
+        light: {
+          background: '#f8fafc',
+          surface: '#ffffff',
+          card: '#ffffff',
+          'card-highlight': '#f1f5f9',
+          border: '#e2e8f0',
+          text: {
+            primary: '#0f172a',
+            focusTips: '#fff',
+            secondary: '#64748b',
+            muted: '#94a3b8',
+          },
+          button: {
+            background: '#fff',
+            text: '#0f172a',
+          },
         },
-      },
 
-      // Dark mode
-      dark: {
-        background: '#0f172a',
-        surface: '#1e293b',
-        card: '#1e293b',
-        'card-highlight': '#334155',
-        border: '#334155',
-        text: {
-          primary: '#f8fafc',
-          focusTips: '#ffffff',
-          secondary: '#cbd5e1',
-          muted: '#94a3b8',
+        // Dark mode
+        dark: {
+          background: '#0f172a',
+          surface: '#1e293b',
+          card: '#1e293b',
+          'card-highlight': '#334155',
+          border: '#334155',
+          text: {
+            primary: '#f8fafc',
+            focusTips: '#ffffff',
+            secondary: '#cbd5e1',
+            muted: '#94a3b8',
+          },
+          button: {
+            background: '#334155',
+            text: '#f8fafc',
+          },
         },
-      },
 
-      // System colors
-      success: '#22c55e',
-      warning: '#f59e0b',
-      error: '#ef4444',
-      info: '#0ea5e9',
+        // System colors
+        success: '#22c55e',
+        warning: '#f59e0b',
+        error: '#ef4444',
+        info: '#0ea5e9',
+      },
     },
   },
+  plugins: [],
 };
-export const plugins = [];
 
 // -- Great Colors to use?
 

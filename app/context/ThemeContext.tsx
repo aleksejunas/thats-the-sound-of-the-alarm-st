@@ -1,43 +1,70 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import { useColorScheme } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type ThemeContextType = {
   isDarkMode: boolean;
   toggleTheme: () => void;
-  setDarkMode: (dark: boolean) => void;
+  setTheme: (isDark: boolean) => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | null>(null);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const systemColorScheme = useColorScheme();
+  // Get device color scheme
+  const deviceColorScheme = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    systemColorScheme === 'dark',
+    deviceColorScheme === 'dark'
   );
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Monitor system theme changes
+  // Load theme from storage on mount
   useEffect(() => {
-    setIsDarkMode(systemColorScheme === 'light');
-  }, [systemColorScheme]);
+    const loadTheme = async () => {
+      try {
+        const storedTheme = await AsyncStorage.getItem('theme');
+        if (storedTheme !== null) {
+          setIsDarkMode(storedTheme === 'dark');
+        }
+        setIsInitialized(true);
+      } catch (e) {
+        console.error('Failed to load theme from storage:', e);
+        setIsInitialized(true);
+      }
+    };
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+    loadTheme();
+  }, []);
 
-  const setDarkMode = (dark: boolean) => {
-    setIsDarkMode(dark);
-  };
+  // Set theme function
+  const setTheme = useCallback(async (isDark: boolean) => {
+    setIsDarkMode(isDark);
+    try {
+      await AsyncStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (e) {
+      console.error('Failed to save theme to storage:', e);
+    }
+  }, []);
+
+  // Toggle theme function
+  const toggleTheme = useCallback(() => {
+    setTheme(!isDarkMode);
+  }, [isDarkMode, setTheme]);
+
+  if (!isInitialized) {
+    return null; // Wait until we've loaded theme preferences
+  }
 
   return (
-    <ThemeContext.Provider
-      value={{
-        isDarkMode,
-        toggleTheme,
-        setDarkMode,
-      }}
-    >
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -45,11 +72,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 };
 
-// Add default export
 export default ThemeContext;
