@@ -1,3 +1,5 @@
+// ***** app/context/ThemeContext.tsx *****
+
 import React, {
   createContext,
   useContext,
@@ -7,11 +9,14 @@ import React, {
 } from 'react';
 import { useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getThemedColors, ThemeColors, colorPalette } from '../theme/colors';
 
 type ThemeContextType = {
   isDarkMode: boolean;
   toggleTheme: () => void;
   setTheme: (isDark: boolean) => void;
+  colors: ThemeColors;
+  palette: typeof colorPalette;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -22,7 +27,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   // Get device color scheme
   const deviceColorScheme = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    deviceColorScheme === 'dark'
+    deviceColorScheme === 'dark',
   );
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -59,12 +64,23 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     setTheme(!isDarkMode);
   }, [isDarkMode, setTheme]);
 
+  // Generate themed colors based on current mode
+  const colors = getThemedColors(isDarkMode);
+
   if (!isInitialized) {
     return null; // Wait until we've loaded theme preferences
   }
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme, setTheme }}>
+    <ThemeContext.Provider
+      value={{
+        isDarkMode,
+        toggleTheme,
+        setTheme,
+        colors,
+        palette: colorPalette,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

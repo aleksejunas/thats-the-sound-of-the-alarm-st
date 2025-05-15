@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+import { useThemedStyles } from '../hooks/useThemedStyles';
 import { Clock } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import ThemeDemo from '../components/ThemeDemo';
 
 export default function DashboardScreen() {
   const { isDarkMode } = useTheme();
@@ -43,6 +45,7 @@ export default function DashboardScreen() {
           <Text className={secondaryTextColor}>
             Please navigate to the Alarms tab to see and manage your alarms.
           </Text>
+          <ThemeDemo />
         </View>
       </ScrollView>
     </View>

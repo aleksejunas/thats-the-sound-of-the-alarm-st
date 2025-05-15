@@ -1,3 +1,5 @@
+// ***** app/lib/styleUtils.ts *****
+
 import { useTheme } from '../context/ThemeContext';
 
 export const useThemedStyles = () => {
