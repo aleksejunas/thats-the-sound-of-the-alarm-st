@@ -3,6 +3,7 @@ import '../global.css';
 // TODO: [x] - Update the alarm screen after adding a new alarm
 // TODO: [] - Change the styling to look more like the sidetrack-slayer-app
 // TODO: [] - Option to lock down the device for 10 minutes after waking up
+// TODO: [] - Add i18n support for translations
 // ---- TOASTS ----
 // TODO: [x] - Add a toast notification when the alarm is set
 // TODO: [] - Add a toast notification when the alarm is deleted
@@ -18,6 +19,7 @@ import '../global.css';
 // TODO: [] - Add a notification when the alarm goes off (expo-notifications, expo-task-manager, expo-background-fetch)
 // TODO: [x] - Edit alarms
 // TODO: [x] - Add sound to the alarm
+// TDOO: [] - Block the deveice from usage for 10 minutes after the alarm goes off (in the morings only to prevent email-checking etc.(toggleable))
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Convert the clock screen to tailwindcss
 // TODO: [] - Make use of the ios/android notification panel
