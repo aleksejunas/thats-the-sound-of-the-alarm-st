@@ -14,8 +14,9 @@ import { Link } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useAlarms } from '../context/AlarmsContext';
 import { useTheme } from '../context/ThemeContext';
-import { Alarm } from '../lib/storage';
+import { Alarm } from '../../lib/storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getThemedColors } from '@/theme/colors';
 
 // Same days array as in new-alarm.tsx
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -30,6 +31,7 @@ export default function AlarmsScreen() {
     updateAlarm,
   } = useAlarms();
   const { isDarkMode } = useTheme();
+  const colors = getThemedColors(isDarkMode);
 
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -37,20 +39,6 @@ export default function AlarmsScreen() {
   const [editedAlarm, setEditedAlarm] = useState<Partial<Alarm>>({});
   const isFocused = useIsFocused();
   const insets = useSafeAreaInsets();
-
-  // Theme-based styles
-  const textColor = isDarkMode
-    ? 'text-dark-text-primary'
-    : 'text-light-text-primary';
-  const secondaryTextColor = isDarkMode
-    ? 'text-dark-text-secondary'
-    : 'text-light-text-secondary';
-  const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
-  const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
-  const cardHighlightColor = isDarkMode
-    ? 'bg-dark-card-highlight'
-    : 'bg-light-card-highlight';
-  const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
 
   // Reload alarms when the screen comes into focus
   useEffect(() => {
@@ -121,8 +109,11 @@ export default function AlarmsScreen() {
 
   if (isLoading) {
     return (
-      <View className={`flex-1 justify-center items-center ${bgColor}`}>
-        <ActivityIndicator size="large" color="#4f46e5" />
+      <View
+        className="flex-1 justify-center items-center"
+        style={{ backgroundColor: colors.background }}
+      >
+        <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
   }
@@ -132,18 +123,27 @@ export default function AlarmsScreen() {
     if (editingAlarmId === item.id) {
       return (
         <View
-          className={`p-4 border ${borderColor} rounded-lg mb-3 ${cardBgColor}`}
+          className="p-4 border rounded-lg mb-3"
+          style={{
+            backgroundColor: colors.card,
+            borderColor: colors.border,
+          }}
         >
           <View className="flex-row items-center justify-between mb-3">
             <TextInput
-              className={`text-2xl font-bold ${textColor} bg-opacity-10 border ${borderColor} rounded p-2 flex-1 mr-2`}
+              className="text-2xl font-bold bg-opacity-10 border rounded p-2 flex-1 mr-2"
               value={editedAlarm.time as string}
               onChangeText={(text) =>
                 setEditedAlarm({ ...editedAlarm, time: text })
               }
               keyboardType="numbers-and-punctuation"
               placeholder="HH:MM"
-              placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'}
+              placeholderTextColor={colors.text.muted}
+              style={{
+                color: colors.text.primary,
+                borderColor: colors.border,
+                backgroundColor: colors.card,
+              }}
             />
             <Switch
               value={editedAlarm.enabled}
@@ -151,40 +151,44 @@ export default function AlarmsScreen() {
                 setEditedAlarm({ ...editedAlarm, enabled: value })
               }
               trackColor={{
-                false: isDarkMode ? '#334155' : '#e2e8f0',
-                true: '#4f46e5',
+                false: colors.border,
+                true: colors.primary,
               }}
               thumbColor={
                 editedAlarm.enabled
                   ? '#ffffff'
                   : isDarkMode
-                    ? '#1e293b'
+                    ? colors.surface
                     : '#ffffff'
               }
             />
           </View>
 
           <TextInput
-            className={`${secondaryTextColor} border ${borderColor} rounded p-2 mb-3`}
+            className="border rounded p-2 mb-3"
             value={editedAlarm.label as string}
             onChangeText={(text) =>
               setEditedAlarm({ ...editedAlarm, label: text })
             }
             placeholder="Alarm label"
-            placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'}
+            placeholderTextColor={colors.text.muted}
+            style={{
+              color: colors.text.secondary,
+              borderColor: colors.border,
+              backgroundColor: colors.card,
+            }}
           />
 
           <View className="flex-row flex-wrap gap-2 mb-3">
             {DAYS.map((day) => (
               <TouchableOpacity
                 key={day}
-                className={`px-3 py-1 rounded-full ${
-                  editedAlarm.days?.includes(day)
-                    ? 'bg-primary'
-                    : isDarkMode
-                      ? 'bg-dark-button-background '
-                      : 'bg-light-button-background '
-                }`}
+                className="px-3 py-1 rounded-full"
+                style={{
+                  backgroundColor: editedAlarm.days?.includes(day)
+                    ? colors.primary
+                    : colors.button.background,
+                }}
                 onPress={() => {
                   const currentDays = editedAlarm.days || [];
                   const newDays = currentDays.includes(day)
@@ -194,13 +198,12 @@ export default function AlarmsScreen() {
                 }}
               >
                 <Text
-                  className={`text-xs font-semibold ${
-                    editedAlarm.days?.includes(day)
-                      ? 'text-white text-ss font-semibold'
-                      : isDarkMode
-                        ? 'text-dark-text-primary text-xs font-semibold'
-                        : 'text-light-text-primary text-xs font-semibold'
-                  }`}
+                  className="text-xs font-semibold"
+                  style={{
+                    color: editedAlarm.days?.includes(day)
+                      ? '#fff'
+                      : colors.text.primary,
+                  }}
                 >
                   {day}
                 </Text>
@@ -230,7 +233,11 @@ export default function AlarmsScreen() {
     } else {
       return (
         <TouchableOpacity
-          className={`flex-row items-center p-4 border ${borderColor} rounded-lg mb-3 ${item.enabled ? cardBgColor : cardHighlightColor}`}
+          className="flex-row items-center p-4 border rounded-lg mb-3"
+          style={{
+            backgroundColor: item.enabled ? colors.card : colors.cardHighlight,
+            borderColor: colors.border,
+          }}
           onLongPress={() => toggleAlarmSelection(item.id)}
           onPress={() =>
             selectedAlarms.length > 0
@@ -240,10 +247,16 @@ export default function AlarmsScreen() {
           activeOpacity={0.7}
         >
           <View className="flex-1">
-            <Text className={`text-2xl font-bold ${textColor}`}>
+            <Text
+              className="text-2xl font-bold"
+              style={{ color: colors.text.primary }}
+            >
               {item.time}
             </Text>
-            <Text className={`text-base ${secondaryTextColor} mt-1`}>
+            <Text
+              className="text-base mt-1"
+              style={{ color: colors.text.secondary }}
+            >
               {item.label}
             </Text>
             {item.days.length > 0 && (
@@ -253,7 +266,10 @@ export default function AlarmsScreen() {
                     key={day}
                     className="bg-primary bg-opacity-20 px-2 py-0.5 rounded mr-1 mb-1"
                   >
-                    <Text className="text-xs text-primary font-medium">
+                    <Text
+                      className="text-xs font-medium"
+                      style={{ color: colors.primary }}
+                    >
                       {day}
                     </Text>
                   </View>
@@ -266,11 +282,15 @@ export default function AlarmsScreen() {
               value={item.enabled}
               onValueChange={() => handleToggleAlarm(item.id)}
               trackColor={{
-                false: isDarkMode ? '#334155' : '#e2e8f0',
-                true: '#4f46e5',
+                false: colors.border,
+                true: colors.primary,
               }}
               thumbColor={
-                item.enabled ? '#ffffff' : isDarkMode ? '#1e293b' : '#ffffff'
+                item.enabled
+                  ? '#ffffff'
+                  : isDarkMode
+                    ? colors.surface
+                    : '#ffffff'
               }
               style={{ marginRight: 8 }}
             />
@@ -278,7 +298,7 @@ export default function AlarmsScreen() {
               className="p-2"
               onPress={() => handleEditAlarm(item.id)}
             >
-              <Edit size={18} color={isDarkMode ? '#cbd5e1' : '#64748b'} />
+              <Edit size={18} color={colors.text.muted} />
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -287,15 +307,23 @@ export default function AlarmsScreen() {
   };
 
   return (
-    <View className={`flex-1 ${bgColor}`} style={{ paddingTop: insets.top }}>
+    <View
+      className="flex-1"
+      style={{ paddingTop: insets.top, backgroundColor: colors.background }}
+    >
       <View className="p-4">
         <View className="flex-row items-center justify-between mb-4">
           <TextInput
-            className={`flex-1 border ${borderColor} rounded-lg px-3 py-2 ${textColor} mr-2`}
+            className="flex-1 border rounded-lg px-3 py-2 mr-2"
             placeholder="Search alarms..."
-            placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'}
+            placeholderTextColor={colors.text.muted}
             value={searchQuery}
             onChangeText={setSearchQuery}
+            style={{
+              color: colors.text.primary,
+              borderColor: colors.border,
+              backgroundColor: colors.card,
+            }}
           />
 
           {selectedAlarms.length > 0 ? (
@@ -320,8 +348,11 @@ export default function AlarmsScreen() {
         {priorityAlarms.length > 0 && (
           <View className="mb-4">
             <View className="flex-row items-center mb-2">
-              <Clock size={16} color={isDarkMode ? '#cbd5e1' : '#64748b'} />
-              <Text className={`ml-2 font-medium ${textColor}`}>
+              <Clock size={16} color={colors.text.muted} />
+              <Text
+                className="ml-2 font-medium"
+                style={{ color: colors.text.primary }}
+              >
                 Active Alarms
               </Text>
             </View>
@@ -334,8 +365,11 @@ export default function AlarmsScreen() {
         {otherAlarms.length > 0 && (
           <View>
             <View className="flex-row items-center mb-2">
-              <Clock size={16} color={isDarkMode ? '#cbd5e1' : '#64748b'} />
-              <Text className={`ml-2 font-medium ${textColor}`}>
+              <Clock size={16} color={colors.text.muted} />
+              <Text
+                className="ml-2 font-medium"
+                style={{ color: colors.text.primary }}
+              >
                 Inactive Alarms
               </Text>
             </View>
@@ -347,8 +381,11 @@ export default function AlarmsScreen() {
 
         {filteredAlarms.length === 0 && (
           <View className="flex-1 items-center justify-center py-10">
-            <Clock size={48} color={isDarkMode ? '#334155' : '#e2e8f0'} />
-            <Text className={`mt-4 text-center text-lg ${secondaryTextColor}`}>
+            <Clock size={48} color={colors.cardHighlight} />
+            <Text
+              className="mt-4 text-center text-lg"
+              style={{ color: colors.text.secondary }}
+            >
               No alarms found. Tap the + button to create a new alarm.
             </Text>
           </View>

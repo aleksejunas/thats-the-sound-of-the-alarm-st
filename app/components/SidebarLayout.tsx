@@ -12,7 +12,7 @@ import { usePathname, router } from 'expo-router';
 import { useTheme } from '../context/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Clock, List, Timer, Moon, Sun, Menu, X } from 'lucide-react-native';
-import { useThemedStyles } from '../lib/styleUtils';
+import { useThemedStyles } from '../../lib/styleUtils';
 
 interface DrawerLayoutProps {
   children: React.ReactNode;
@@ -26,6 +26,9 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   const drawerAnimation = React.useRef(new Animated.Value(-280)).current;
   const screenWidth = Dimensions.get('window').width;
   const styles = useThemedStyles();
+  // Import themed colors
+  const { getThemedColors } = require('../../theme/colors');
+  const colors = getThemedColors(isDarkMode);
 
   const drawerWidth = Math.min(280, screenWidth * 0.7); // Responsive drawer width
 
@@ -80,7 +83,7 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
         }}
       >
         <TouchableOpacity onPress={toggleDrawer}>
-          <Menu color={styles.getIconColor()} size={24} />
+          <Menu color={colors.text.primary} size={24} />
         </TouchableOpacity>
 
         <Text className={`text-xl font-bold ${styles.textColor}`}>
@@ -89,9 +92,9 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
 
         <TouchableOpacity onPress={toggleTheme}>
           {isDarkMode ? (
-            <Sun color={styles.getIconColor()} size={24} />
+            <Sun color={colors.text.primary} size={24} />
           ) : (
-            <Moon color={styles.getIconColor()} size={24} />
+            <Moon color={colors.text.primary} size={24} />
           )}
         </TouchableOpacity>
       </View>
@@ -114,14 +117,24 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
           bottom: 0,
           left: 0,
           transform: [{ translateX: drawerAnimation }],
+          backgroundColor: colors.surface,
+          borderRightColor: colors.border,
         }}
       >
         <View
           className={`flex-row justify-between items-center p-4 border-b ${styles.borderColor}`}
+          style={{
+            borderBottomColor: colors.border,
+          }}
         >
-          <Text className={`text-lg font-bold ${styles.textColor}`}>Menu</Text>
+          <Text
+            className={`text-lg font-bold ${styles.textColor}`}
+            style={{ color: colors.text.primary }}
+          >
+            Menu
+          </Text>
           <TouchableOpacity onPress={toggleDrawer}>
-            <X color={styles.getIconColor()} size={20} />
+            <X color={colors.text.primary} size={20} />
           </TouchableOpacity>
         </View>
 
@@ -133,30 +146,23 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
               <TouchableOpacity
                 key={index}
                 className={`flex-row items-center p-4 ${
-                  isActiveRoute ? 'bg-primary bg-opacity-10' : ''
+                  isActiveRoute ? '' : ''
                 }`}
                 onPress={() => navigateTo(route.path)}
+                style={{
+                  backgroundColor: isActiveRoute
+                    ? colors.primaryLight + '22'
+                    : undefined,
+                }}
               >
                 <IconComponent
                   size={20}
-                  color={
-                    isActiveRoute
-                      ? '#4f46e5'
-                      : isDarkMode
-                      ? '#f8fafc' // Lighter color in dark mode for better contrast
-                      : '#0f172a' // Darker color in light mode for better contrast
-                  }
+                  color={isActiveRoute ? colors.primary : colors.text.primary}
                 />
                 <Text
-                  className={`ml-3 ${
-                    isActiveRoute ? 'text-primary font-medium' : ''
-                  }`}
+                  className={`ml-3 ${isActiveRoute ? 'font-medium' : ''}`}
                   style={{
-                    color: isActiveRoute
-                      ? '#4f46e5'
-                      : isDarkMode
-                      ? '#f8fafc' // Lighter color in dark mode
-                      : '#0f172a', // Darker color in light mode
+                    color: isActiveRoute ? colors.primary : colors.text.primary,
                   }}
                 >
                   {route.label}
@@ -170,16 +176,23 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
         <TouchableOpacity
           className={`flex-row items-center p-4 border-t ${styles.borderColor}`}
           onPress={toggleTheme}
+          style={{
+            borderTopColor: colors.border,
+          }}
         >
           {isDarkMode ? (
             <>
-              <Sun size={20} color="#f8fafc" />
-              <Text className="ml-3 text-light-text-primary">Light Mode</Text>
+              <Sun size={20} color={colors.text.primary} />
+              <Text className="ml-3" style={{ color: colors.text.primary }}>
+                Light Mode
+              </Text>
             </>
           ) : (
             <>
-              <Moon size={20} color="#0f172a" />
-              <Text className="ml-3 text-dark-background">Dark Mode</Text>
+              <Moon size={20} color={colors.text.primary} />
+              <Text className="ml-3" style={{ color: colors.text.primary }}>
+                Dark Mode
+              </Text>
             </>
           )}
         </TouchableOpacity>

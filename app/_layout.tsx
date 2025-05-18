@@ -1,8 +1,7 @@
-import '../global.css';
-
 // TODO: [x] - Move the colors to a theme context from tailwind.config.js instead of having to rebuild the app every time
 // TODO: [x] - Update the alarm screen after adding a new alarm
-// TODO: [] - Change the styling to look more like the sidetrack-slayer-app
+// TODO: [] -  Add App icon
+// TODO: [x] - Change the styling to look more like the sidetrack-slayer-app
 // TODO: [] - Option to lock down the device for 10 minutes after waking up
 // TODO: [] - Add i18n support for translations
 // ---- TOASTS ----
@@ -66,9 +65,13 @@ import Toast from 'react-native-toast-message';
 import { AlarmsProvider } from './context/AlarmsContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FocusTimerProvider } from './context/FocusTimerContext';
+import '../global.css';
+import { getThemedColors } from '@/theme/colors';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 function StackNavigator() {
   const { isDarkMode } = useTheme();
+  const color = getThemedColors(isDarkMode);
 
   return (
     <>
@@ -77,7 +80,10 @@ function StackNavigator() {
         <Stack.Screen name="new-alarm" options={{ presentation: 'modal' }} />
       </Stack>
       <Toast />
-      <StatusBar style={isDarkMode ? 'light' : 'dark'} />
+      <StatusBar
+        style={isDarkMode ? 'light' : 'dark'}
+        backgroundColor={color.background}
+      />
     </>
   );
 }

@@ -3,7 +3,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { useThemedStyles } from '../hooks/useThemedStyles';
+import { useThemedStyles } from '../../hooks/useThemedStyles';
 
 const ThemeDemo = () => {
   const { colors, toggleTheme, isDarkMode, palette } = useTheme();

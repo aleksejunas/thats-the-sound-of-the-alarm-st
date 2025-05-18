@@ -2,7 +2,7 @@
 import React from 'react';
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../app/context/ThemeContext';
 import type { ThemeColors } from '../theme/colors';
 
 // Type for style creator function that takes colors and returns styles

@@ -7,8 +7,8 @@ import React, {
 } from 'react';
 import { Alert } from 'react-native';
 import Toast from 'react-native-toast-message';
-import { Alarm, saveAlarms, getAlarms } from '../lib/storage';
-import TaskManager from '../lib/taskManager';
+import { Alarm, saveAlarms, getAlarms } from '../../lib/storage';
+import TaskManager from '../../lib/taskManager';
 
 type AlarmsContextType = {
   alarms: Alarm[];

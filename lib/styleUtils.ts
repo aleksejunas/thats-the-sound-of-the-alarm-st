@@ -1,6 +1,6 @@
 // ***** app/lib/styleUtils.ts *****
 
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../app/context/ThemeContext';
 
 export const useThemedStyles = () => {
   const { isDarkMode } = useTheme();

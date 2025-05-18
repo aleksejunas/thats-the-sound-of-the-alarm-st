@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getThemedColors, ThemeColors, colorPalette } from '../theme/colors';
+import { getThemedColors, ThemeColors, colorPalette } from '../../theme/colors';
 
 type ThemeContextType = {
   isDarkMode: boolean;

@@ -4,8 +4,10 @@
 export const colorPalette = {
   // Main brand colors
   primary: '#272932',
-  primaryLight: '#818cf8',
-  primaryDark: '#3730a3',
+  // primary: '#FFBA49',
+  // primaryLight: '#818cf8',
+  primaryLight: '#FFBA49',
+  primaryDark: '#D64933',
 
   // UI colors
   lightBackground: '#f8fafc',
