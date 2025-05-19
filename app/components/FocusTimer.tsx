@@ -1,8 +1,10 @@
+import { getThemedColors } from '@/theme/colors';
+import { Pause, Play, RotateCcw, SkipForward } from 'lucide-react-native';
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusTimer } from '../context/FocusTimerContext';
 import { useTheme } from '../context/ThemeContext';
-import { Play, Pause, RotateCcw, SkipForward } from 'lucide-react-native';
 
 const FocusTimer = () => {
   const {
@@ -19,15 +21,17 @@ const FocusTimer = () => {
     setBreakDuration,
   } = useFocusTimer();
   const { isDarkMode } = useTheme();
+  const insets = useSafeAreaInsets();
+  const colors = getThemedColors(isDarkMode);
 
-  const textColor = isDarkMode
-    ? 'text-dark-text-primary'
-    : 'text-light-text-primary';
-  const secondaryTextColor = isDarkMode
-    ? 'text-dark-text-secondary'
-    : 'text-light-text-secondary';
-  const bgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
-  const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
+  // const textColor = isDarkMode
+  //   ? 'text-dark-text-primary'
+  //   : 'text-light-text-primary';
+  // const secondaryTextColor = isDarkMode
+  //   ? 'text-dark-text-secondary'
+  //   : 'text-light-text-secondary';
+  // const bgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
+  // const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -58,8 +62,14 @@ const FocusTimer = () => {
   };
 
   return (
-    <View className={`${bgColor} rounded-xl p-6 shadow-md`}>
-      <Text className={`text-xl font-semibold ${textColor}`}>
+    <View
+      className=" rounded-xl p-6 shadow-md"
+      style={{ paddingTop: insets.top, backgroundColor: colors.background }}
+    >
+      <Text
+        className="text-xl font-semibold"
+        style={{ color: colors.text.primary }}
+      >
         Focus Timer {isBreak ? '(Break)' : ''}
       </Text>
 
@@ -71,7 +81,10 @@ const FocusTimer = () => {
             backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc',
           }}
         >
-          <Text className={`text-5xl font-bold ${textColor}`}>
+          <Text
+            className="text-5xl font-bold"
+            style={{ color: colors.text.primary }}
+          >
             {formatTime(time)}
           </Text>
         </View>
@@ -112,7 +125,10 @@ const FocusTimer = () => {
 
       {/* Duration Settings */}
       <View className="mb-4">
-        <Text className={`text-base font-medium mb-2 ${textColor}`}>
+        <Text
+          className="text-base font-medium mb-2"
+          style={{ color: colors.text.primary }}
+        >
           Focus Duration: {focusDuration} min
         </Text>
         <View className="flex-row items-center justify-between">
@@ -120,25 +136,34 @@ const FocusTimer = () => {
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeFocusDuration(false)}
           >
-            <Text className={textColor}>-</Text>
+            <Text style={{ color: colors.text.primary }}>-</Text>
           </TouchableOpacity>
-          <View className="flex-1 h-2 mx-3 rounded-full bg-gray-200 dark:bg-gray-700">
+          {/* <View className="flex-1 h-2 mx-3 rounded-full bg-gray-200 dark:bg-gray-700"> */}
+          <View
+            className="flex-1 h-2 mx-3 rounded-full"
+            style={{ backgroundColor: colors.background }}
+          >
             <View
               className="h-full rounded-full bg-primary"
               style={{ width: `${(focusDuration / 60) * 100}%` }}
             />
           </View>
           <TouchableOpacity
-            className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
+            // className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
+            className="px-4 py-2 rounded-lg"
+            style={{ backgroundColor: colors.card }}
             onPress={() => changeFocusDuration(true)}
           >
-            <Text className={textColor}>+</Text>
+            <Text style={{ color: colors.text.primary }}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
 
       <View>
-        <Text className={`text-base font-medium mb-2 ${textColor}`}>
+        <Text
+          className="text-base font-medium mb-2"
+          style={{ color: colors.text.primary }}
+        >
           Break Duration: {breakDuration} min
         </Text>
         <View className="flex-row items-center justify-between">
@@ -146,7 +171,7 @@ const FocusTimer = () => {
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeBreakDuration(false)}
           >
-            <Text className={textColor}>-</Text>
+            <Text style={{ color: colors.text.primary }}>-</Text>
           </TouchableOpacity>
           <View className="flex-1 h-2 mx-3 rounded-full bg-gray-200 dark:bg-gray-700">
             <View
@@ -158,7 +183,7 @@ const FocusTimer = () => {
             className={`px-4 py-2 rounded-lg ${isDarkMode ? 'bg-dark-card-highlight' : 'bg-light-card-highlight'}`}
             onPress={() => changeBreakDuration(true)}
           >
-            <Text className={textColor}>+</Text>
+            <Text style={{ color: colors.text.primary }}>+</Text>
           </TouchableOpacity>
         </View>
       </View>

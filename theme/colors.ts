@@ -3,10 +3,11 @@
 
 export const colorPalette = {
   // Main brand colors
-  primary: '#272932',
+  // primary: '#272932',
+  primary: '4e6e58',
   // primary: '#FFBA49',
-  // primaryLight: '#818cf8',
-  primaryLight: '#FFBA49',
+  primaryLight: '#818CF8',
+  // primaryLight: '#FFFFFF',
   primaryDark: '#D64933',
 
   // UI colors
@@ -23,6 +24,7 @@ export const colorPalette = {
   lightButtonText: '#0f172a',
 
   darkBackground: '#0f172a',
+  // darkBackground: '#000000',
   darkSurface: '#1e293b',
   darkCard: '#1e293b',
   darkCardHighlight: '#334155',

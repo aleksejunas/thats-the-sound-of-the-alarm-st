@@ -6,14 +6,12 @@ import { Clock } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ThemeDemo from '../components/ThemeDemo';
 import { getThemedColors } from '@/theme/colors';
-import { styled } from 'nativewind';
+// import { styled } from 'nativewind';
 
 export default function DashboardScreen() {
   const { isDarkMode } = useTheme();
   const insets = useSafeAreaInsets();
   const colors = getThemedColors(isDarkMode);
-
-  // const { styles } = useThemedStyles();
 
   return (
     <View

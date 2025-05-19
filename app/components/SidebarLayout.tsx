@@ -12,7 +12,8 @@ import { usePathname, router } from 'expo-router';
 import { useTheme } from '../context/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Clock, List, Timer, Moon, Sun, Menu, X } from 'lucide-react-native';
-import { useThemedStyles } from '../../lib/styleUtils';
+import { getThemedColors } from '../../theme/colors';
+// import { useThemedStyles } from '../../lib/styleUtils';
 
 interface DrawerLayoutProps {
   children: React.ReactNode;
@@ -25,9 +26,10 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const drawerAnimation = React.useRef(new Animated.Value(-280)).current;
   const screenWidth = Dimensions.get('window').width;
-  const styles = useThemedStyles();
+  // const styles = useThemedStyles();
   // Import themed colors
-  const { getThemedColors } = require('../../theme/colors');
+  // const { getThemedColors } = require('../../theme/colors');
+  // const { isDarkMode };
   const colors = getThemedColors(isDarkMode);
 
   const drawerWidth = Math.min(280, screenWidth * 0.7); // Responsive drawer width
@@ -72,11 +74,13 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   };
 
   return (
-    <View className={`flex-1 ${styles.bgColor}`}>
+    <View className="flex-1" style={{ backgroundColor: colors.background }}>
       {/* Header */}
       <View
-        className={`flex-row items-center justify-between ${styles.cardBgColor} border-b ${styles.borderColor} mt-6`}
+        className="flex-row items-center justify-between mt-6"
         style={{
+          backgroundColor: colors.card,
+          borderRightColor: colors.border,
           paddingTop: insets.top,
           paddingBottom: 12,
           paddingHorizontal: 16,
@@ -86,7 +90,10 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
           <Menu color={colors.text.primary} size={24} />
         </TouchableOpacity>
 
-        <Text className={`text-xl font-bold ${styles.textColor}`}>
+        <Text
+          className="text-xl font-bold"
+          style={{ color: colors.text.primary }}
+        >
           AlarmTracker
         </Text>
 
@@ -102,15 +109,20 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
       {/* Drawer overlay */}
       {drawerOpen && (
         <Pressable
-          className="absolute inset-0 bg-black bg-opacity-50 z-10"
+          className="absolute inset-0 z-10"
           onPress={toggleDrawer}
-          style={{ top: insets.top }}
+          style={{
+            top: insets.top,
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            position: 'absolute',
+          }}
         />
       )}
 
       {/* Drawer */}
       <Animated.View
-        className={`absolute ${styles.surfaceColor} border-r ${styles.borderColor} z-20`}
+        // className={`absolute ${styles.surfaceColor} border-r ${styles.borderColor} z-20`}
+        className="absolute  border-r  z-20"
         style={{
           width: drawerWidth,
           top: insets.top,
@@ -122,13 +134,13 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
         }}
       >
         <View
-          className={`flex-row justify-between items-center p-4 border-b ${styles.borderColor}`}
+          className="flex-row justify-between items-center p-4 border-b"
           style={{
             borderBottomColor: colors.border,
           }}
         >
           <Text
-            className={`text-lg font-bold ${styles.textColor}`}
+            className="text-lg font-bold"
             style={{ color: colors.text.primary }}
           >
             Menu
@@ -146,23 +158,28 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
               <TouchableOpacity
                 key={index}
                 className={`flex-row items-center p-4 ${
-                  isActiveRoute ? '' : ''
+                  isActiveRoute ? 'rounded.md' : ''
                 }`}
                 onPress={() => navigateTo(route.path)}
                 style={{
                   backgroundColor: isActiveRoute
-                    ? colors.primaryLight + '22'
+                    ? `${colors.primaryLight}22`
                     : undefined,
+                  marginHorizontal: isActiveRoute ? 4 : 0,
                 }}
               >
                 <IconComponent
                   size={20}
-                  color={isActiveRoute ? colors.primary : colors.text.primary}
+                  color={
+                    isActiveRoute ? colors.primaryLight : colors.text.primary
+                  }
                 />
                 <Text
                   className={`ml-3 ${isActiveRoute ? 'font-medium' : ''}`}
                   style={{
-                    color: isActiveRoute ? colors.primary : colors.text.primary,
+                    color: isActiveRoute
+                      ? colors.primaryLight
+                      : colors.text.primary,
                   }}
                 >
                   {route.label}
@@ -174,7 +191,7 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
 
         {/* Theme switch in drawer footer */}
         <TouchableOpacity
-          className={`flex-row items-center p-4 border-t ${styles.borderColor}`}
+          className="flex-row items-center p-4 border-t"
           onPress={toggleTheme}
           style={{
             borderTopColor: colors.border,
@@ -199,7 +216,9 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
       </Animated.View>
 
       {/* Main Content */}
-      <View className="flex-1">{children}</View>
+      <View className="flex-1" style={{ zIndex: 5 }}>
+        {children}
+      </View>
     </View>
   );
 }
