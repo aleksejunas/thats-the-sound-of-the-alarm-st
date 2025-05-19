@@ -179,6 +179,7 @@ export default function AlarmsScreen() {
             }}
           />
 
+          {/* Edited Alarms  */}
           <View className="flex-row flex-wrap gap-2 mb-3">
             {DAYS.map((day) => (
               <TouchableOpacity
@@ -186,7 +187,7 @@ export default function AlarmsScreen() {
                 className="px-3 py-1 rounded-full"
                 style={{
                   backgroundColor: editedAlarm.days?.includes(day)
-                    ? colors.primary
+                    ? colors.text.primary
                     : colors.button.background,
                 }}
                 onPress={() => {
@@ -201,7 +202,8 @@ export default function AlarmsScreen() {
                   className="text-xs font-semibold"
                   style={{
                     color: editedAlarm.days?.includes(day)
-                      ? '#fff'
+                      ? // ? '#fff'
+                        colors.button.background
                       : colors.text.primary,
                   }}
                 >
