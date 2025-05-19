@@ -6,6 +6,8 @@
 // TODO: [] - Option to lock down the device for 10 minutes after waking up
 // TODO: [] - Add i18n support for translations
 // TODO: [] - Move/refactor the editing of alarms to a separate file
+// TODO: [] - Add a settings screen
+// TODO: [] - Add shadow or another cue, to see which alarms are selected for deletion
 // ---- TOASTS ----
 // TODO: [x] - Add a toast notification when the alarm is set
 // TODO: [] - Add a toast notification when the alarm is deleted

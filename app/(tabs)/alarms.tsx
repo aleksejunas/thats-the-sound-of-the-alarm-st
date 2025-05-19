@@ -142,7 +142,7 @@ export default function AlarmsScreen() {
               style={{
                 color: colors.text.primary,
                 borderColor: colors.border,
-                backgroundColor: colors.card,
+                backgroundColor: colors.background,
               }}
             />
             <Switch
@@ -266,11 +266,12 @@ export default function AlarmsScreen() {
                 {item.days.map((day) => (
                   <View
                     key={day}
-                    className="bg-primary bg-opacity-20 px-2 py-0.5 rounded mr-1 mb-1"
+                    className="px-2 py-0.5 rounded mr-1 mb-1"
+                    style={{ backgroundColor: colors.background }}
                   >
                     <Text
                       className="text-xs font-medium"
-                      style={{ color: colors.primary }}
+                      style={{ color: colors.text.primary }}
                     >
                       {day}
                     </Text>
