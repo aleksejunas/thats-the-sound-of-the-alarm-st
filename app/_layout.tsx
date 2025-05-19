@@ -1,9 +1,11 @@
+// FIX:  [x] - Fix the days buttons contrast issue
 // TODO: [x] - Move the colors to a theme context from tailwind.config.js instead of having to rebuild the app every time
 // TODO: [x] - Update the alarm screen after adding a new alarm
 // TODO: [] -  Add App icon
 // TODO: [x] - Change the styling to look more like the sidetrack-slayer-app
 // TODO: [] - Option to lock down the device for 10 minutes after waking up
 // TODO: [] - Add i18n support for translations
+// TODO: [] - Move/refactor the editing of alarms to a separate file
 // ---- TOASTS ----
 // TODO: [x] - Add a toast notification when the alarm is set
 // TODO: [] - Add a toast notification when the alarm is deleted
