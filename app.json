@@ -12,17 +12,13 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.thats-the-sound-of-the-alarm.app",
       "infoPlist": {
-        "UIBackgroundModes": [
-          "audio",
-          "fetch",
-          "remote-notification"
-        ]
+        "UIBackgroundModes": ["audio", "fetch", "remote-notification"]
       }
     },
     "android": {
       "package": "com.thats_the_sound_of_the_alarm.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/images/favicon.png",
         "backgroundColor": "#000000"
       },
       "useNextNotificationsApi": true
@@ -39,6 +35,17 @@
         {
           "icon": "./assets/notification-icon.png",
           "color": "#ffffff"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#232323",
+          "dark": {
+            "image": "./assets/images/splash-icon.png",
+            "backgroundColor": "#000000"
+          },
+          "imageWidth": 200
         }
       ]
     ],
