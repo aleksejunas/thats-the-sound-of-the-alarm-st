@@ -1,3 +1,4 @@
+// TODO: [] - Add a clock component/screen
 // FIX:  [x] - Fix the days buttons contrast issue
 // TODO: [x] - Move the colors to a theme context from tailwind.config.js instead of having to rebuild the app every time
 // TODO: [x] - Update the alarm screen after adding a new alarm
@@ -23,14 +24,15 @@
 // TODO: [] - Add a notification when the alarm goes off (expo-notifications, expo-task-manager, expo-background-fetch)
 // TODO: [x] - Edit alarms
 // TODO: [x] - Add sound to the alarm
-// TDOO: [] - Block the deveice from usage for 10 minutes after the alarm goes off (in the morings only to prevent email-checking etc.(toggleable))
+// TODO: [] - Alarm sound picker
+// TODO: [] - Block the device from usage for 10 minutes after the alarm goes off (in the morings only to prevent email-checking etc.(toggleable))
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
-// TODO: [] - Convert the clock screen to tailwindcss
 // TODO: [] - Make use of the ios/android notification panel
 // TODO: [] - Add try/catch and other error handling
 // TODO: [] - Personalize the styling
-// TODO: [] - Dark/Light mode
+// TODO: [x] - Dark/Light mode
 // TODO: [] - Add SQLite database to store Alarms
+// TODO: [] - Make the app go fullscreen and front when the alarm goes off
 // TODO: [] - Add a snooze feature
 // TODO: [] - Add a stop feature
 // TODO: [] - Add a vibration feature

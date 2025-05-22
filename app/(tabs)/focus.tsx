@@ -5,7 +5,7 @@ import FocusTimer from '../components/FocusTimer';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getThemedColors } from '../../theme/colors';
 
-export default function FocusScreen() {
+const FocusScreen = () => {
   const { isDarkMode } = useTheme();
   const insets = useSafeAreaInsets();
   const colors = getThemedColors(isDarkMode);
@@ -51,4 +51,6 @@ export default function FocusScreen() {
       </ScrollView>
     </View>
   );
-}
+};
+
+export default FocusScreen;
