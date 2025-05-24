@@ -1,13 +1,18 @@
-// TODO: [] - Add a clock component/screen
+// TODO: [] - Have a bottom tab bar for mobile and a sidebar for desktop???
+// TODO: [x] - Add a clock component/screen
+// TODO: [] - Move the main clock tab to the top and rename it to clock
+// TODO: [] - Add a what is the first alarm that goes off
+// TODO: [] - Add a shake to snooze functionality
+// TODO: [] - Add onboarding
 // FIX:  [x] - Fix the days buttons contrast issue
 // TODO: [x] - Move the colors to a theme context from tailwind.config.js instead of having to rebuild the app every time
 // TODO: [x] - Update the alarm screen after adding a new alarm
 // TODO: [] -  Add App icon
 // TODO: [x] - Change the styling to look more like the sidetrack-slayer-app
-// TODO: [] - Option to lock down the device for 10 minutes after waking up
+// TODO: [] - Option to lock down the device for 10 minutes after waking up (ask in onboarding?)
 // TODO: [] - Add i18n support for translations
 // TODO: [] - Move/refactor the editing of alarms to a separate file
-// TODO: [] - Add a settings screen
+// TODO: [] - Add a settings screen/modal
 // TODO: [] - Add shadow or another cue, to see which alarms are selected for deletion
 // ---- TOASTS ----
 // TODO: [x] - Add a toast notification when the alarm is set
@@ -45,7 +50,19 @@
 // TODO: [] - Add a time picker
 // TODO: [] - Add a frequently used alarms section(or a favorites section)
 // TODO: [] - Color themes
-
+//
+// ****** UNIVERSAL UTFORMING *****
+// TODO: Sørg for at alle interaktive elementer har accessibilityLabel
+// TODO: Legg til accessibilityHint for elementer med ikke-åpenbar funksjon
+// TODO: Bruk accessibilityRole for semantiske komponenter
+// TODO: Marker grupper som accessible={true} hvis nødvendig
+// TODO: Test appflyt med skjermleser aktivert (TalkBack / VoiceOver)
+// TODO: Legg til støtte for TTS (expo-speech) ved alarm
+// TODO: Unngå å bruke kun farger eller ikoner for viktig informasjon
+// TODO: Sørg for at tekstskala fungerer – test med store fonter i OS
+// TODO: Unngå hardkodet tekst i bilder eller ikoner
+// TODO: Kommenter tilgjengelighetsforbedringer med // @accessibility
+//
 // **** OPTIONAL TODOS ****
 // TODO: [] - Add recurring alarms (e.g., weekdays, weekends)
 // TODO: [] - Add multiple alarm profiles (e.g., workday alarm, weekend alarm)

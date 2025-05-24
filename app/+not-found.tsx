@@ -12,7 +12,7 @@ export default function NotFoundScreen() {
       <Stack.Screen options={{ title: 'Oops!' }} />
       <View
         className="flex-1 items-center justify-center p-5"
-        style={[styles.container, { backgroundColor: colors.background }]}
+        style={{ backgroundColor: colors.background }}
       >
         <Text
           className="text-xl font-bold"
