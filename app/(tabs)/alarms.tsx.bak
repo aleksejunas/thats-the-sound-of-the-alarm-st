@@ -236,7 +236,7 @@ export default function AlarmsScreen() {
       );
     } else {
       return (
-        // {/* TODO: [] - Add shadow or another cue, to see which alarms are selected for deletion */}
+              {/* TODO: [] - Add shadow or another cue, to see which alarms are selected for deletion */}
         <TouchableOpacity
           className="flex-row items-center p-4 border rounded-lg mb-3"
           style={{
@@ -356,6 +356,7 @@ export default function AlarmsScreen() {
               className="bg-error px-3 py-2 rounded-lg flex-row items-center"
               onPress={handleDeleteSelected}
             >
+
               <Trash2 color="#ffffff" size={16} />
               <Text className="text-white font-semibold ml-1">
                 Delete ({selectedAlarms.length})

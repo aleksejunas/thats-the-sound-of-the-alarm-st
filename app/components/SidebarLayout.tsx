@@ -57,9 +57,9 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   };
 
   const routes = [
+    { icon: Clock, label: 'Clock', path: '/main-clock' },
     { icon: Clock, label: 'Alarms', path: '/alarms' },
     { icon: Timer, label: 'Focus Timer', path: '/focus' },
-    { icon: Clock, label: 'Main Clock', path: '/main-clock' },
     { icon: List, label: 'Dashboard', path: '/' },
   ];
 
