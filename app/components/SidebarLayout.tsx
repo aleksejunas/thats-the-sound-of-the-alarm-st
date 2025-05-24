@@ -59,6 +59,7 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   const routes = [
     { icon: Clock, label: 'Alarms', path: '/alarms' },
     { icon: Timer, label: 'Focus Timer', path: '/focus' },
+    { icon: Clock, label: 'Main Clock', path: '/main-clock' },
     { icon: List, label: 'Dashboard', path: '/' },
   ];
 
@@ -67,6 +68,10 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
       router.push('/alarms' as any);
     } else if (path === '/focus') {
       router.push('/focus' as any);
+    } else if (path === '/main-clock') {
+      router.push('/main-clock' as any);
+    } else if (path === '/dashboard') {
+      router.push('/dashboard' as any);
     } else if (path === '/') {
       router.push('/' as any);
     }
