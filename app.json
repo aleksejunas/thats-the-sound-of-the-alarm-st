@@ -20,8 +20,7 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/favicon.png",
         "backgroundColor": "#000000"
-      },
-      "useNextNotificationsApi": true
+      }
     },
     "web": {
       "bundler": "metro",
@@ -47,7 +46,8 @@
           },
           "imageWidth": 200
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true

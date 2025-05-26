@@ -35,7 +35,6 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="myapp"/>
         <data android:scheme="com.thats_the_sound_of_the_alarm.app"/>
-        <data android:scheme="exp+thats-the-sound-of-the-alarm"/>
       </intent-filter>
     </activity>
   </application>

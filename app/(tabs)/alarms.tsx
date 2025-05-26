@@ -9,7 +9,14 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
-import { Plus, Trash2, Clock, CheckSquare, Edit } from 'lucide-react-native';
+import {
+  Plus,
+  Trash2,
+  Clock,
+  CheckSquare,
+  Edit,
+  WindArrowDown,
+} from 'lucide-react-native';
 import { Link } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useAlarms } from '../context/AlarmsContext';
@@ -237,8 +244,27 @@ export default function AlarmsScreen() {
         <TouchableOpacity
           className="flex-row items-center p-4 border rounded-lg mb-3"
           style={{
-            backgroundColor: item.enabled ? colors.card : colors.cardHighlight,
-            borderColor: colors.border,
+            backgroundColor: selectedAlarms.includes(item.id)
+              ? colors.cardHighlight
+              : item.enabled
+                ? colors.card
+                : colors.cardHighlight,
+            borderColor: selectedAlarms.includes(item.id)
+              ? colors.primary
+              : colors.border,
+            borderWidth: selectedAlarms.includes(item.id) ? 2 : 1,
+            shadowColor: selectedAlarms.includes(item.id)
+              ? colors.primary
+              : '#000',
+            shadowOffset: selectedAlarms.includes(item.id)
+              ? { width: 0, height: 4 }
+              : { width: 0, height: 2 },
+            shadowOpacity: selectedAlarms.includes(item.id) ? 0.3 : 0.1,
+            shadowRadius: selectedAlarms.includes(item.id) ? 8 : 2,
+            elevation: selectedAlarms.includes(item.id) ? 8 : 2,
+            transform: selectedAlarms.includes(item.id)
+              ? [{ scale: 0.97 }]
+              : [],
           }}
           onLongPress={() => toggleAlarmSelection(item.id)}
           onPress={() =>
