@@ -2,8 +2,10 @@
 // Color palette definitions that can be used across the app
 
 export const colorPalette = {
+  white: '#ffffff',
   // Main brand colors
   // primary: '#272932',
+  primaryWhite: '#ffffff',
   primary: '4e6e58',
   // primary: '#FFBA49',
   primaryLight: '#818CF8',
@@ -83,6 +85,8 @@ export const getThemedColors = (isDarkMode: boolean) => {
       primary: isDarkMode
         ? colorPalette.darkTextPrimary
         : colorPalette.lightTextPrimary,
+      info: colorPalette.info,
+      white: colorPalette.white,
       focusTips: isDarkMode
         ? colorPalette.darkTextFocusTips
         : colorPalette.lightTextFocusTips,

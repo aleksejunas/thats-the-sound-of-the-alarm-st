@@ -163,7 +163,8 @@ export default function AlarmsScreen() {
               }}
               thumbColor={
                 editedAlarm.enabled
-                  ? '#ffffff'
+                  ? // TODO: use colors variables
+                    '#ffffff'
                   : isDarkMode
                     ? colors.surface
                     : '#ffffff'

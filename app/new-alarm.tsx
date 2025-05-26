@@ -12,6 +12,8 @@ import { ChevronLeft, Clock, Calendar, Save } from 'lucide-react-native';
 import { useAlarms } from './context/AlarmsContext';
 import { useTheme } from './context/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import TimePicker from './components/TimePicker';
+import { getThemedColors } from '@/theme/colors';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -31,6 +33,7 @@ export default function NewAlarmScreen() {
   const { createAlarm } = useAlarms();
   const { isDarkMode } = useTheme();
   const insets = useSafeAreaInsets();
+  const colors = getThemedColors(isDarkMode);
 
   // Theme-based styles
   const textColor = isDarkMode
@@ -105,36 +108,59 @@ export default function NewAlarmScreen() {
   };
 
   return (
-    <View className={`flex-1 ${bgColor}`} style={{ paddingTop: insets.top }}>
+    <View
+      className="flex-1"
+      style={{ paddingTop: insets.top, backgroundColor: colors.background }}
+    >
       <View
-        className={`flex-row items-center justify-between p-4 border-b ${borderColor}`}
+        className="flex-row items-center justify-between p-4 border-b"
+        style={{ borderBlockColor: colors.border }}
       >
         <TouchableOpacity className="p-2" onPress={() => router.back()}>
           <ChevronLeft color={isDarkMode ? '#cbd5e1' : '#64748b'} size={24} />
         </TouchableOpacity>
-        <Text className={`text-xl font-bold ${textColor}`}>New Alarm</Text>
+        <Text
+          className="text-3xl font-bold"
+          style={{ color: colors.text.primary }}
+        >
+          New Alarm
+        </Text>
         <TouchableOpacity
           className={`p-2 ${isSaving ? 'opacity-50' : ''}`}
           onPress={saveAlarm}
           disabled={isSaving}
         >
-          <Save color="#4f46e5" size={24} />
+          <Save
+            style={{ backgroundColor: colors.background }}
+            // color="#4f46e5"
+            color="#818CF8"
+            size={28}
+          />
         </TouchableOpacity>
       </View>
 
       <ScrollView className="flex-1 p-4">
         <View
-          className={`p-6 mb-4 rounded-lg border ${borderColor} ${cardBgColor}`}
+          className="p-6 mb-4 rounded-lg border"
+          style={{ borderColor: colors.border, backgroundColor: colors.card }}
         >
           <View className="flex-row items-center mb-4">
             <Clock size={20} color={isDarkMode ? '#cbd5e1' : '#64748b'} />
-            <Text className={`ml-2 text-lg font-medium ${textColor}`}>
+            <Text
+              className="ml-2 text-lg font-medium"
+              style={{ color: colors.text.primary }}
+            >
               Time
             </Text>
           </View>
-
+          <TimePicker
+            time={time}
+            onTimeChange={setTime}
+            isdarkMode={isDarkMode}
+          />
           <TextInput
-            className={`text-5xl font-bold ${textColor} text-center p-4`}
+            className="text-5xl font-bold text-center p-4"
+            style={{ color: colors.text.primary }}
             value={time}
             onChangeText={setTime}
             placeholder="07:00"
@@ -144,11 +170,18 @@ export default function NewAlarmScreen() {
         </View>
 
         <View
-          className={`p-6 mb-4 rounded-lg border ${borderColor} ${cardBgColor}`}
+          className="p-6 mb-4 rounded-lg border"
+          style={{ borderColor: colors.border, backgroundColor: colors.card }}
         >
-          <Text className={`mb-2 text-lg font-medium ${textColor}`}>Label</Text>
+          <Text
+            className="mb-2 text-lg font-medium"
+            style={{ color: colors.text.primary }}
+          >
+            Label
+          </Text>
           <TextInput
-            className={`border-b ${borderColor} pb-2 ${textColor}`}
+            className="border-b pb-2"
+            style={{ color: colors.text.primary }}
             value={label}
             onChangeText={setLabel}
             placeholder="Alarm label"
@@ -156,35 +189,75 @@ export default function NewAlarmScreen() {
           />
         </View>
 
-        <View className={`p-6 rounded-lg border ${borderColor} ${cardBgColor}`}>
+        <View
+          className="p-6 rounded-lg border"
+          style={{ borderColor: colors.border, backgroundColor: colors.card }}
+        >
           <View className="flex-row items-center mb-4">
             <Calendar size={20} color={isDarkMode ? '#cbd5e1' : '#64748b'} />
-            <Text className={`ml-2 text-lg font-medium ${textColor}`}>
+            <Text
+              className="ml-2 text-lg font-medium"
+              style={{ color: colors.text.primary }}
+            >
               Repeat on Days
             </Text>
           </View>
+
+          {/* <View className="flex-row flex-wrap justify-between"> */}
+          {/*   {DAYS.map((day) => ( */}
+          {/*     <TouchableOpacity */}
+          {/*       key={day} */}
+          {/*       className="mb-3 h-12 w-12 rounded-lg items-center justify-center" */}
+          {/*       style={{ */}
+          {/*         backgroundColor: selectedDays.includes(day) */}
+          {/*           ? colors.primaryLight */}
+          {/*           : colors.cardHighlight, */}
+          {/*       }} */}
+          {/*       onPress={() => toggleDay(day)} */}
+          {/*     > */}
+          {/*       <Text */}
+          {/*         className="text-sm font-medium p-4 rounded-full" */}
+          {/*         style={{ */}
+          {/*           // TODO: Make text color white or black based on background */}
+          {/*           color: selectedDays.includes(day) */}
+          {/*             ? isDarkMode */}
+          {/*               ? colors.text.primary */}
+          {/*               : colors.text.white */}
+          {/*             : isDarkMode */}
+          {/*               ? colors.text.white */}
+          {/*               : colors.text.primary, */}
+          {/*         }} */}
+          {/*       > */}
+          {/*         {day} */}
+          {/*       </Text> */}
+          {/*     </TouchableOpacity> */}
+          {/*   ))} */}
+          {/* </View> */}
 
           <View className="flex-row flex-wrap justify-between">
             {DAYS.map((day) => (
               <TouchableOpacity
                 key={day}
-                className={`mb-3 w-12 h-12 rounded-full items-center justify-center ${
-                  selectedDays.includes(day)
-                    ? 'bg-primary'
-                    : isDarkMode
-                      ? 'bg-dark-card-highlight'
-                      : 'bg-light-card-highlight'
-                }`}
+                className="mb-3 h-12 w-12 rounded-lg items-center justify-center"
+                style={{
+                  backgroundColor: selectedDays.includes(day)
+                    ? colors.primaryLight
+                    : colors.cardHighlight,
+                }}
                 onPress={() => toggleDay(day)}
               >
                 <Text
-                  className={`text-sm font-medium ${
-                    selectedDays.includes(day)
-                      ? 'text-white'
+                  className="text-sm font-medium p-4 rounded-full"
+                  style={{
+                    // TODO: Make text color white or black based on background
+                    color: selectedDays.includes(day)
+                      ? isDarkMode
+                        ? colors.text.primary
+                        : colors.text.white
                       : isDarkMode
-                        ? 'text-dark-text-primary'
-                        : 'text-light-text-primary'
-                  }`}
+                        ? colors.text.white
+                        : colors.text.primary,
+                  }}
                 >
                   {day}
                 </Text>
@@ -192,7 +265,10 @@ export default function NewAlarmScreen() {
             ))}
           </View>
 
-          <Text className={`mt-2 text-center ${secondaryTextColor}`}>
+          <Text
+            className="mt-2 text-center"
+            style={{ color: colors.text.secondary }}
+          >
             {selectedDays.length === 0
               ? 'Alarm will ring only once'
               : selectedDays.length === 7
