@@ -13,6 +13,7 @@ import { useAlarms } from './context/AlarmsContext';
 import { useTheme } from './context/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TimePicker from './components/TimePicker';
+import ReactNativeDatePicker from './components/ReactNativeDatePicker';
 import { getThemedColors } from '@/theme/colors';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -30,21 +31,22 @@ export default function NewAlarmScreen() {
   const [label, setLabel] = useState('');
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
   const [isSaving, setIsSaving] = useState(false);
+  const [state, setState] = useState('idle');
   const { createAlarm } = useAlarms();
   const { isDarkMode } = useTheme();
   const insets = useSafeAreaInsets();
   const colors = getThemedColors(isDarkMode);
 
   // Theme-based styles
-  const textColor = isDarkMode
-    ? 'text-dark-text-primary'
-    : 'text-light-text-primary';
-  const secondaryTextColor = isDarkMode
-    ? 'text-dark-text-secondary'
-    : 'text-light-text-secondary';
-  const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
-  const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
-  const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
+  // const textColor = isDarkMode
+  //   ? 'text-dark-text-primary'
+  //   : 'text-light-text-primary';
+  // const secondaryTextColor = isDarkMode
+  //   ? 'text-dark-text-secondary'
+  //   : 'text-light-text-secondary';
+  // const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
+  // const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
+  // const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
 
   const toggleDay = (day: string) => {
     setSelectedDays((current) =>
@@ -112,6 +114,7 @@ export default function NewAlarmScreen() {
       className="flex-1"
       style={{ paddingTop: insets.top, backgroundColor: colors.background }}
     >
+      <ReactNativeDatePicker onStateChange={setState} />
       <View
         className="flex-row items-center justify-between p-4 border-b"
         style={{ borderBlockColor: colors.border }}
@@ -153,20 +156,20 @@ export default function NewAlarmScreen() {
               Time
             </Text>
           </View>
-          <TimePicker
-            time={time}
-            onTimeChange={setTime}
-            isdarkMode={isDarkMode}
-          />
-          <TextInput
-            className="text-5xl font-bold text-center p-4"
-            style={{ color: colors.text.primary }}
-            value={time}
-            onChangeText={setTime}
-            placeholder="07:00"
-            placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'}
-            keyboardType="numbers-and-punctuation"
-          />
+          {/*   <TimePicker */}
+          {/*     time={time} */}
+          {/*     onTimeChange={setTime} */}
+          {/*     isdarkMode={isDarkMode} */}
+          {/*   /> */}
+          {/*   <TextInput */}
+          {/*     className="text-5xl font-bold text-center p-4" */}
+          {/*     style={{ color: colors.text.primary }} */}
+          {/*     value={time} */}
+          {/*     onChangeText={setTime} */}
+          {/*     placeholder="07:00" */}
+          {/*     placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'} */}
+          {/*     keyboardType="numbers-and-punctuation" */}
+          {/*   /> */}
         </View>
 
         <View

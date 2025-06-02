@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker, {
+  DateTimePickerAndroid,
+} from '@react-native-community/datetimepicker';
 import { getThemedColors } from '@/theme/colors';
+import { AndroidNotificationPriority } from 'expo-notifications';
 
 interface TimePickerProps {
   time: string;
@@ -16,6 +19,23 @@ const TimePicker: React.FC<TimePickerProps> = ({
 }) => {
   const [showPicker, setShowPicker] = useState(false);
   const colors = getThemedColors(isdarkMode);
+
+  // DateTimePickerAndroid.open = (options) => {
+  //   const { mode, value, is24Hour, display, onChange } = options;
+  //   DateTimePickerAndroid.open({
+  //     mode,
+  //     value: new Date(`1970-01-01T${value};00`),
+  //     is24Hour,
+  //     display,
+  //     onChange: (_, selectedDate) => {
+  //       if (selectedDate) {
+  //         const hours = selectedDate.getHours().toString().padStart(2, '0');
+  //         const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
+  //         onChange(_, `${hours}:${minutes}`);
+  //       }
+  //     },
+  //   });
+  // };
 
   return (
     <>

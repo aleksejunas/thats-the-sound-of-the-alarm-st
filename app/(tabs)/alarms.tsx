@@ -8,6 +8,7 @@ import {
   Switch,
   ActivityIndicator,
   Alert,
+  ScrollView,
 } from 'react-native';
 import {
   Plus,
@@ -125,120 +126,124 @@ export default function AlarmsScreen() {
     );
   }
 
+  // TODO: Add a scroll view to handle long lists
+
   // Helper function to render an alarm item
   const renderAlarmItem = ({ item }: { item: Alarm }) => {
     if (editingAlarmId === item.id) {
       return (
-        <View
-          className="p-4 border rounded-lg mb-3"
-          style={{
-            backgroundColor: colors.card,
-            borderColor: colors.border,
-          }}
-        >
-          <View className="flex-row items-center justify-between mb-3">
+        <ScrollView>
+          <View
+            className="p-4 border rounded-lg mb-3"
+            style={{
+              backgroundColor: colors.card,
+              borderColor: colors.border,
+            }}
+          >
+            <View className="flex-row items-center justify-between mb-3">
+              <TextInput
+                className="text-2xl font-bold bg-opacity-10 border rounded p-2 flex-1 mr-2"
+                value={editedAlarm.time as string}
+                onChangeText={(text) =>
+                  setEditedAlarm({ ...editedAlarm, time: text })
+                }
+                keyboardType="numbers-and-punctuation"
+                placeholder="HH:MM"
+                placeholderTextColor={colors.text.muted}
+                style={{
+                  color: colors.text.primary,
+                  borderColor: colors.border,
+                  backgroundColor: colors.background,
+                }}
+              />
+              <Switch
+                value={editedAlarm.enabled}
+                onValueChange={(value) =>
+                  setEditedAlarm({ ...editedAlarm, enabled: value })
+                }
+                trackColor={{
+                  false: colors.border,
+                  true: colors.primary,
+                }}
+                thumbColor={
+                  editedAlarm.enabled
+                    ? // TODO: use colors variables
+                      '#ffffff'
+                    : isDarkMode
+                      ? colors.surface
+                      : '#ffffff'
+                }
+              />
+            </View>
+
             <TextInput
-              className="text-2xl font-bold bg-opacity-10 border rounded p-2 flex-1 mr-2"
-              value={editedAlarm.time as string}
+              className="border rounded p-2 mb-3"
+              value={editedAlarm.label as string}
               onChangeText={(text) =>
-                setEditedAlarm({ ...editedAlarm, time: text })
+                setEditedAlarm({ ...editedAlarm, label: text })
               }
-              keyboardType="numbers-and-punctuation"
-              placeholder="HH:MM"
+              placeholder="Alarm label"
               placeholderTextColor={colors.text.muted}
               style={{
-                color: colors.text.primary,
+                color: colors.text.secondary,
                 borderColor: colors.border,
-                backgroundColor: colors.background,
+                backgroundColor: colors.card,
               }}
             />
-            <Switch
-              value={editedAlarm.enabled}
-              onValueChange={(value) =>
-                setEditedAlarm({ ...editedAlarm, enabled: value })
-              }
-              trackColor={{
-                false: colors.border,
-                true: colors.primary,
-              }}
-              thumbColor={
-                editedAlarm.enabled
-                  ? // TODO: use colors variables
-                    '#ffffff'
-                  : isDarkMode
-                    ? colors.surface
-                    : '#ffffff'
-              }
-            />
-          </View>
 
-          <TextInput
-            className="border rounded p-2 mb-3"
-            value={editedAlarm.label as string}
-            onChangeText={(text) =>
-              setEditedAlarm({ ...editedAlarm, label: text })
-            }
-            placeholder="Alarm label"
-            placeholderTextColor={colors.text.muted}
-            style={{
-              color: colors.text.secondary,
-              borderColor: colors.border,
-              backgroundColor: colors.card,
-            }}
-          />
-
-          {/* Edited Alarms  */}
-          <View className="flex-row flex-wrap gap-2 mb-3">
-            {DAYS.map((day) => (
-              <TouchableOpacity
-                key={day}
-                className="px-3 py-1 rounded-full"
-                style={{
-                  backgroundColor: editedAlarm.days?.includes(day)
-                    ? colors.text.primary
-                    : colors.button.background,
-                }}
-                onPress={() => {
-                  const currentDays = editedAlarm.days || [];
-                  const newDays = currentDays.includes(day)
-                    ? currentDays.filter((d) => d !== day)
-                    : [...currentDays, day];
-                  setEditedAlarm({ ...editedAlarm, days: newDays });
-                }}
-              >
-                <Text
-                  className="text-xs font-semibold"
+            {/* Edited Alarms  */}
+            <View className="flex-row flex-wrap gap-2 mb-3">
+              {DAYS.map((day) => (
+                <TouchableOpacity
+                  key={day}
+                  className="px-3 py-1 rounded-full"
                   style={{
-                    color: editedAlarm.days?.includes(day)
-                      ? // ? '#fff'
-                        colors.button.background
-                      : colors.text.primary,
+                    backgroundColor: editedAlarm.days?.includes(day)
+                      ? colors.text.primary
+                      : colors.button.background,
+                  }}
+                  onPress={() => {
+                    const currentDays = editedAlarm.days || [];
+                    const newDays = currentDays.includes(day)
+                      ? currentDays.filter((d) => d !== day)
+                      : [...currentDays, day];
+                    setEditedAlarm({ ...editedAlarm, days: newDays });
                   }}
                 >
-                  {day}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+                  <Text
+                    className="text-xs font-semibold"
+                    style={{
+                      color: editedAlarm.days?.includes(day)
+                        ? // ? '#fff'
+                          colors.button.background
+                        : colors.text.primary,
+                    }}
+                  >
+                    {day}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
 
-          <View className="flex-row justify-end gap-2">
-            <TouchableOpacity
-              className="bg-gray-500 px-4 py-2 rounded-lg"
-              onPress={() => {
-                setEditingAlarmId(null);
-                setEditedAlarm({});
-              }}
-            >
-              <Text className="text-white font-semibold">Cancel</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              className="bg-primary px-4 py-2 rounded-lg"
-              onPress={handleSaveEditedAlarm}
-            >
-              <Text className="text-white font-semibold">Save</Text>
-            </TouchableOpacity>
+            <View className="flex-row justify-end gap-2">
+              <TouchableOpacity
+                className="bg-gray-500 px-4 py-2 rounded-lg"
+                onPress={() => {
+                  setEditingAlarmId(null);
+                  setEditedAlarm({});
+                }}
+              >
+                <Text className="text-white font-semibold">Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                className="bg-primary px-4 py-2 rounded-lg"
+                onPress={handleSaveEditedAlarm}
+              >
+                <Text className="text-white font-semibold">Save</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       );
     } else {
       return (

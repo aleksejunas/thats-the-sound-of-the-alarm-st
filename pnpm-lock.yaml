@@ -95,6 +95,9 @@ importers:
       react-native:
         specifier: 0.76.9
         version: 0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1)
+      react-native-date-picker:
+        specifier: ^5.0.12
+        version: 5.0.12(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1))(react@18.3.1)
       react-native-gesture-handler:
         specifier: ^2.20.2
         version: 2.20.2(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1))(react@18.3.1)
@@ -3712,6 +3715,12 @@ packages:
         optional: true
       react-native-svg:
         optional: true
+
+  react-native-date-picker@5.0.12:
+    resolution: {integrity: sha512-R/mUnCKhcuxbhKPFwYdBQCxQt9HHLqpM4ruRUqlcBjiUZ3N2wdnwOMyc888Ps8qp8e7v29PrDHtUlG8LPuFn9w==}
+    peerDependencies:
+      react: '>= 17.0.1'
+      react-native: '>= 0.64.3'
 
   react-native-gesture-handler@2.20.2:
     resolution: {integrity: sha512-HqzFpFczV4qCnwKlvSAvpzEXisL+Z9fsR08YV5LfJDkzuArMhBu2sOoSPUF/K62PCoAb+ObGlTC83TKHfUd0vg==}
@@ -8883,6 +8892,11 @@ snapshots:
       react-native-svg: 15.8.0(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - supports-color
+
+  react-native-date-picker@5.0.12(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-native: 0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1)
 
   react-native-gesture-handler@2.20.2(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@react-native-community/cli@18.0.0(typescript@5.3.3))(@types/react@18.3.22)(react@18.3.1))(react@18.3.1):
     dependencies:
