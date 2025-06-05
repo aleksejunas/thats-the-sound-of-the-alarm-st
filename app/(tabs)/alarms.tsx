@@ -8,7 +8,6 @@ import {
   Switch,
   ActivityIndicator,
   Alert,
-  ScrollView,
 } from 'react-native';
 import {
   Plus,
@@ -126,124 +125,120 @@ export default function AlarmsScreen() {
     );
   }
 
-  // TODO: Add a scroll view to handle long lists
-
   // Helper function to render an alarm item
   const renderAlarmItem = ({ item }: { item: Alarm }) => {
     if (editingAlarmId === item.id) {
       return (
-        <ScrollView>
-          <View
-            className="p-4 border rounded-lg mb-3"
-            style={{
-              backgroundColor: colors.card,
-              borderColor: colors.border,
-            }}
-          >
-            <View className="flex-row items-center justify-between mb-3">
-              <TextInput
-                className="text-2xl font-bold bg-opacity-10 border rounded p-2 flex-1 mr-2"
-                value={editedAlarm.time as string}
-                onChangeText={(text) =>
-                  setEditedAlarm({ ...editedAlarm, time: text })
-                }
-                keyboardType="numbers-and-punctuation"
-                placeholder="HH:MM"
-                placeholderTextColor={colors.text.muted}
-                style={{
-                  color: colors.text.primary,
-                  borderColor: colors.border,
-                  backgroundColor: colors.background,
-                }}
-              />
-              <Switch
-                value={editedAlarm.enabled}
-                onValueChange={(value) =>
-                  setEditedAlarm({ ...editedAlarm, enabled: value })
-                }
-                trackColor={{
-                  false: colors.border,
-                  true: colors.primary,
-                }}
-                thumbColor={
-                  editedAlarm.enabled
-                    ? // TODO: use colors variables
-                      '#ffffff'
-                    : isDarkMode
-                      ? colors.surface
-                      : '#ffffff'
-                }
-              />
-            </View>
-
+        <View
+          className="p-4 border rounded-lg mb-3"
+          style={{
+            backgroundColor: colors.card,
+            borderColor: colors.border,
+          }}
+        >
+          <View className="flex-row items-center justify-between mb-3">
             <TextInput
-              className="border rounded p-2 mb-3"
-              value={editedAlarm.label as string}
+              className="text-2xl font-bold bg-opacity-10 border rounded p-2 flex-1 mr-2"
+              value={editedAlarm.time as string}
               onChangeText={(text) =>
-                setEditedAlarm({ ...editedAlarm, label: text })
+                setEditedAlarm({ ...editedAlarm, time: text })
               }
-              placeholder="Alarm label"
+              keyboardType="numbers-and-punctuation"
+              placeholder="HH:MM"
               placeholderTextColor={colors.text.muted}
               style={{
-                color: colors.text.secondary,
+                color: colors.text.primary,
                 borderColor: colors.border,
-                backgroundColor: colors.card,
+                backgroundColor: colors.background,
               }}
             />
+            <Switch
+              value={editedAlarm.enabled}
+              onValueChange={(value) =>
+                setEditedAlarm({ ...editedAlarm, enabled: value })
+              }
+              trackColor={{
+                false: colors.border,
+                true: colors.primary,
+              }}
+              thumbColor={
+                editedAlarm.enabled
+                  ? // TODO: use colors variables
+                    '#ffffff'
+                  : isDarkMode
+                    ? colors.surface
+                    : '#ffffff'
+              }
+            />
+          </View>
 
-            {/* Edited Alarms  */}
-            <View className="flex-row flex-wrap gap-2 mb-3">
-              {DAYS.map((day) => (
-                <TouchableOpacity
-                  key={day}
-                  className="px-3 py-1 rounded-full"
-                  style={{
-                    backgroundColor: editedAlarm.days?.includes(day)
-                      ? colors.text.primary
-                      : colors.button.background,
-                  }}
-                  onPress={() => {
-                    const currentDays = editedAlarm.days || [];
-                    const newDays = currentDays.includes(day)
-                      ? currentDays.filter((d) => d !== day)
-                      : [...currentDays, day];
-                    setEditedAlarm({ ...editedAlarm, days: newDays });
-                  }}
-                >
-                  <Text
-                    className="text-xs font-semibold"
-                    style={{
-                      color: editedAlarm.days?.includes(day)
-                        ? // ? '#fff'
-                          colors.button.background
-                        : colors.text.primary,
-                    }}
-                  >
-                    {day}
-                  </Text>
-                </TouchableOpacity>
-              ))}
-            </View>
+          <TextInput
+            className="border rounded p-2 mb-3"
+            value={editedAlarm.label as string}
+            onChangeText={(text) =>
+              setEditedAlarm({ ...editedAlarm, label: text })
+            }
+            placeholder="Alarm label"
+            placeholderTextColor={colors.text.muted}
+            style={{
+              color: colors.text.secondary,
+              borderColor: colors.border,
+              backgroundColor: colors.card,
+            }}
+          />
 
-            <View className="flex-row justify-end gap-2">
+          {/* Edited Alarms  */}
+          <View className="flex-row flex-wrap gap-2 mb-3">
+            {DAYS.map((day) => (
               <TouchableOpacity
-                className="bg-gray-500 px-4 py-2 rounded-lg"
+                key={day}
+                className="px-3 py-1 rounded-full"
+                style={{
+                  backgroundColor: editedAlarm.days?.includes(day)
+                    ? colors.text.primary
+                    : colors.button.background,
+                }}
                 onPress={() => {
-                  setEditingAlarmId(null);
-                  setEditedAlarm({});
+                  const currentDays = editedAlarm.days || [];
+                  const newDays = currentDays.includes(day)
+                    ? currentDays.filter((d) => d !== day)
+                    : [...currentDays, day];
+                  setEditedAlarm({ ...editedAlarm, days: newDays });
                 }}
               >
-                <Text className="text-white font-semibold">Cancel</Text>
+                <Text
+                  className="text-xs font-semibold"
+                  style={{
+                    color: editedAlarm.days?.includes(day)
+                      ? // ? '#fff'
+                        colors.button.background
+                      : colors.text.primary,
+                  }}
+                >
+                  {day}
+                </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                className="bg-primary px-4 py-2 rounded-lg"
-                onPress={handleSaveEditedAlarm}
-              >
-                <Text className="text-white font-semibold">Save</Text>
-              </TouchableOpacity>
-            </View>
+            ))}
           </View>
-        </ScrollView>
+
+          <View className="flex-row justify-end gap-2">
+            <TouchableOpacity
+              className="bg-gray-500 px-4 py-2 rounded-lg"
+              onPress={() => {
+                setEditingAlarmId(null);
+                setEditedAlarm({});
+              }}
+            >
+              <Text className="text-white font-semibold">Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="bg-primary px-4 py-2 rounded-lg"
+              onPress={handleSaveEditedAlarm}
+            >
+              <Text className="text-white font-semibold">Save</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       );
     } else {
       return (
@@ -380,51 +375,53 @@ export default function AlarmsScreen() {
           )}
         </View>
 
-        {priorityAlarms.length > 0 && (
-          <View className="mb-4">
-            <View className="flex-row items-center mb-2">
-              <Clock size={16} color={colors.text.muted} />
+        <FlatList
+          data={[...priorityAlarms, ...otherAlarms]}
+          keyExtractor={(item) => item.id}
+          renderItem={renderAlarmItem}
+          ListHeaderComponent={
+            <>
+              {priorityAlarms.length > 0 && (
+                <View className="mb-4">
+                  <View className="flex-row items-center mb-2">
+                    <Clock size={16} color={colors.text.muted} />
+                    <Text
+                      className="ml-2 font-medium"
+                      style={{ color: colors.text.primary }}
+                    >
+                      Active Alarms
+                    </Text>
+                  </View>
+                </View>
+              )}
+              {otherAlarms.length > 0 && (
+                <View>
+                  <View className="flex-row items-center mb-2">
+                    <Clock size={16} color={colors.text.muted} />
+                    <Text
+                      className="ml-2 font-medium"
+                      style={{ color: colors.text.primary }}
+                    >
+                      Inactive Alarms
+                    </Text>
+                  </View>
+                </View>
+              )}
+            </>
+          }
+          ListEmptyComponent={
+            <View className="flex-1 items-center justify-center py-10">
+              <Clock size={48} color={colors.cardHighlight} />
               <Text
-                className="ml-2 font-medium"
-                style={{ color: colors.text.primary }}
+                className="mt-4 text-center text-lg"
+                style={{ color: colors.text.secondary }}
               >
-                Active Alarms
+                No alarms found. Tap the + button to create a new alarm.
               </Text>
             </View>
-            {priorityAlarms.map((alarm) => (
-              <View key={alarm.id}>{renderAlarmItem({ item: alarm })}</View>
-            ))}
-          </View>
-        )}
-
-        {otherAlarms.length > 0 && (
-          <View>
-            <View className="flex-row items-center mb-2">
-              <Clock size={16} color={colors.text.muted} />
-              <Text
-                className="ml-2 font-medium"
-                style={{ color: colors.text.primary }}
-              >
-                Inactive Alarms
-              </Text>
-            </View>
-            {otherAlarms.map((alarm) => (
-              <View key={alarm.id}>{renderAlarmItem({ item: alarm })}</View>
-            ))}
-          </View>
-        )}
-
-        {filteredAlarms.length === 0 && (
-          <View className="flex-1 items-center justify-center py-10">
-            <Clock size={48} color={colors.cardHighlight} />
-            <Text
-              className="mt-4 text-center text-lg"
-              style={{ color: colors.text.secondary }}
-            >
-              No alarms found. Tap the + button to create a new alarm.
-            </Text>
-          </View>
-        )}
+          }
+          contentContainerStyle={{ padding: 16, paddingTop: 0 }}
+        />
       </View>
     </View>
   );
