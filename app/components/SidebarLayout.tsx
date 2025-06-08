@@ -57,24 +57,15 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
   };
 
   const routes = [
+    { icon: Clock, label: 'Clock', path: '/main-clock' },
     { icon: Clock, label: 'Alarms', path: '/alarms' },
     { icon: Timer, label: 'Focus Timer', path: '/focus' },
-    { icon: Clock, label: 'Main Clock', path: '/main-clock' },
     { icon: List, label: 'Dashboard', path: '/' },
   ];
 
   const navigateTo = (path: string) => {
-    if (path === '/alarms') {
-      router.push('/alarms' as any);
-    } else if (path === '/focus') {
-      router.push('/focus' as any);
-    } else if (path === '/main-clock') {
-      router.push('/main-clock' as any);
-    } else if (path === '/dashboard') {
-      router.push('/dashboard' as any);
-    } else if (path === '/') {
-      router.push('/' as any);
-    }
+    console.log('Navigating to:', path);
+    router.push(path as any);
     toggleDrawer(); // Close drawer after navigation
   };
 
