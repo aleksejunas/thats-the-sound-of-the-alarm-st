@@ -74,7 +74,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FocusTimerProvider } from './context/FocusTimerContext';
 import '../global.css';
 import { getThemedColors } from '@/theme/colors';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import * as NavigationBar from 'expo-navigation-bar';
 
 function StackNavigator() {
@@ -94,6 +94,14 @@ function StackNavigator() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="new-alarm" options={{ presentation: 'modal' }} />
+        <Stack.Screen
+          name="settings"
+          options={{
+            presentation: 'modal',
+            title: 'Settings',
+            headerShown: true, // Show the header with a close button
+          }}
+        />
       </Stack>
       <Toast />
       <StatusBar

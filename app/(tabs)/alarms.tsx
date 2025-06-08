@@ -13,17 +13,21 @@ import {
   Plus,
   Trash2,
   Clock,
-  CheckSquare,
+  // CheckSquare,
   Edit,
-  WindArrowDown,
+  // WindArrowDown,
+  Settings,
+  Icon,
+  Sun,
 } from 'lucide-react-native';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useAlarms } from '../context/AlarmsContext';
 import { useTheme } from '../context/ThemeContext';
 import { Alarm } from '../../lib/storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getThemedColors } from '@/theme/colors';
+import { useNavigation } from '@react-navigation/native';
 
 // Same days array as in new-alarm.tsx
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -39,6 +43,7 @@ export default function AlarmsScreen() {
   } = useAlarms();
   const { isDarkMode } = useTheme();
   const colors = getThemedColors(isDarkMode);
+  const navigation = useNavigation();
 
   const [selectedAlarms, setSelectedAlarms] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -58,7 +63,7 @@ export default function AlarmsScreen() {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id],
+        : [...current, id]
     );
   };
 
@@ -88,7 +93,7 @@ export default function AlarmsScreen() {
       if (editedAlarm.time && !validateTime(editedAlarm.time)) {
         Alert.alert(
           'Invalid Time',
-          'Please enter a valid time in 24-hour format (HH:MM)',
+          'Please enter a valid time in 24-hour format (HH:MM)'
         );
         return;
       }
@@ -107,7 +112,7 @@ export default function AlarmsScreen() {
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery),
+      alarm.time.includes(searchQuery)
   );
 
   // Group alarms by priority (enabled ones first)
@@ -166,8 +171,8 @@ export default function AlarmsScreen() {
                   ? // TODO: use colors variables
                     '#ffffff'
                   : isDarkMode
-                    ? colors.surface
-                    : '#ffffff'
+                  ? colors.surface
+                  : '#ffffff'
               }
             />
           </View>
@@ -248,8 +253,8 @@ export default function AlarmsScreen() {
             backgroundColor: selectedAlarms.includes(item.id)
               ? colors.cardHighlight
               : item.enabled
-                ? colors.card
-                : colors.cardHighlight,
+              ? colors.card
+              : colors.cardHighlight,
             borderColor: selectedAlarms.includes(item.id)
               ? colors.primary
               : colors.border,
@@ -319,8 +324,8 @@ export default function AlarmsScreen() {
                 item.enabled
                   ? '#ffffff'
                   : isDarkMode
-                    ? colors.surface
-                    : '#ffffff'
+                  ? colors.surface
+                  : '#ffffff'
               }
               style={{ marginRight: 8 }}
             />
@@ -391,6 +396,14 @@ export default function AlarmsScreen() {
                     >
                       Active Alarms
                     </Text>
+
+                    <TouchableOpacity
+                      onPress={() => router.push('/settings' as any)}
+                      className="p-2"
+                    >
+                      <Sun size={20} color={colors.text.muted} />
+                      <Settings size={20} color={colors.primary} />
+                    </TouchableOpacity>
                   </View>
                 </View>
               )}

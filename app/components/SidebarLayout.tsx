@@ -52,38 +52,8 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
     }
   };
 
-  const navigateTo = (path: string) => {
-    console.log('Navigating to:', path, 'Current pathname:', pathname);
-    console.log('Current router state:', router);
-    try {
-      // Try different navigation methods
-      if (path === '/alarms') {
-        console.log('Pushing to alarms');
-        router.replace('/alarms' as any);
-      } else if (path === '/focus') {
-        console.log('Pushing to focus');
-        router.replace('/focus' as any);
-      } else if (path === '/main-clock') {
-        console.log('Pushing to main-clock');
-        router.replace('/main-clock' as any);
-      } else if (path === '/dashboard') {
-        console.log('Pushing to dashboard');
-        router.replace('/dashboard' as any);
-      } else if (path === '/') {
-        console.log('Pushing to root');
-        router.replace('/' as any);
-      }
-      console.log('Navigation command executed, closing drawer');
-      toggleDrawer(); // Close drawer after navigation
-    } catch (error) {
-      console.error('Navigation error:', error);
-    }
-  };
-
   const isActive = (path: string) => {
-    const active = pathname === path;
-    console.log('Checking if active:', path, 'pathname:', pathname, 'result:', active);
-    return active;
+    return pathname === path;
   };
 
   const routes = [
@@ -92,6 +62,12 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
     { icon: Timer, label: 'Focus Timer', path: '/focus' },
     { icon: List, label: 'Dashboard', path: '/' },
   ];
+
+  const navigateTo = (path: string) => {
+    console.log('Navigating to:', path);
+    router.push(path as any);
+    toggleDrawer(); // Close drawer after navigation
+  };
 
   return (
     <View className="flex-1" style={{ backgroundColor: colors.background }}>
@@ -180,10 +156,7 @@ export default function DrawerLayout({ children }: DrawerLayoutProps) {
                 className={`flex-row items-center p-4 ${
                   isActiveRoute ? 'rounded.md' : ''
                 }`}
-                onPress={() => {
-                  console.log('TouchableOpacity pressed for:', route.path);
-                  navigateTo(route.path);
-                }}
+                onPress={() => navigateTo(route.path)}
                 style={{
                   backgroundColor: isActiveRoute
                     ? `${colors.primaryLight}22`

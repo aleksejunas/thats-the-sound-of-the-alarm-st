@@ -3,8 +3,11 @@ import { Platform } from 'react-native';
 import { Clock, List, Timer } from 'lucide-react-native';
 import { Tabs } from 'expo-router';
 import DrawerLayout from '../components/SidebarLayout';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
+
   // On web, wrap with DrawerLayout; on mobile, use regular tabs
   if (Platform.OS === 'web') {
     return (
@@ -12,7 +15,9 @@ export default function TabLayout() {
         <Tabs
           screenOptions={{
             headerShown: false,
-            tabBarStyle: { display: 'none' },
+            tabBarStyle: {
+              display: 'none',
+            },
           }}
         >
           <Tabs.Screen name="index" />
@@ -32,6 +37,10 @@ export default function TabLayout() {
         options={{
           title: 'Dashboard',
           tabBarIcon: ({ color }) => <List size={24} color={color} />,
+          tabBarStyle: {
+            paddingBottom: insets.bottom + 10,
+            height: 55 + insets.bottom,
+          },
         }}
       />
       <Tabs.Screen
