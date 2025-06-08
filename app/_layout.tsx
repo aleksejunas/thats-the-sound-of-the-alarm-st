@@ -63,7 +63,8 @@
 // TODO: [] - Allow alarm sound customization (e.g., frequency, tone, volume)
 // TODO: [] - Override "Do Not Disturb" or "Silent Mode" for important alarmsimport '../global.css';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
@@ -74,10 +75,19 @@ import { FocusTimerProvider } from './context/FocusTimerContext';
 import '../global.css';
 import { getThemedColors } from '@/theme/colors';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import * as NavigationBar from 'expo-navigation-bar';
 
 function StackNavigator() {
   const { isDarkMode } = useTheme();
   const color = getThemedColors(isDarkMode);
+
+  useEffect(() => {
+    // Configure navigation bar to match the theme
+    if (Platform.OS === 'android') {
+      NavigationBar.setBackgroundColorAsync(color.background);
+      NavigationBar.setButtonStyleAsync(isDarkMode ? 'light' : 'dark');
+    }
+  }, [isDarkMode, color.background]);
 
   return (
     <>

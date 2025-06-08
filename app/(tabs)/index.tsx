@@ -35,14 +35,17 @@ const DashboardScreen = () => {
 
       <ScrollView className="flex-1 p-4">
         <View
-          className="p-6 mb-4 rounded-lg border"
+          className="p-6 mb-4 rounded-lg"
           style={{ borderColor: colors.border, backgroundColor: colors.card }}
         >
-          <View className="flex-row items-center mb-2">
-            <Clock size={20} color={colors.text.muted} />
+          <View className="flex-row items-center mb-2 ">
+            <Clock
+              textStyle={{ fontSize: 60 }}
+              style={{ color: colors.text.primary }}
+            />
             <Text
               className="ml-2 text-lg font-medium"
-              style={{ color: colors.text.primary }}
+              style={{ color: colors.text.muted }}
             >
               Upcoming Alarms
             </Text>
