@@ -12,7 +12,6 @@ import { ChevronLeft, Clock, Calendar, Save } from 'lucide-react-native';
 import { useAlarms } from './context/AlarmsContext';
 import { useTheme } from './context/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import TimePicker from './components/TimePicker';
 import ReactNativeDatePicker from './components/ReactNativeDatePicker';
 import { getThemedColors } from '@/theme/colors';
 
@@ -37,22 +36,11 @@ export default function NewAlarmScreen() {
   const insets = useSafeAreaInsets();
   const colors = getThemedColors(isDarkMode);
 
-  // Theme-based styles
-  // const textColor = isDarkMode
-  //   ? 'text-dark-text-primary'
-  //   : 'text-light-text-primary';
-  // const secondaryTextColor = isDarkMode
-  //   ? 'text-dark-text-secondary'
-  //   : 'text-light-text-secondary';
-  // const bgColor = isDarkMode ? 'bg-dark-background' : 'bg-light-background';
-  // const cardBgColor = isDarkMode ? 'bg-dark-card' : 'bg-light-card';
-  // const borderColor = isDarkMode ? 'border-dark-border' : 'border-light-border';
-
   const toggleDay = (day: string) => {
     setSelectedDays((current) =>
       current.includes(day)
         ? current.filter((d) => d !== day)
-        : [...current, day],
+        : [...current, day]
     );
   };
 
@@ -75,7 +63,7 @@ export default function NewAlarmScreen() {
       console.log('Time validation failed:', time);
       Alert.alert(
         'Invalid Time',
-        'Please enter a valid time in 24-hour format (HH:MM)',
+        'Please enter a valid time in 24-hour format (HH:MM)'
       );
       return;
     }
@@ -114,7 +102,6 @@ export default function NewAlarmScreen() {
       className="flex-1"
       style={{ paddingTop: insets.top, backgroundColor: colors.background }}
     >
-      <ReactNativeDatePicker onStateChange={setState} />
       <View
         className="flex-row items-center justify-between p-4 border-b"
         style={{ borderBlockColor: colors.border }}
@@ -135,7 +122,6 @@ export default function NewAlarmScreen() {
         >
           <Save
             style={{ backgroundColor: colors.background }}
-            // color="#4f46e5"
             color="#818CF8"
             size={28}
           />
@@ -156,20 +142,12 @@ export default function NewAlarmScreen() {
               Time
             </Text>
           </View>
-          {/*   <TimePicker */}
-          {/*     time={time} */}
-          {/*     onTimeChange={setTime} */}
-          {/*     isdarkMode={isDarkMode} */}
-          {/*   /> */}
-          {/*   <TextInput */}
-          {/*     className="text-5xl font-bold text-center p-4" */}
-          {/*     style={{ color: colors.text.primary }} */}
-          {/*     value={time} */}
-          {/*     onChangeText={setTime} */}
-          {/*     placeholder="07:00" */}
-          {/*     placeholderTextColor={isDarkMode ? '#64748b' : '#94a3b8'} */}
-          {/*     keyboardType="numbers-and-punctuation" */}
-          {/*   /> */}
+          <ReactNativeDatePicker
+            time={time}
+            onTimeChange={setTime}
+            isDarkMode={isDarkMode}
+            onStateChange={setState}
+          />
         </View>
 
         <View
@@ -206,37 +184,6 @@ export default function NewAlarmScreen() {
             </Text>
           </View>
 
-          {/* <View className="flex-row flex-wrap justify-between"> */}
-          {/*   {DAYS.map((day) => ( */}
-          {/*     <TouchableOpacity */}
-          {/*       key={day} */}
-          {/*       className="mb-3 h-12 w-12 rounded-lg items-center justify-center" */}
-          {/*       style={{ */}
-          {/*         backgroundColor: selectedDays.includes(day) */}
-          {/*           ? colors.primaryLight */}
-          {/*           : colors.cardHighlight, */}
-          {/*       }} */}
-          {/*       onPress={() => toggleDay(day)} */}
-          {/*     > */}
-          {/*       <Text */}
-          {/*         className="text-sm font-medium p-4 rounded-full" */}
-          {/*         style={{ */}
-          {/*           // TODO: Make text color white or black based on background */}
-          {/*           color: selectedDays.includes(day) */}
-          {/*             ? isDarkMode */}
-          {/*               ? colors.text.primary */}
-          {/*               : colors.text.white */}
-          {/*             : isDarkMode */}
-          {/*               ? colors.text.white */}
-          {/*               : colors.text.primary, */}
-          {/*         }} */}
-          {/*       > */}
-          {/*         {day} */}
-          {/*       </Text> */}
-          {/*     </TouchableOpacity> */}
-          {/*   ))} */}
-          {/* </View> */}
-
           <View className="flex-row flex-wrap justify-between">
             {DAYS.map((day) => (
               <TouchableOpacity
@@ -258,8 +205,8 @@ export default function NewAlarmScreen() {
                         ? colors.text.primary
                         : colors.text.white
                       : isDarkMode
-                        ? colors.text.white
-                        : colors.text.primary,
+                      ? colors.text.white
+                      : colors.text.primary,
                   }}
                 >
                   {day}
@@ -275,11 +222,76 @@ export default function NewAlarmScreen() {
             {selectedDays.length === 0
               ? 'Alarm will ring only once'
               : selectedDays.length === 7
-                ? 'Alarm will ring every day'
-                : `Alarm will ring on ${selectedDays.join(', ')}`}
+              ? 'Alarm will ring every day'
+              : `Alarm will ring on ${selectedDays.join(', ')}`}
           </Text>
         </View>
       </ScrollView>
     </View>
   );
 }
+{
+  /*       > */
+}
+{
+  /*         {day} */
+}
+{
+  /*       </Text> */
+}
+{
+  /*     </TouchableOpacity> */
+}
+{
+  /*   ))} */
+}
+{
+  /* </View> */
+}
+
+//           <View className="flex-row flex-wrap justify-between">
+//             {DAYS.map((day) => (
+//               <TouchableOpacity
+//                 key={day}
+//                 className="mb-3 h-12 w-12 rounded-lg items-center justify-center"
+//                 style={{
+//                   backgroundColor: selectedDays.includes(day)
+//                     ? colors.primaryLight
+//                     : colors.cardHighlight,
+//                 }}
+//                 onPress={() => toggleDay(day)}
+//               >
+//                 <Text
+//                   className="text-sm font-medium p-4 rounded-full"
+//                   style={{
+//                     // TODO: Make text color white or black based on background
+//                     color: selectedDays.includes(day)
+//                       ? isDarkMode
+//                         ? colors.text.primary
+//                         : colors.text.white
+//                       : isDarkMode
+//                         ? colors.text.white
+//                         : colors.text.primary,
+//                   }}
+//                 >
+//                   {day}
+//                 </Text>
+//               </TouchableOpacity>
+//             ))}
+//           </View>
+
+//           <Text
+//             className="mt-2 text-center"
+//             style={{ color: colors.text.secondary }}
+//           >
+//             {selectedDays.length === 0
+//               ? 'Alarm will ring only once'
+//               : selectedDays.length === 7
+//                 ? 'Alarm will ring every day'
+//                 : `Alarm will ring on ${selectedDays.join(', ')}`}
+//           </Text>
+//         </View>
+//       </ScrollView>
+//     </View>
+//   );
+// }

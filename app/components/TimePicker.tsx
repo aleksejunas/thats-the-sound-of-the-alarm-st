@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, Platform } from 'react-native';
 import DateTimePicker, {
   DateTimePickerAndroid,
 } from '@react-native-community/datetimepicker';
 import { getThemedColors } from '@/theme/colors';
-import { AndroidNotificationPriority } from 'expo-notifications';
 
 interface TimePickerProps {
   time: string;
@@ -20,28 +19,47 @@ const TimePicker: React.FC<TimePickerProps> = ({
   const [showPicker, setShowPicker] = useState(false);
   const colors = getThemedColors(isdarkMode);
 
-  // DateTimePickerAndroid.open = (options) => {
-  //   const { mode, value, is24Hour, display, onChange } = options;
-  //   DateTimePickerAndroid.open({
-  //     mode,
-  //     value: new Date(`1970-01-01T${value};00`),
-  //     is24Hour,
-  //     display,
-  //     onChange: (_, selectedDate) => {
-  //       if (selectedDate) {
-  //         const hours = selectedDate.getHours().toString().padStart(2, '0');
-  //         const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
-  //         onChange(_, `${hours}:${minutes}`);
-  //       }
-  //     },
-  //   });
-  // };
+  // Convert time string to Date object
+  const getDateFromTime = (timeString: string) => {
+    const [hours, minutes] = timeString.split(':').map(Number);
+    const date = new Date();
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+    return date;
+  };
+
+  // Convert Date object to time string
+  const formatTimeFromDate = (date: Date) => {
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
+
+  const showTimePicker = () => {
+    if (Platform.OS === 'android') {
+      DateTimePickerAndroid.open({
+        value: getDateFromTime(time),
+        onChange: (event, selectedDate) => {
+          if (event.type === 'set' && selectedDate) {
+            const newTime = formatTimeFromDate(selectedDate);
+            onTimeChange(newTime);
+          }
+        },
+        mode: 'time',
+        is24Hour: true,
+      });
+    } else {
+      setShowPicker(true);
+    }
+  };
 
   return (
     <>
       <TouchableOpacity
         className="p-4 self-center"
-        onPress={() => setShowPicker(true)}
+        onPress={showTimePicker}
         style={{ backgroundColor: colors.card }}
       >
         <Text
@@ -51,21 +69,17 @@ const TimePicker: React.FC<TimePickerProps> = ({
           {time}
         </Text>
       </TouchableOpacity>
-      {showPicker && (
+      {showPicker && Platform.OS === 'ios' && (
         <DateTimePicker
-          value={new Date(`1970-01-01T${time};00`)}
+          value={getDateFromTime(time)}
           mode="time"
           is24Hour={true}
           display="spinner"
-          onChange={(_, selectedDate) => {
+          onChange={(event, selectedDate) => {
             setShowPicker(false);
-            if (selectedDate) {
-              const hours = selectedDate.getHours().toString().padStart(2, '0');
-              const minutes = selectedDate
-                .getMinutes()
-                .toString()
-                .padStart(2, '0');
-              onTimeChange(`${hours}:${minutes}`);
+            if (event.type === 'set' && selectedDate) {
+              const newTime = formatTimeFromDate(selectedDate);
+              onTimeChange(newTime);
             }
           }}
         />

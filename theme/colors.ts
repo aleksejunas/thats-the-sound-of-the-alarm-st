@@ -6,7 +6,7 @@ export const colorPalette = {
   // Main brand colors
   // primary: '#272932',
   primaryWhite: '#ffffff',
-  primary: '4e6e58',
+  primary: '#4e6e58',
   // primary: '#FFBA49',
   primaryLight: '#818CF8',
   // primaryLight: '#FFFFFF',
