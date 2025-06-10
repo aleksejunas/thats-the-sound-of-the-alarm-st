@@ -3,12 +3,12 @@ import {
   View,
   Text,
   FlatList,
-  SectionList,
   TouchableOpacity,
   TextInput,
   Switch,
   ActivityIndicator,
   Alert,
+  SectionList,
 } from 'react-native';
 import {
   Plus,
@@ -390,40 +390,30 @@ export default function AlarmsScreen() {
           )}
         </View>
 
-        <FlatList
-          data={[...priorityAlarms, ...otherAlarms]}
+        <SectionList
+          sections={[
+            ...(priorityAlarms.length > 0
+              ? [{ title: 'Active Alarms', data: priorityAlarms }]
+              : []),
+            ...(otherAlarms.length > 0
+              ? [{ title: 'Inactive Alarms', data: otherAlarms }]
+              : []),
+          ]}
           keyExtractor={(item) => item.id}
-          renderItem={renderAlarmItem}
-          ListHeaderComponent={
-            <>
-              {priorityAlarms.length > 0 && (
-                <View className="mb-4">
-                  <View className="flex-row items-center mb-2">
-                    <Clock size={16} color={colors.text.muted} />
-                    <Text
-                      className="ml-2 font-medium"
-                      style={{ color: colors.text.primary }}
-                    >
-                      Active Alarms
-                    </Text>
-                  </View>
-                </View>
-              )}
-              {otherAlarms.length > 0 && (
-                <View>
-                  <View className="flex-row items-center mb-2">
-                    <Clock size={16} color={colors.text.muted} />
-                    <Text
-                      className="ml-2 font-medium"
-                      style={{ color: colors.text.primary }}
-                    >
-                      Inactive Alarms
-                    </Text>
-                  </View>
-                </View>
-              )}
-            </>
-          }
+          renderItem={({ item }) => renderAlarmItem({ item })}
+          renderSectionHeader={({ section: { title } }) => (
+            <View className="mb-4">
+              <View className="flex-row items-center mb-2">
+                <Clock size={16} color={colors.text.muted} />
+                <Text
+                  className="ml-2 font-medium"
+                  style={{ color: colors.text.primary }}
+                >
+                  {title}
+                </Text>
+              </View>
+            </View>
+          )}
           ListEmptyComponent={
             <View className="flex-1 items-center justify-center py-10">
               <Clock size={48} color={colors.cardHighlight} />
@@ -431,11 +421,12 @@ export default function AlarmsScreen() {
                 className="mt-4 text-center text-lg"
                 style={{ color: colors.text.secondary }}
               >
-                No alarms found. Tap the + button to create a new alarm.
+                No alarms found. Tap the + button to create a new alarm
               </Text>
             </View>
           }
           contentContainerStyle={{ padding: 16, paddingTop: 0 }}
+          stickySectionHeadersEnabled={false}
         />
       </View>
     </View>
