@@ -29,7 +29,7 @@
 // TODO: [] - Allow alarm sound customization (e.g., frequency, tone, volume)
 // TODO: [] - Override "Do Not Disturb" or "Silent Mode" for important alarmsimport '../global.css';
 // TODO: [] - Alarm sound picker
-// TODO: [] - Block the device from usage for 10 minutes after the alarm goes off (in the morings only to prevent email-checking etc.(toggleable))
+// TODO: [] - Block the device from usage for 10 minutes after the alarm goes off (in the mornings only to prevent email-checking etc.(toggleable))
 // TODO: [] - Deploy to expo.dev or vercel.app (what is the best option?)
 // TODO: [] - Make use of the ios/android notification panel
 // TODO: [] - Add try/catch and other error handling

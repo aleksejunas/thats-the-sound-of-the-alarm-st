@@ -60,10 +60,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
           onChange={(_, selectedDate) => {
             setShowPicker(false);
             if (selectedDate) {
-              const hours = selectedDate
-                .getMinutes()
-                .toString()
-                .padStart(2, '0');
+              const hours = selectedDate.getHours().toString().padStart(2, '0');
               const minutes = selectedDate
                 .getMinutes()
                 .toString()

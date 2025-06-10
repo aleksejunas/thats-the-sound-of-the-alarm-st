@@ -72,7 +72,7 @@ module.exports = {
 // #6A4C93 Ultra Violet
 // #D1B1CB Pink Lavender
 // #4E6E58 Hookers Green
-// #FFBA49 Xhantous
+// #FFBA49 Xanthous
 // #20A39E Light Sea Green
 // #F0F757 Icterine
 // #34344A Space Cadet
