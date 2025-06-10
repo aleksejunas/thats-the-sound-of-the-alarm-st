@@ -3,6 +3,7 @@ import {
   View,
   Text,
   FlatList,
+  SectionList,
   TouchableOpacity,
   TextInput,
   Switch,
@@ -62,7 +63,7 @@ export default function AlarmsScreen() {
     setSelectedAlarms((current) =>
       current.includes(id)
         ? current.filter((alarmId) => alarmId !== id)
-        : [...current, id]
+        : [...current, id],
     );
   };
 
@@ -92,7 +93,7 @@ export default function AlarmsScreen() {
       if (editedAlarm.time && !validateTime(editedAlarm.time)) {
         Alert.alert(
           'Invalid Time',
-          'Please enter a valid time in 24-hour format (HH:MM)'
+          'Please enter a valid time in 24-hour format (HH:MM)',
         );
         return;
       }
@@ -111,7 +112,7 @@ export default function AlarmsScreen() {
   const filteredAlarms = alarms.filter(
     (alarm) =>
       alarm.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alarm.time.includes(searchQuery)
+      alarm.time.includes(searchQuery),
   );
 
   // Group alarms by priority (enabled ones first)
@@ -170,8 +171,8 @@ export default function AlarmsScreen() {
                   ? // TODO: use colors variables
                     '#ffffff'
                   : isDarkMode
-                  ? colors.surface
-                  : '#ffffff'
+                    ? colors.surface
+                    : '#ffffff'
               }
             />
           </View>
@@ -252,8 +253,8 @@ export default function AlarmsScreen() {
             backgroundColor: selectedAlarms.includes(item.id)
               ? colors.cardHighlight
               : item.enabled
-              ? colors.card
-              : colors.cardHighlight,
+                ? colors.card
+                : colors.cardHighlight,
             borderColor: selectedAlarms.includes(item.id)
               ? colors.primary
               : colors.border,
@@ -323,8 +324,8 @@ export default function AlarmsScreen() {
                 item.enabled
                   ? '#ffffff'
                   : isDarkMode
-                  ? colors.surface
-                  : '#ffffff'
+                    ? colors.surface
+                    : '#ffffff'
               }
               style={{ marginRight: 8 }}
             />
