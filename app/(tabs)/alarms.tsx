@@ -18,7 +18,6 @@ import {
   // WindArrowDown,
   Settings,
   Icon,
-  Sun,
 } from 'lucide-react-native';
 import { Link, router } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
@@ -347,7 +346,8 @@ export default function AlarmsScreen() {
       style={{ paddingTop: insets.top, backgroundColor: colors.background }}
     >
       <View className="p-4">
-        <View className="flex-row items-center justify-between mb-4">
+        {/* Header with search, settings, and actions */}
+        <View className="flex-row items-center mb-4">
           <TextInput
             className="flex-1 border rounded-lg px-3 py-2 mr-2"
             placeholder="Search alarms..."
@@ -360,6 +360,15 @@ export default function AlarmsScreen() {
               backgroundColor: colors.card,
             }}
           />
+
+          {/* Settings button - always visible */}
+          <TouchableOpacity
+            onPress={() => router.push('/settings' as any)}
+            className="w-10 h-10 rounded-full items-center justify-center mr-2"
+            style={{ backgroundColor: colors.surface }}
+          >
+            <Settings size={20} color={colors.text.primary} />
+          </TouchableOpacity>
 
           {selectedAlarms.length > 0 ? (
             <TouchableOpacity
@@ -396,14 +405,6 @@ export default function AlarmsScreen() {
                     >
                       Active Alarms
                     </Text>
-
-                    <TouchableOpacity
-                      onPress={() => router.push('/settings' as any)}
-                      className="p-2"
-                    >
-                      <Sun size={20} color={colors.text.muted} />
-                      <Settings size={20} color={colors.primary} />
-                    </TouchableOpacity>
                   </View>
                 </View>
               )}

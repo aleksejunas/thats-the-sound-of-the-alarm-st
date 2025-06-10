@@ -7,10 +7,9 @@ import {
   Switch,
   Alert,
 } from 'react-native';
-import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import {
-  ArrowLeft,
   Moon,
   Sun,
   Volume2,
@@ -31,7 +30,6 @@ export default function SettingsScreen() {
   const { alarms, deleteMultipleAlarms } = useAlarms();
   const colors = getThemedColors(isDarkMode);
   const router = useRouter();
-  const insets = useSafeAreaInsets();
 
   // Settings state
   const [defaultVolume, setDefaultVolume] = useState(true);
@@ -52,7 +50,7 @@ export default function SettingsScreen() {
           text: 'Delete All',
           style: 'destructive',
           onPress: async () => {
-            const allAlarmIds = alarms.map(alarm => alarm.id);
+            const allAlarmIds = alarms.map((alarm) => alarm.id);
             await deleteMultipleAlarms(allAlarmIds);
             Alert.alert('Success', 'All alarms have been deleted.');
           },
@@ -71,7 +69,13 @@ export default function SettingsScreen() {
     Alert.alert('Import Alarms', 'Import functionality coming soon!');
   };
 
-  const SettingsSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  const SettingsSection = ({
+    title,
+    children,
+  }: {
+    title: string;
+    children: React.ReactNode;
+  }) => (
     <View className="mb-6">
       <Text
         className="text-sm font-semibold uppercase tracking-wide mb-3 px-4"
@@ -111,7 +115,10 @@ export default function SettingsScreen() {
     >
       <View className="mr-3">{icon}</View>
       <View className="flex-1">
-        <Text className="text-base font-medium" style={{ color: colors.text.primary }}>
+        <Text
+          className="text-base font-medium"
+          style={{ color: colors.text.primary }}
+        >
           {title}
         </Text>
         {subtitle && (
@@ -130,38 +137,24 @@ export default function SettingsScreen() {
         className="flex-1"
         style={{
           backgroundColor: colors.background,
-          paddingTop: insets.top,
         }}
       >
-        {/* Header */}
-        <View
-          className="flex-row items-center justify-between p-4 border-b"
-          style={{ borderColor: colors.border }}
-        >
-          <TouchableOpacity
-            onPress={() => router.back()}
-            className="p-2 rounded-full"
-            style={{ backgroundColor: colors.surface }}
-          >
-            <ArrowLeft size={20} color={colors.text.primary} />
-          </TouchableOpacity>
-          <Text
-            className="text-xl font-bold"
-            style={{ color: colors.text.primary }}
-          >
-            Settings
-          </Text>
-          <View style={{ width: 44 }} />
-        </View>
-
         <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
           <View className="p-4">
             {/* Appearance */}
             <SettingsSection title="Appearance">
               <SettingsItem
-                icon={isDarkMode ? <Moon size={20} color={colors.primary} /> : <Sun size={20} color={colors.primary} />}
+                icon={
+                  isDarkMode ? (
+                    <Moon size={20} color={colors.primary} />
+                  ) : (
+                    <Sun size={20} color={colors.primary} />
+                  )
+                }
                 title="Dark Mode"
-                subtitle={isDarkMode ? 'Dark theme enabled' : 'Light theme enabled'}
+                subtitle={
+                  isDarkMode ? 'Dark theme enabled' : 'Light theme enabled'
+                }
                 rightElement={
                   <Switch
                     value={isDarkMode}
@@ -216,7 +209,9 @@ export default function SettingsScreen() {
                     value={notificationsEnabled}
                     onValueChange={setNotificationsEnabled}
                     trackColor={{ false: colors.border, true: colors.primary }}
-                    thumbColor={notificationsEnabled ? colors.surface : '#f4f3f4'}
+                    thumbColor={
+                      notificationsEnabled ? colors.surface : '#f4f3f4'
+                    }
                   />
                 }
               />
@@ -265,7 +260,12 @@ export default function SettingsScreen() {
                 icon={<Info size={20} color={colors.primary} />}
                 title="App Version"
                 subtitle="1.0.0"
-                onPress={() => Alert.alert('About', 'ThatsTheSoundOfTheAlarm v1.0.0\n\nA customizable alarm clock app.')}
+                onPress={() =>
+                  Alert.alert(
+                    'About',
+                    'ThatsTheSoundOfTheAlarm v1.0.0\n\nA customizable alarm clock app.'
+                  )
+                }
                 showBorder={false}
               />
             </SettingsSection>

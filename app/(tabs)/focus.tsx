@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import FocusTimer from '../components/FocusTimer';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getThemedColors } from '../../theme/colors';
+import ScreenHeader from '../components/ScreenHeader';
 
 const FocusScreen = () => {
   const { isDarkMode } = useTheme();
@@ -15,6 +16,11 @@ const FocusScreen = () => {
       className="flex-1"
       style={{ paddingTop: insets.top, backgroundColor: colors.background }}
     >
+      <ScreenHeader
+        title="Focus"
+        subtitle="Stay focused with Pomodoro timers"
+      />
+
       <ScrollView className="flex-1 p-4">
         <FocusTimer />
 
