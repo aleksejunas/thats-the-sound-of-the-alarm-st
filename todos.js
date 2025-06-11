@@ -1,5 +1,6 @@
 // ---- UNDONE ---- (the sweater song)
 // TODO: [] - Make the navigation bar respect the theme (dark/light mode)
+// TODO: [] - More margin top on the navigation bar
 // BUG:  [] - All the alarms are sorted under the inactive alarms, even when they are active
 // BUG:  [] - Fix the Alarm notification
 // TODO: [] - Fix the time picker (not setting the same number as I pick)
