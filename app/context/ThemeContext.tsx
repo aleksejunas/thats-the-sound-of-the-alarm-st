@@ -49,6 +49,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     loadTheme();
   }, []);
 
+  useEffect(() => {
+    if (isInitialized) {
+      // Only update if user hasn't set a preference
+      AsyncStorage.getItem('theme').then((storedTheme) => {
+        if (storedTheme === null) {
+          setIsDarkMode(deviceColorScheme === 'dark');
+        }
+      });
+    }
+  }, [deviceColorScheme, isInitialized]);
+
   // Set theme function
   const setTheme = useCallback(async (isDark: boolean) => {
     setIsDarkMode(isDark);

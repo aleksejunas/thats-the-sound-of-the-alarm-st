@@ -1,7 +1,7 @@
 // ---- UNDONE ---- (the sweater song)
 // TODO: [] - Make the navigation bar respect the theme (dark/light mode)
+// TODO: [] - Store knapper for snooze, avslutt , etc. i en modal
 // TODO: [] - More margin top on the navigation bar
-// BUG:  [] - All the alarms are sorted under the inactive alarms, even when they are active
 // BUG:  [] - Fix the Alarm notification
 // TODO: [] - Fix the time picker (not setting the same number as I pick)
 // TODO: [] - Style the buttons that are just text (they are not easily recognisable as buttons)
@@ -50,10 +50,12 @@
 // TODO: [] - Add a frequently used alarms section(or a favorites section)
 
 // ---- DONE ----
+// BUG:  [x] - All the alarms are sorted under the inactive alarms, even when they are active
 // TODO: [x] - Dark/Light mode
 // TODO: [x] - Edit alarms
 // TODO: [x] - Add sound to the alarm
 // TODO: [x] - Color themes
+// TODO: [x] - Add a time picker
 // TODO: [x] - Add a clock component/screen
 // FIX:  [x] - Fix the days buttons contrast issue
 // TODO: [x] - Move the colors to a theme context from tailwind.config.js instead of having to rebuild the app every time
