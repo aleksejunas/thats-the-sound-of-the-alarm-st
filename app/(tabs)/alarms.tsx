@@ -400,6 +400,7 @@ export default function AlarmsScreen() {
               : []),
           ]}
           keyExtractor={(item) => item.id}
+          extraData={{ editingAlarmId, editedAlarm, selectedAlarms }}
           renderItem={({ item }) => renderAlarmItem({ item })}
           renderSectionHeader={({ section: { title } }) => (
             <View className="mb-4">
