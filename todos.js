@@ -10,6 +10,7 @@
 // TODO: [] - Move/refactor the editing of alarms to a separate file
 // TODO: [] - Add SQLite database to store Alarms
 // TODO: [] - Option to lock down the device for 10 minutes after waking up
+// TODO: [] - Setting for gradually increasing alarm volume (fade-in, e.g. over 30-60 s) - do after K3 in docs/kotlin-alarm-module.md
 // **************************************************
 // TODO: [x] - Add a settings screen
 // TODO: [] - Implement settings screen functions
