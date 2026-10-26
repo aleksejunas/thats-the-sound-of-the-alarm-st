@@ -1,0 +1,10 @@
+{
+  "platforms": [
+    "android"
+  ],
+  "android": {
+    "modules": [
+      "com.thats_the_sound_of_the_alarm.alarmmodule.AlarmModule"
+    ]
+  }
+}

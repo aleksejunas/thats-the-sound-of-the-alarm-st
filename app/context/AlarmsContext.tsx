@@ -9,6 +9,7 @@ import { Alert } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { Alarm, saveAlarms, getAlarms } from '../../lib/storage';
 import TaskManager from '../../lib/taskManager';
+import AlarmModule from '../../modules/alarm-module';
 
 type AlarmsContextType = {
   alarms: Alarm[];
@@ -73,6 +74,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
       try {
         // Setup notification listener
         TaskManager.setupNotificationListener();
+        console.log('AlarmModule:', AlarmModule.ping());
 
         // Request notification permissions
         const hasPermission =
