@@ -15,7 +15,8 @@ const playAlarmSound = async (): Promise<void> => {
     // Load and play the alarm sound
     const { sound: newSound } = await Audio.Sound.createAsync(
       // Use a default system sound or your own custom sound file
-      require('../../assets/sounds/mixkit-morning-birds-2472.mp3'), // Make sure this file exists
+      require('../assets/sounds/morning_birds.mp3'), // Make sure this file exists
+      // require('../../assets/sounds/mixkit-morning-birds-2472.mp3'), // Make sure this file exists
       { shouldPlay: true, isLooping: true }
     );
 
