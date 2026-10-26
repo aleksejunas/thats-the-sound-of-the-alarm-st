@@ -2,9 +2,11 @@ import * as BackgroundFetch from 'expo-background-fetch';
 import * as Notifications from 'expo-notifications';
 import * as TaskManager from 'expo-task-manager';
 import soundManager from './sound';
+import { Platform } from 'react-native'
 
 const BACKGROUND_FETCH_TASK = 'background-alarm-task';
 const ALARM_NOTIFICATION_TASK = 'alarm-notification-task';
+export const ALARM_CHANNEL_ID = 'alarm-v1';
 
 // Define the task that runs when a notification is received
 TaskManager.defineTask(
@@ -214,9 +216,10 @@ const registerAlarmTask = async (alarm: Alarm) => {
             },
           },
           trigger: {
-            type: 'date',
-            date: new Date(Date.now() + secondsUntilAlarm * 1000)
-          } as Notifications.NotificationTriggerInput,
+            type: Notifications.SchedulableTriggerInputTypes.DATE,
+            date: new Date(Date.now() + secondsUntilAlarm * 1000),
+            channelId: ALARM_CHANNEL_ID,
+          } 
         });
 
         console.log(
@@ -266,9 +269,10 @@ const registerAlarmTask = async (alarm: Alarm) => {
           },
         },
         trigger: {
-          type: 'date',
-          date: new Date(Date.now() + secondsUntilAlarm * 1000)
-        } as Notifications.NotificationTriggerInput,
+          type: Notifications.SchedulableTriggerInputTypes.DATE,
+          date: new Date(Date.now() + secondsUntilAlarm * 1000),
+          channelId: ALARM_CHANNEL_ID,
+        } 
       });
 
       console.log(
@@ -329,6 +333,23 @@ const unregisterAlarmTask = async (alarmId: string) => {
   }
 };
 
+const ensureAlarmChannel  = async () => {
+  if (Platform.OS !== 'android') return;
+  await
+Notifications.setNotificationChannelAsync(ALARM_CHANNEL_ID, {
+    name: 'Alarmer',
+    importance: Notifications.AndroidImportance.MAX,
+    sound: 'morning_birds.mp3',
+    audioAttributes: {
+      usage: Notifications.AndroidAudioUsage.ALARM,
+      contentType: Notifications.AndroidAudioContentType.SONIFICATION,
+    },
+    vibrationPattern: [0, 500, 500, 500],
+    lockscreenVisibility: Notifications.AndroidNotificationVisibility.PUBLIC,
+    bypassDnd: true,
+  });
+};
+
 // Request notification permissions
 const requestNotificationPermissions = async () => {
   try {
@@ -359,6 +380,7 @@ const requestNotificationPermissions = async () => {
 };
 
 export default {
+  ensureAlarmChannel,
   registerAlarmTask,
   unregisterAlarmTask,
   requestNotificationPermissions,

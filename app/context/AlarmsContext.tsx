@@ -84,6 +84,7 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
             [{ text: 'OK' }],
           );
         }
+        await TaskManager.ensureAlarmChannel()
 
         await loadAlarms();
       } catch (error) {
