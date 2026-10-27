@@ -3,6 +3,7 @@
 // TODO: [] - More margin top on the navigation bar
 // BUG:  [] - All the alarms are sorted under the inactive alarms, even when they are active
 // BUG:  [] - Fix the Alarm notification
+// TODO: [] - Add a countdown-timer
 // TODO: [] - Fix the time picker (not setting the same number as I pick)
 // TODO: [] - Style the buttons that are just text (they are not easily recognisable as buttons)
 // TODO: [] - Persistence for the pomodoro-timer

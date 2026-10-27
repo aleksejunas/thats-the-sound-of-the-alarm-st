@@ -64,3 +64,4 @@ bower_components/
 
 expo-env.d.ts
 # @end expo-cli/.expo/types/
+kls_database.db

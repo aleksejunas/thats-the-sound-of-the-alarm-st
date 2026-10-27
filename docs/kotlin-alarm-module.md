@@ -91,6 +91,11 @@ npx create-expo-module@latest --local
 - Be om unntak fra batterioptimalisering (`ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS`) fra innstillingsskjermen.
 - Test en hel natt med release-bygg: `pnpm expo run:android --variant release --device`.
 
+## Steg K9: Nedtellingstimer (todos.js)
+- Gjenbruker K2/K3: `AlarmModule.startTimer(seconds)` → én `setAlarmClock` på `now + seconds` med egen requestCode (`"timer".hashCode()`), samme `AlarmReceiver`/`AlarmService` ringer når tiden er ute – også med appen lukket og i DND.
+- JS viser bare nedtellingen (beregnet fra lagret sluttidspunkt, ikke en `setInterval` som teller ned), så den overlever at appen lukkes.
+- `cancelTimer()` = `alarmManager.cancel(...)` med samme requestCode.
+
 ---
 
 ## Verifisering etter hvert steg
