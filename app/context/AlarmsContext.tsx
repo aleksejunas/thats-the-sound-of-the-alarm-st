@@ -10,6 +10,22 @@ import Toast from 'react-native-toast-message';
 import { Alarm, saveAlarms, getAlarms } from '../../lib/storage';
 import TaskManager from '../../lib/taskManager';
 import AlarmModule from '../../modules/alarm-module';
+import { NativeAlarm } from '@/modules/alarm-module/src/AlarmModule';
+
+const DAY_TO_CALENDAR: Record<string, number> = {
+  Sun: 1, Mon: 2, Tue: 3, Wed: 4, Thu: 5, Fri: 6, Sat: 7,
+};
+
+const toNativeAlarm = (alarm: Alarm): NativeAlarm => {
+  const [hour, minute] = alarm.time.split(`:`).map(Number);
+  return {
+    id: alarm.id,
+    hour,
+    minute,
+    days: alarm.days.map((d) => DAY_TO_CALENDAR[d]).filter(Boolean),
+    label: alarm.label || 'Alarm',
+  };
+};
 
 type AlarmsContextType = {
   alarms: Alarm[];
@@ -48,6 +64,10 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
   // Schedule all enabled alarms
   const scheduleAlarms = useCallback(async () => {
     try {
+      AlarmModule.setAlarms(alarms.filter((a) => 
+       a.enabled).map(toNativeAlarm));
+      console.log('AlarmModule.getAlarms:', AlarmModule.getAlarms());
+     
       // First, cancel all existing alarm notifications
       for (const alarm of alarms) {
         await TaskManager.unregisterAlarmTask(alarm.id);
@@ -74,7 +94,6 @@ export const AlarmsProvider: React.FC<{ children: React.ReactNode }> = ({
       try {
         // Setup notification listener
         TaskManager.setupNotificationListener();
-        console.log('AlarmModule:', AlarmModule.ping());
 
         // Request notification permissions
         const hasPermission =
